@@ -11,8 +11,7 @@ const HomePage = lazy(() => import("./pages/home"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
 const Productions = lazy(() => import("./pages/productions"));
 const Branch = lazy(() => import("./pages/branch"));
-const ErrorPage = lazy(() => import("./pages/errorPage"));
-
+const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
   const { pathname } = useLocation();
