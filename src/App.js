@@ -35,7 +35,7 @@ function App() {
             <Route index path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/productions" element={<Productions />} />
-            <Route path="/productionsDetails" element={<ProductionsDetails />} />
+            <Route path="/productions/:id" element={<ProductionsDetails />} />
             <Route path="/branch" element={<Branch />} />
             <Route path="/internship" element={<InternShip />} />
             <Route path="*" element={<ErrorPage />} />

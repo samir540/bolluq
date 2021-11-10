@@ -5,7 +5,6 @@ import { Container } from "reactstrap";
 // css
 import "../assets/css/_newsSlider.scss";
 import "../assets/css/_aboutUs.scss";
-
 import Menu from "../components/menu/menu";
 import CustomPagination from "../components/pagination/pagination";
 import Title from "../components/title/title";
