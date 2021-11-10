@@ -14,7 +14,6 @@ const ProductionsDetails = lazy(() => import("./pages/productionsDetails"));
 const Branch = lazy(() => import("./pages/branch"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
-
 function App() {
   const { pathname } = useLocation();
 
