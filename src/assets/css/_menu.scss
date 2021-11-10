@@ -1,0 +1,32 @@
+.menu {
+  display: inline-flex;
+  align-self: baseline;
+  flex-direction: column;
+  margin-right: 90px;
+
+  a {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    box-shadow: 0px 11px 28px rgba(0, 0, 0, 0.07);
+    border-radius: 14px;
+    padding: 15px 10px;
+    display: inline-flex;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+
+    &.active {
+      background: #c21716;
+      color: #fff;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+}

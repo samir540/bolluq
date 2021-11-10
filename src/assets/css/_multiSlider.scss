@@ -1,0 +1,18 @@
+.multiSlider {
+  margin-top: 94px;
+  .splide__arrow {
+    background-color: transparent;
+
+    &--prev {
+      left: -2em;
+    }
+
+    &--next {
+      right: -2em;
+    }
+  }
+}
+
+#endMultiSlider {
+  margin-bottom: 150px;
+}

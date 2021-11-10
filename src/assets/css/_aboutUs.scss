@@ -1,0 +1,38 @@
+.aboutUs {
+  &__layer {
+    background: linear-gradient(
+        0deg,
+        rgba(191, 8, 7, 0.58),
+        rgba(191, 8, 7, 0.58)
+      ),
+      url("../images/aboutLayer.png");
+    height: 101px;
+    margin-bottom: 159px;
+  }
+
+  .newsSlider__items {
+    &.widthHalf {
+      width: calc(40% - 4px);
+      margin-bottom: 129px;
+    }
+
+    &:not(.widthHalf) {
+      width: calc((100% / 3) - 17px);
+      margin-bottom: 25px;
+
+      &:not(:nth-child(3n)) {
+        margin-right: 25px;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__pagination {
+    margin-top: 71px;
+    margin-bottom: 173px;
+  }
+}

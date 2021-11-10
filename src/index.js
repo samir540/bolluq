@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import store from "./store/store";
+
+// css
+import "antd/dist/antd.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@splidejs/splide/dist/css/splide.min.css";
+import App from "./App";
+import "./assets/css/_base.scss";
 
 const newClient = new QueryClient();
 
