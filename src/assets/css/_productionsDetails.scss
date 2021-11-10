@@ -1,0 +1,28 @@
+.productionsDetails {
+  margin-top: 128px;
+  margin-bottom: 183px;
+
+  &__wrapper {
+    margin-top: -38px;
+
+   
+
+    &__item--content {
+      margin-left: 23px;    
+
+      & h2 {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 34px;
+        margin-bottom: 38px;
+        margin-top: 16px;
+
+      }
+      & p {
+        font-size: 17px;
+        line-height: 21px;
+      }
+     
+    }
+  }
+}
