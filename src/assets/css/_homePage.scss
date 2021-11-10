@@ -1,0 +1,109 @@
+.homePage {
+  &__sliderLayout {
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__slider {
+    height: 646px;
+    position: relative;
+    .splide__arrows {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 1328px;
+      z-index: 5;
+    }
+
+    .splide__pagination {
+      bottom: 32px;
+
+      li {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        button {
+          margin: 0;
+          width: 12px;
+          height: 12px;
+          opacity: 1;
+          background: #e9e9e9;
+
+          &.is-active {
+            background: rgba(0, 0, 0, 0.81);
+            transform: unset;
+          }
+        }
+      }
+    }
+
+    .splide__arrow {
+      border: 1px solid rgba(0, 0, 0, 0.73);
+      box-sizing: border-box;
+      border-radius: 4px;
+      width: 41px;
+      height: 41px;
+      background-color: transparent;
+    }
+
+    .splide__track {
+      height: 646px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__count {
+    margin-top: 80px;
+
+    &--item {
+      padding: 14px;
+      background: #bf0807;
+      border-radius: 8px;
+      width: calc(100% / 5);
+      height: 138px;
+
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+
+      p {
+        &:first-child {
+          margin-bottom: 14px;
+        }
+
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 0;
+
+        &:last-child {
+          font-family: Poppins !important;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 28px;
+          line-height: 42px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

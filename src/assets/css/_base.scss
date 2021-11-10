@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0 !important;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif !important;
+  text-decoration: unset !important;
+  list-style: none;
+}
+
+body {
+  background-image: url("../images/back.png");
+  background-color: #fafafa;
+}
+
+@media (max-width: 722px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 745px) {
+  .container_header {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1328px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1328px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1328px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1328px;
+  }
+}
+
+.title {
+  position: relative;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  color: #000000;
+  display: inline-flex;
+  margin-bottom: 45px;
+
+  &:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -10px;
+    height: 5px;
+    background-color: #b41309;
+    width: 50%;
+  }
+}
+
+.btnTop {
+  position: fixed;
+  right: 62px;
+  bottom: 62px;
+  background: #bf0807;
+  border-radius: 100%;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.ant-pagination-disabled {
+  display: none;
+}
+
+.ant-pagination {
+  li {
+    &:not(.ant-pagination-disabled) {
+      border: none;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      display: inline-flex;
+      align-self: center;
+      justify-content: center;
+      border-radius: 100%;
+      min-width: auto;
+      background-color: transparent;
+
+      &.ant-pagination-item-active {
+        background: #bf0807;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      a,
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        font-family: Poppins !important;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 16px;
+        color: #000000;
+      }
+    }
+  }
+}
