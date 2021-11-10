@@ -1,20 +1,26 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Loading from "./components/loading/loading";
 import Main from "./components/layout/layout";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Title from "./title/title";
+import { resize } from "./helper/helper";
+import HomePage from "./pages/home";
 
 // pages
-const HomePage = lazy(() => import("./pages/home"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
 const Productions = lazy(() => import("./pages/productions"));
 const Branch = lazy(() => import("./pages/branch"));
+const InternShip = lazy(() => import("./pages/internShip"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    resize();
+  });
 
   return (
     <div className="App">
@@ -29,6 +35,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/productions" element={<Productions />} />
             <Route path="/branch" element={<Branch />} />
+            <Route path="/internship" element={<InternShip />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>

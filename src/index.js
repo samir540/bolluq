@@ -10,7 +10,9 @@ import store from "./store/store";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@splidejs/splide/dist/css/splide.min.css";
+// App
 import App from "./App";
+// css
 import "./assets/css/_base.scss";
 
 const newClient = new QueryClient();

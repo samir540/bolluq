@@ -26,7 +26,7 @@ const Productions = () => {
                   also the leap into.
                 </p>
                 <div className="productions__wrapper__item--content--arrow">
-                  <a href="#">Daha ətraflı &#8594; </a>
+                  <a href="2#">Daha ətraflı &#8594; </a>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ const Productions = () => {
                   also the leap into.
                 </p>
                 <div className="productions__wrapper__item--content--arrow">
-                  <a href="#">Daha ətraflı &#8594; </a>
+                  <a href="2#">Daha ətraflı &#8594; </a>
                 </div>
               </div>
             </div>

@@ -1,0 +1,61 @@
+.humansResurces {
+  padding-bottom: 251px;
+  display: flex;
+
+  &__info {
+    width: calc(100% - 294px);
+
+    img {
+      max-width: 100%;
+      margin-bottom: 40px;
+      border-radius: 8px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 21px;
+      color: #000000;
+    }
+  }
+
+  &__items {
+    display: flex;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      color: #000000;
+      font-family: Poppins !important;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 52px;
+      text-align: center;
+
+      img {
+        display: inline-block;
+        margin-bottom: 39px;
+        border: 1px solid rgba(191, 8, 7, 0.22);
+        border-radius: 100%;
+        object-fit: contain;
+        width: 192px;
+        height: 192px;
+      }
+
+      span {
+        font-family: Poppins !important;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 52px;
+        text-align: center;
+        color: #000000;
+      }
+
+      &:not(:last-child) {
+        margin-right: 145px;
+      }
+    }
+  }
+}
