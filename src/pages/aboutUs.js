@@ -8,11 +8,12 @@ import "../assets/css/_aboutUs.scss";
 
 import Menu from "../components/menu/menu";
 import CustomPagination from "../components/pagination/pagination";
+import Title from "../components/title/title";
 
 const AboutUS = () => {
   return (
     <div className="aboutUs">
-      <div className="aboutUs__layer"></div>
+      <Title title={"BİZ KİMİK"} />
       <div className="aboutUs__info">
         <Container>
           <div className="aboutUs__wrapper">
