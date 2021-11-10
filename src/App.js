@@ -11,6 +11,7 @@ import HomePage from "./pages/home";
 // pages
 const AboutUs = lazy(() => import("./pages/aboutUs"));
 const Productions = lazy(() => import("./pages/productions"));
+const ProductionsDetails = lazy(() => import("./pages/productionsDetails"));
 const Branch = lazy(() => import("./pages/branch"));
 const InternShip = lazy(() => import("./pages/internShip"));
 const ErrorPage = lazy(() => import("./pages/error"));
@@ -34,6 +35,7 @@ function App() {
             <Route index path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/productions" element={<Productions />} />
+            <Route path="/productionsDetails" element={<ProductionsDetails />} />
             <Route path="/branch" element={<Branch />} />
             <Route path="/internship" element={<InternShip />} />
             <Route path="*" element={<ErrorPage />} />
