@@ -9,6 +9,7 @@ import Title from "./title/title";
 // pages
 const HomePage = lazy(() => import("./pages/homePage"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
+const Productions = lazy(() => import("./pages/productions"));
 const ErrorPage = lazy(() => import("./pages/errorPage"));
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
           <Routes>
             <Route index path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/productions" element={<Productions />} />
+            
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>
