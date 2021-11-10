@@ -1,15 +1,4 @@
 .aboutUs {
-  &__layer {
-    background: linear-gradient(
-        0deg,
-        rgba(191, 8, 7, 0.58),
-        rgba(191, 8, 7, 0.58)
-      ),
-      url("../images/aboutLayer.png");
-    height: 101px;
-    margin-bottom: 159px;
-  }
-
   .newsSlider__items {
     &.widthHalf {
       width: calc(40% - 4px);
