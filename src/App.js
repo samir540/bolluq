@@ -7,9 +7,11 @@ import Footer from "./components/footer/footer";
 import Title from "./title/title";
 
 // pages
-const HomePage = lazy(() => import("./pages/homePage"));
+const HomePage = lazy(() => import("./pages/home"));
 const AboutUs = lazy(() => import("./pages/aboutUs"));
-const ErrorPage = lazy(() => import("./pages/errorPage"));
+const Branch = lazy(() => import("./pages/branch"));
+const ErrorPage = lazy(() => import("./pages/error"));
+
 
 function App() {
   const { pathname } = useLocation();
@@ -25,6 +27,7 @@ function App() {
           <Routes>
             <Route index path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/branch" element={<Branch />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>
