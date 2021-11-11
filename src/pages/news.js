@@ -4,18 +4,18 @@ import { Container } from "reactstrap";
 
 // css
 import "../assets/css/_newsSlider.scss";
-import "../assets/css/_aboutUs.scss";
+import "../assets/css/_news.scss";
 import Menu from "../components/menu/menu";
 import CustomPagination from "../components/pagination/pagination";
 import Title from "../components/title/title";
 
-const AboutUS = () => {
+const News = () => {
   return (
-    <div className="aboutUs">
+    <div className="news">
       <Title title={"BİZ KİMİK"} />
-      <div className="aboutUs__info">
+      <div className="news__info">
         <Container>
-          <div className="aboutUs__wrapper">
+          <div className="news__wrapper">
             <Menu />
 
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
@@ -65,7 +65,7 @@ const AboutUS = () => {
               </div>
             ))}
           </div>
-          <div className="d-flex justify-content-center aboutUs__pagination">
+          <div className="d-flex justify-content-center news__pagination">
             <CustomPagination
               defaultCurrent={1}
               total={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].length}
@@ -79,4 +79,4 @@ const AboutUS = () => {
   );
 };
 
-export default AboutUS;
+export default News;

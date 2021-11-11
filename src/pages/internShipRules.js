@@ -4,7 +4,7 @@ import HumanResurcesMenu from "../components/menu/humanResurcesMenu";
 import "../assets/css/_humanResurcers.scss";
 import Title from "../components/title/title";
 
-const InternShip = () => {
+const InternShipRules = () => {
   return (
     <>
       <Title title={"İNSAN RESURSLARI"} />
@@ -44,17 +44,9 @@ const InternShip = () => {
             </p>
           </div>
         </div>
-        <div className="humansResurces__items">
-          {[1, 2, 3, 4].map((item) => (
-            <p key={item}>
-              <img src={require("../assets/images/1.svg").default} alt="" />
-              <span> Yüksələn karyera</span>
-            </p>
-          ))}
-        </div>
       </Container>
     </>
   );
 };
 
-export default InternShip;
+export default InternShipRules;

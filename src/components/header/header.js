@@ -20,16 +20,16 @@ const Header = ({ headerId }) => {
           </div>
           <div className="header__nav">
             <nav>
-              <NavLink to="/" className="header__nav--item">
+              <NavLink to="/about" className="header__nav--item">
                 BİZ KİMİK
               </NavLink>
-              <NavLink to="/" className="header__nav--item">
+              <NavLink to="/branch" className="header__nav--item">
                 FİLİALLAR
               </NavLink>
               <NavLink to="/" className="header__nav--item">
                 MEHSULLAR
               </NavLink>
-              <NavLink to="/" className="header__nav--item">
+              <NavLink to="/internship" className="header__nav--item">
                 İNSAN RESURSLARI
               </NavLink>
               <NavLink to="/" className="header__nav--item">

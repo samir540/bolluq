@@ -9,11 +9,13 @@ import { resize } from "./helper/helper";
 import HomePage from "./pages/home";
 
 // pages
-const AboutUs = lazy(() => import("./pages/aboutUs"));
+const News = lazy(() => import("./pages/news"));
 const Productions = lazy(() => import("./pages/productions"));
 const ProductionsDetails = lazy(() => import("./pages/productionsDetails"));
 const Branch = lazy(() => import("./pages/branch"));
 const InternShip = lazy(() => import("./pages/internShip"));
+const InternShipRules = lazy(() => import("./pages/internShipRules"));
+const About = lazy(() => import("./pages/about"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -33,11 +35,13 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route index path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/news" element={<News />} />
             <Route path="/productions" element={<Productions />} />
             <Route path="/productions/:id" element={<ProductionsDetails />} />
             <Route path="/branch" element={<Branch />} />
             <Route path="/internship" element={<InternShip />} />
+            <Route path="/rules" element={<InternShipRules />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>

@@ -11,8 +11,8 @@ const Menu = () => {
       <NavLink to={"/history"}>TARİXİMİZ</NavLink>
       <NavLink to={"/"}>DƏYƏRLƏRİMİZ</NavLink>
       <NavLink to={"/"}>STRUKTUR</NavLink>
-      <NavLink to={"/"}>İSTEHSALAT</NavLink>
-      <NavLink to={"/"}>XƏBƏRLƏR</NavLink>
+      <NavLink to={"/productions"}>İSTEHSALAT</NavLink>
+      <NavLink to={"/news"}>XƏBƏRLƏR</NavLink>
     </div>
   );
 };

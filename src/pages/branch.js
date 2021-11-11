@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "reactstrap";
+import Title from "../components/title/title";
 
 // css
 import "../assets/css/_branch.scss";
@@ -7,6 +8,7 @@ import "../assets/css/_branch.scss";
 const Branch = () => {
   return (
     <div className="branch">
+      <Title title={"FİLİALLAR"} />
       <Container>
         <div className="branch__wrapper">
           <div className="branch__map">
