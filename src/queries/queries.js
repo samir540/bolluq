@@ -8,9 +8,7 @@ export const statistics = async (key) => {
 };
 
 export const language = async (key) => {
-  const res = await axios.get(
-    "https://run.mocky.io/v3/6ccecc81-31b7-4c69-be79-31be00b1dedb"
-  );
+  const res = await axios.get(baseUrl + "languages");
 
   return await res.data;
 };
