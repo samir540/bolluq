@@ -6,11 +6,27 @@ import ProductSlider from "../components/sliders/productSlider";
 import MultiSlider from "../components/sliders/multiSlider";
 import NewsSlider from "../components/sliders/newsSlider";
 import { useQueries } from "react-query";
-import { statistics } from "../queries/queries";
+import {
+  certificates,
+  newsApi,
+  partners,
+  statistics,
+} from "../queries/queries";
 
-const HomePage = () => {
+const HomePage = ({ lang }) => {
   const results = useQueries([
-    { queryKey: ["statistics"], queryFn: statistics },
+    {
+      queryKey: ["statistics"],
+      queryFn: statistics,
+      refetchOnWindowFocus: false,
+    },
+    {
+      queryKey: ["certifcates"],
+      queryFn: certificates,
+      refetchOnWindowFocus: false,
+    },
+    { queryKey: ["newsApi"], queryFn: newsApi, refetchOnWindowFocus: false },
+    { queryKey: ["partnyors"], queryFn: partners, refetchOnWindowFocus: false },
   ]);
 
   return (
@@ -51,13 +67,24 @@ const HomePage = () => {
             ))}
         </div>
         <ProductSlider items={[1, 2, 3, 4]} />
-        <MultiSlider items={[1, 2, 3, 4]} title={"Sertifikatlar"} />
-        <NewsSlider items={[1, 2, 3]} title={"Xəbərlər"} />
-        <MultiSlider
-          items={[1, 2, 3, 4]}
-          title={"Partnyorlar"}
-          id={"endMultiSlider"}
-        />
+        {results[1].isLoading === false && results[1].data !== undefined && (
+          <MultiSlider
+            items={results[1].data}
+            title={"Sertifikatlar"}
+            lang={lang}
+          />
+        )}
+        {results[2].isLoading === false && results[2].data !== undefined && (
+          <NewsSlider items={results[2].data} title={"Xəbərlər"} lang={lang} />
+        )}
+        {results[3].isLoading === false && results[3].data !== undefined && (
+          <MultiSlider
+            items={results[3].data}
+            lang={lang}
+            title={"Partnyorlar"}
+            id={"endMultiSlider"}
+          />
+        )}
       </Container>
     </div>
   );

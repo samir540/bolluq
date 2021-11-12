@@ -1,8 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import { Pagination } from "antd";
 
 const CustomPagination = ({ total, defaultCurrent, pageSize, events }) => {
+  console.log("render");
+
   return (
     <Pagination
       onChange={(e) => {

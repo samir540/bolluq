@@ -29,10 +29,7 @@ const ProductionsDetails = () => {
                   also the leap into.
                 </p>
                 <div>
-                  <video width="100%" controls>
-                    <source src="2#" type="video/mp4" />
-                    Your video
-                  </video>
+                 
                 </div>
               </div>
             </div>

@@ -2,8 +2,10 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "../../assets/css/_newsSlider.scss";
 import { Link } from "react-router-dom";
+import renderHtml from "react-render-html";
+import PropTypes from "prop-types";
 
-const NewsSlider = ({ items, title }) => {
+const NewsSlider = ({ items, title, lang }) => {
   return (
     <div className="newsSlider">
       <h2 className="title">{title}</h2>
@@ -12,31 +14,24 @@ const NewsSlider = ({ items, title }) => {
           options={{
             gap: "39px",
             perPage: 3,
-            arrows: items.length > 3 ? true : false,
+            arrows: items.data.length > 3 ? true : false,
           }}
         >
-          {items.map((item) => (
-            <SplideSlide key={item}>
+          {items.data.map((item) => (
+            <SplideSlide key={item.id}>
               <div className="newsSlider__items">
                 <div className="newsSlider__items--imgBox">
-                  <img
-                    src={require("../../assets/images/news.jfif").default}
-                    alt=""
-                  />
+                  <img src={item.image} alt={item.title} />
                 </div>
                 <div className="newsSlider__items--info">
                   <h3>
-                    ITECH-Smart Vision
-                    <span>Information Technology</span>
+                    {item.title}
+                    <span>{item.category.title}</span>
                   </h3>
                   <div className="newsSlider__items--text">
-                    <p>
-                      At Itech, we have a holistic and integrated approach
-                      towards core modernization to experience technological
-                      evolution.
-                    </p>
+                    {renderHtml(item.description)}
                   </div>
-                  <Link to="">
+                  <Link to={`${lang}/news/${item.slug}`}>
                     Daha ətrafli bax
                     <svg
                       width={15}
@@ -59,6 +54,11 @@ const NewsSlider = ({ items, title }) => {
       </div>
     </div>
   );
+};
+
+NewsSlider.propTypes = {
+  items: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default NewsSlider;

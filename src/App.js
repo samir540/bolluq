@@ -11,6 +11,7 @@ import { language } from "./queries/queries";
 
 // pages
 const News = lazy(() => import("./pages/news"));
+const NewsDetail = lazy(() => import("./pages/newsDetail"));
 const Productions = lazy(() => import("./pages/productions"));
 const ProductionsDetails = lazy(() => import("./pages/productionsDetails"));
 const Branch = lazy(() => import("./pages/branch"));
@@ -73,6 +74,10 @@ function App() {
               path={`${lang}`}
               render={() => <HomePage lang={lang} />}
             />
+            <Route
+              path={`${lang}/news/:id`}
+              render={() => <NewsDetail lang={lang} />}
+            />
             <Route path={`${lang}/news`} render={() => <News lang={lang} />} />
             <Route
               path={`${lang}/productions/:id`}
@@ -94,8 +99,10 @@ function App() {
               path={`${lang}/rules`}
               render={() => <InternShipRules lang={lang} />}
             />
-             <Route path={`${lang}/vacancies`}
-              render={()=><Vacancies lang={lang} />} />
+            <Route
+              path={`${lang}/vacancies`}
+              render={() => <Vacancies lang={lang} />}
+            />
             <Route
               path={`${lang}/about`}
               render={() => <About lang={lang} />}

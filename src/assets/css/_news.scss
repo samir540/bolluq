@@ -18,6 +18,10 @@
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__pagination {

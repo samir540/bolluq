@@ -2,6 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PropTypes from "prop-types";
 import "../../assets/css/_multiSlider.scss";
+import Item from "antd/lib/list/Item";
 
 const MultiSlider = ({ items, title, id }) => {
   return (
@@ -11,17 +12,14 @@ const MultiSlider = ({ items, title, id }) => {
         options={{
           gap: "39px",
           perPage: 4,
-          arrows: items.length > 4 ? true : false,
+          arrows: items.data.length > 4 ? true : false,
         }}
       >
-        {items.map((item) => (
-          <SplideSlide key={item}>
+        {items.data.map((item) => (
+          <SplideSlide key={item.id}>
             <div className="productSlider__items">
               <div className="productSlider__items--img">
-                <img
-                  src={require("../../assets/images/cap.png").default}
-                  alt=""
-                />
+                <img src={item.image} alt={item.title} />
               </div>
             </div>
           </SplideSlide>
@@ -32,7 +30,7 @@ const MultiSlider = ({ items, title, id }) => {
 };
 
 MultiSlider.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
 };
 
