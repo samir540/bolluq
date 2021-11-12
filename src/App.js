@@ -16,6 +16,7 @@ const Branch = lazy(() => import("./pages/branch"));
 const InternShip = lazy(() => import("./pages/internShip"));
 const InternShipRules = lazy(() => import("./pages/internShipRules"));
 const About = lazy(() => import("./pages/about"));
+const Vacancies = lazy(() => import("./pages/vacancies"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/internship" component={InternShip} />
             <Route path="/rules" component={InternShipRules} />
             <Route path="/about" component={About} />
+            <Route path="/vacancies" component={Vacancies} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         </Suspense>
