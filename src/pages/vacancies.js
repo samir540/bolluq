@@ -3,9 +3,7 @@ import React from "react";
 import "../assets/css/_vacancies.scss";
 
 const Vacancies = () => {
-  return <div className="vacancies">
-      
-  </div>;
+  return <div className="vacancies"></div>;
 };
 
 export default Vacancies;

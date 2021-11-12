@@ -20,7 +20,7 @@ const newClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/az">
+    <BrowserRouter>
       <Provider store={store}>
         <QueryClientProvider client={newClient}>
           <App />
