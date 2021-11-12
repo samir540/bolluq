@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Route, useLocation, Switch } from "react-router-dom";
 import Loading from "./components/loading/loading";
 import Main from "./components/layout/layout";
 import Header from "./components/header/header";
@@ -33,17 +33,17 @@ function App() {
       <Header headerId={pathname === "/" ? "homeHeader" : "inHeader"} />
       <Main>
         <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route index path="/" element={<HomePage />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/productions" element={<Productions />} />
-            <Route path="/productions/:id" element={<ProductionsDetails />} />
-            <Route path="/branch" element={<Branch />} />
-            <Route path="/internship" element={<InternShip />} />
-            <Route path="/rules" element={<InternShipRules />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/news" component={News} />
+            <Route path="/productions" component={Productions} />
+            <Route path="/productions/:id" component={ProductionsDetails} />
+            <Route path="/branch" component={Branch} />
+            <Route path="/internship" component={InternShip} />
+            <Route path="/rules" component={InternShipRules} />
+            <Route path="/about" component={About} />
+            <Route path="*" component={ErrorPage} />
+          </Switch>
         </Suspense>
       </Main>
       <Footer />

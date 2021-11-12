@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
+// import "./i18/i18n";
 import store from "./store/store";
 
 // css
