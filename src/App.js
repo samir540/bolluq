@@ -17,6 +17,7 @@ const Branch = lazy(() => import("./pages/branch"));
 const InternShip = lazy(() => import("./pages/internShip"));
 const InternShipRules = lazy(() => import("./pages/internShipRules"));
 const About = lazy(() => import("./pages/about"));
+const Vacancies = lazy(() => import("./pages/vacancies"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -93,6 +94,8 @@ function App() {
               path={`${lang}/rules`}
               render={() => <InternShipRules lang={lang} />}
             />
+             <Route path={`${lang}/vacancies`}
+              render={()=><Vacancies lang={lang} />} />
             <Route
               path={`${lang}/about`}
               render={() => <About lang={lang} />}
