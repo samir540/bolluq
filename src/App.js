@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useRef } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Route, useLocation, Switch } from "react-router-dom";
 import Loading from "./components/loading/loading";
 import Main from "./components/layout/layout";
@@ -27,10 +27,6 @@ const ErrorPage = lazy(() => import("./pages/error"));
 function App() {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();
-
-  const ref = useRef(null);
-
-  const app = useRef();
 
   useEffect(() => {
     resize();
