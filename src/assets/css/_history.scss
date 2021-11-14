@@ -1,0 +1,22 @@
+.history {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__info {
+    width: calc(100% - 294px);
+    margin-top: -85px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 0.04em;
+    color: #000000;
+
+    span {
+      color: #bf0807;
+    }
+  }
+}

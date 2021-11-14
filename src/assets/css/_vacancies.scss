@@ -1,16 +1,15 @@
 .vacancies {
-  margin-top: 115px;
-  margin-bottom: 109px;
+  margin-bottom: 159px;
   &__wrapper {
     width: calc(100% - 292px);
 
     &__block {
-        background-color: #FFFEFE;
-        margin-bottom:13px;
-        border:1px solid #FFFEFE;
-        border-radius: 6px;
+      background-color: #fffefe;
+      margin-bottom: 13px;
+      border: 1px solid #fffefe;
+      border-radius: 6px;
       &--position-info {
-        & h3 {
+        h3 {
           margin-top: 27px;
           margin-bottom: 6px;
           font-size: 22px;
@@ -18,61 +17,58 @@
           line-height: 27px;
           color: #000000;
         }
-        & p:nth-child(2) {
+        p:nth-child(2) {
           margin-bottom: 13px;
           color: #bf0807;
           font-size: 17px;
           font-weight: 500;
           line-height: 21px;
         }
-        & p:nth-child(3) {
+        p:nth-child(3) {
           margin-bottom: 24px;
           color: #000000;
           font-size: 15px;
           font-weight: normal;
           line-height: 18px;
         }
-        & span img {
+        span img {
           margin-right: 5px;
           margin-top: -4px;
         }
-      
-    }
-
-    &--deadline-date {
-      & div {
-        border: 1px solid rgba(0, 0, 0, 0.22);
-        border-radius: 15px;
-        padding: 13px 36px 0px;
       }
 
-      & p {
-        color: #000000;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 15px;
-      }
-      & span img {
-        margin-right: 5px;
-        margin-top: -4px;
-      }
-      &--date {
-        color: #bf0807;
-      }
-    }
-    &--more-info {
-         p{
-        color: #000000;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 15px;
-        span{
-            margin-left:14px;
+      &--deadline-date {
+        div {
+          border: 1px solid rgba(0, 0, 0, 0.22);
+          border-radius: 15px;
+          padding: 13px 36px 0px;
         }
 
+        p {
+          color: #000000;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 15px;
         }
-
+        span img {
+          margin-right: 5px;
+          margin-top: -4px;
+        }
+        &--date {
+          color: #bf0807;
+        }
+      }
+      &--more-info {
+        p {
+          color: #000000;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 15px;
+          span {
+            margin-left: 14px;
+          }
+        }
+      }
     }
   }
- }
 }

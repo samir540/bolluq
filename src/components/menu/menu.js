@@ -4,15 +4,15 @@ import { NavLink } from "react-router-dom";
 // css
 import "../../assets/css/_menu.scss";
 
-const Menu = ({ lang }) => {
+const Menu = () => {
   return (
     <div className="menu">
-      <NavLink to={lang + "/about"}>HAQQIMIZDA</NavLink>
-      <NavLink to={lang + "/history"}>TARİXİMİZ</NavLink>
-      <NavLink to={lang + "/deyer"}>DƏYƏRLƏRİMİZ</NavLink>
-      <NavLink to={lang + "/structure"}>STRUKTUR</NavLink>
-      <NavLink to={lang + "/productions"}>İSTEHSALAT</NavLink>
-      <NavLink to={lang + "/news"}>XƏBƏRLƏR</NavLink>
+      <NavLink to={"/about"}>HAQQIMIZDA</NavLink>
+      <NavLink to={"/history"}>TARİXİMİZ</NavLink>
+      <NavLink to={"/deyer"}>DƏYƏRLƏRİMİZ</NavLink>
+      <NavLink to={"/structure"}>STRUKTUR</NavLink>
+      <NavLink to={"/productions"}>İSTEHSALAT</NavLink>
+      <NavLink to={"/news"}>XƏBƏRLƏR</NavLink>
     </div>
   );
 };

@@ -3,11 +3,12 @@ import { Container } from "reactstrap";
 import HRMenu from "../components/menu/humanResurcesMenu";
 // css
 import "../assets/css/_vacancies.scss";
-
+import Title from "../components/title/title";
 
 const Vacancies = () => {
   return (
     <div className="vacancies">
+      <Title title="İNSAN RESURSLARI" />
       <Container>
         <div className="d-flex ">
           <HRMenu />

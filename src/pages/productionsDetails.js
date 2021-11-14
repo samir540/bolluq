@@ -28,9 +28,7 @@ const ProductionsDetails = () => {
                   specimen book. It has survived not only five centuries, but
                   also the leap into.
                 </p>
-                <div>
-                 
-                </div>
+                <div></div>
               </div>
             </div>
           </div>

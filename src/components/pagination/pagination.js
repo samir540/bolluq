@@ -1,15 +1,11 @@
 import React from "react";
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import { Pagination } from "antd";
 
-const CustomPagination = ({ total, defaultCurrent, pageSize, events }) => {
-  console.log("render");
-
+const CustomPagination = ({ total, defaultCurrent, pageSize, setPage }) => {
   return (
     <Pagination
-      onChange={(e) => {
-        events.update(e);
-      }}
+      onChange={(e) => setPage(e)}
       showSizeChanger={false}
       showLessItems={false}
       pageSize={pageSize}

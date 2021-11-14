@@ -3,12 +3,12 @@ import { Container } from "reactstrap";
 import Menu from "../components/menu/menu";
 import "../assets/css/_productions.scss";
 
-const Productions = ({lang}) => {
+const Productions = () => {
   return (
     <section className="productions">
       <Container>
         <div className="d-flex ">
-          <Menu lang={lang} />
+          <Menu />
           <div className="productions__wrapper">
             <div className="productions__wrapper__item d-flex justify-content-center align-items-center flex-row">
               <img

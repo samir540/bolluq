@@ -4,13 +4,13 @@ import { Container } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../assets/css/_header.scss";
 
-const Header = ({ headerId, lang }) => {
+const Header = ({ headerId }) => {
   return (
     <header className="header" id={headerId}>
       <Container>
         <div className="d-flex justify-content-between align-items-center">
           <div className="header__logo">
-            <Link to={`${lang}`}>
+            <Link to={``}>
               <img
                 className="img-fluid"
                 src={require("../../assets/images/logo.png").default}
@@ -20,25 +20,25 @@ const Header = ({ headerId, lang }) => {
           </div>
           <div className="header__nav">
             <nav>
-              <NavLink to={`${lang}/about`} className="header__nav--item">
+              <NavLink to={`/about`} className="header__nav--item">
                 BİZ KİMİK
               </NavLink>
-              <NavLink to={`${lang}/branch`} className="header__nav--item">
+              <NavLink to={`/branch`} className="header__nav--item">
                 FİLİALLAR
               </NavLink>
-              <NavLink to={`${lang}`} className="header__nav--item">
+              <NavLink to={``} className="header__nav--item">
                 MEHSULLAR
               </NavLink>
-              <NavLink to={`${lang}/internship`} className="header__nav--item">
+              <NavLink to={`/internship`} className="header__nav--item">
                 İNSAN RESURSLARI
               </NavLink>
-              <NavLink to={`${lang}`} className="header__nav--item">
+              <NavLink to={``} className="header__nav--item">
                 EXPORT
               </NavLink>
-              <NavLink to={`${lang}`} className="header__nav--item">
+              <NavLink to={``} className="header__nav--item">
                 KATALOQ
               </NavLink>
-              <NavLink to={`${lang}`} className="header__nav--item">
+              <NavLink to={``} className="header__nav--item">
                 ƏLAQƏ
               </NavLink>
             </nav>

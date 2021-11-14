@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
 
@@ -12,10 +12,14 @@ import { useQuery } from "react-query";
 import renderHtml from "react-render-html";
 import { newsApi } from "../queries/queries";
 
-const News = ({ lang }) => {
+const News = () => {
   const [number, setNumber] = useState(0);
 
   const { data, isLoading } = useQuery(["newsAll", number], newsApi);
+
+  const setPage = useCallback((e) => {
+    setNumber(e);
+  }, []);
 
   return (
     <div className="news">
@@ -23,9 +27,9 @@ const News = ({ lang }) => {
       <div className="news__info">
         <Container>
           <div className="news__wrapper">
-            <Menu lang={lang} />
+            <Menu />
             {isLoading === false &&
-              data.data !== undefined &&
+              data !== undefined &&
               data.data.map((item, index) => (
                 <div
                   className={
@@ -48,7 +52,7 @@ const News = ({ lang }) => {
                       {renderHtml(item.description)}
                     </div>
 
-                    <Link to={lang + "/news/" + item.slug}>
+                    <Link to={"/news/" + item.slug}>
                       Daha ətrafli bax
                       <svg
                         width={15}
@@ -69,17 +73,13 @@ const News = ({ lang }) => {
           </div>
           <div className="d-flex justify-content-center news__pagination">
             {isLoading === false &&
-              data.data !== undefined &&
+              data !== undefined &&
               data.meta.total > 1 && (
                 <CustomPagination
                   defaultCurrent={1}
                   total={data.meta.total}
                   pageSize={data.meta.per_page}
-                  events={{
-                    update: function (e) {
-                      setNumber(e);
-                    },
-                  }}
+                  setPage={setPage}
                 />
               )}
           </div>

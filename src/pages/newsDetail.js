@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 import { newsDetailApi } from "../queries/queries";
 import renderHtml from "react-render-html";
 
-const NewsDetail = ({ lang }) => {
+const NewsDetail = () => {
   const { id } = useParams();
 
   const { data, isLoading } = useQuery(["newsDetail", id], newsDetailApi, {
@@ -19,7 +19,7 @@ const NewsDetail = ({ lang }) => {
       <div className="productionsDetails">
         <Container>
           <div className="d-flex">
-            <Menu lang={lang} />
+            <Menu />
             {isLoading === false && data.data !== undefined && (
               <div className="productionsDetails__wrapper">
                 <div className="productionsDetails__wrapper__item d-flex justify-content-center align-items-center flex-column">

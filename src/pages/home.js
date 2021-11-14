@@ -13,7 +13,7 @@ import {
   statistics,
 } from "../queries/queries";
 
-const HomePage = ({ lang }) => {
+const HomePage = () => {
   const results = useQueries([
     {
       queryKey: ["statistics"],
@@ -68,19 +68,14 @@ const HomePage = ({ lang }) => {
         </div>
         <ProductSlider items={[1, 2, 3, 4]} />
         {results[1].isLoading === false && results[1].data !== undefined && (
-          <MultiSlider
-            items={results[1].data}
-            title={"Sertifikatlar"}
-            lang={lang}
-          />
+          <MultiSlider items={results[1].data} title={"Sertifikatlar"} />
         )}
         {results[2].isLoading === false && results[2].data !== undefined && (
-          <NewsSlider items={results[2].data} title={"Xəbərlər"} lang={lang} />
+          <NewsSlider items={results[2].data} title={"Xəbərlər"} />
         )}
         {results[3].isLoading === false && results[3].data !== undefined && (
           <MultiSlider
             items={results[3].data}
-            lang={lang}
             title={"Partnyorlar"}
             id={"endMultiSlider"}
           />

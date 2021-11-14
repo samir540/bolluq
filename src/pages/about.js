@@ -10,7 +10,7 @@ import renderHtml from "react-render-html";
 // css
 import "../assets/css/_about.scss";
 
-const About = ({ lang }) => {
+const About = () => {
   const mainRef = useRef();
 
   const thumbsRef = useRef();
@@ -49,11 +49,11 @@ const About = ({ lang }) => {
       <Title title={"BİZ KİMİK"} />
       <Container>
         <div className="about__wrapper">
-          <Menu lang={lang} />
+          <Menu />
           <div className="about__info">
             <Splide options={mainOptions} ref={mainRef}>
               {isLoading === false &&
-                data.data !== undefined &&
+                data !== undefined &&
                 data.data.images.map((item) => (
                   <SplideSlide key={item.id}>
                     <img src={item.image} alt={data.data.title + item.id} />
@@ -63,7 +63,7 @@ const About = ({ lang }) => {
 
             <Splide options={thumbsOptions} ref={thumbsRef}>
               {isLoading === false &&
-                data.data !== undefined &&
+                data !== undefined &&
                 data.data.images.map((item) => (
                   <SplideSlide key={item.id}>
                     <img src={item.image} alt={data.data.title + item.id} />
@@ -72,7 +72,7 @@ const About = ({ lang }) => {
             </Splide>
             <div className="about__text">
               {isLoading === false &&
-                data.data !== undefined &&
+                data !== undefined &&
                 renderHtml(data.data.description)}
             </div>
           </div>

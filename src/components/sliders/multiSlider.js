@@ -2,7 +2,6 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PropTypes from "prop-types";
 import "../../assets/css/_multiSlider.scss";
-import Item from "antd/lib/list/Item";
 
 const MultiSlider = ({ items, title, id }) => {
   return (
