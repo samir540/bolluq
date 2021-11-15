@@ -9,7 +9,7 @@ const Menu = () => {
     <div className="menu">
       <NavLink to={"/about"}>HAQQIMIZDA</NavLink>
       <NavLink to={"/history"}>TARİXİMİZ</NavLink>
-      <NavLink to={"/deyer"}>DƏYƏRLƏRİMİZ</NavLink>
+      <NavLink to={"/values"}>DƏYƏRLƏRİMİZ</NavLink>
       <NavLink to={"/structure"}>STRUKTUR</NavLink>
       <NavLink to={"/productions"}>İSTEHSALAT</NavLink>
       <NavLink to={"/news"}>XƏBƏRLƏR</NavLink>
