@@ -23,6 +23,8 @@ const About = lazy(() => import("./pages/about"));
 const Vacancies = lazy(() => import("./pages/vacancies"));
 const History = lazy(() => import("./pages/history"));
 const Values = lazy(() => import("./pages/values"));
+const Catalogs = lazy(() => import("./pages/catalogs"));
+const Contact = lazy(() => import("./pages/contact"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -62,6 +64,8 @@ function App() {
             <Route path={`/about`} render={() => <About />} />
             <Route path={`/history`} render={() => <History />} />
             <Route path={`/values`} render={() => <Values />} />
+            <Route path={`/catalogs`} render={() => <Catalogs />} />
+            <Route path={`/contact`} render={() => <Contact />} />
             <Route path={"*"} render={() => <ErrorPage />} />
           </Switch>
         </Suspense>

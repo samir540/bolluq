@@ -30,3 +30,57 @@ export const resize = () => {
       new_height + "px";
   }
 };
+
+export const changeMapLocations = (btnRef, spanRefEast, spanRefWest) => {
+  // firstTimeRender
+  btnRef.current[0].classList.add("active");
+
+  btnRef.current.forEach((element) => {
+    element.onclick = () => {
+      spanRefEast.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      spanRefWest.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      btnRef.current.forEach((element) => {
+        element.classList.remove("active");
+      });
+      element.classList.add("active");
+    };
+  });
+
+  // east
+  spanRefEast.current.forEach((element) => {
+    element.onclick = () => {
+      btnRef.current.forEach((element) => {
+        element.classList.remove("active");
+      });
+      btnRef.current[1].classList.add("active");
+      spanRefEast.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      spanRefWest.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      element.classList.add("activeSpan");
+    };
+  });
+
+  // west
+  spanRefWest.current.forEach((element) => {
+    element.onclick = () => {
+      btnRef.current.forEach((element) => {
+        element.classList.remove("active");
+      });
+      spanRefWest.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      spanRefEast.current.forEach((element) => {
+        element.classList.remove("activeSpan");
+      });
+      element.classList.add("activeSpan");
+      btnRef.current[2].classList.add("active");
+    };
+  });
+};

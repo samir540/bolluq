@@ -20,6 +20,10 @@
       line-height: 20px;
       color: #fff;
 
+      &.active {
+        font-weight: 800;
+      }
+
       &:hover {
         color: #fff;
       }

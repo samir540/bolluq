@@ -66,7 +66,7 @@ body {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1328px;
+    max-width: 1342px;
   }
 }
 
@@ -76,7 +76,7 @@ body {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1328px;
+    max-width: 1342px;
   }
 }
 
@@ -186,4 +186,20 @@ body {
 
 main {
   position: relative;
+}
+
+.submitInput {
+  background: #bf0807;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 32px;
+  height: 60px;
+  color: #fff;
+  border: none;
+  font-family: Poppins !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 25px;
+  color: #ffffff;
 }

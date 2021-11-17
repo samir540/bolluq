@@ -26,19 +26,19 @@ const Header = ({ headerId }) => {
               <NavLink to={`/branch`} className="header__nav--item">
                 FİLİALLAR
               </NavLink>
-              <NavLink to={``} className="header__nav--item">
+              <NavLink to={`/products`} className="header__nav--item">
                 MEHSULLAR
               </NavLink>
               <NavLink to={`/internship`} className="header__nav--item">
                 İNSAN RESURSLARI
               </NavLink>
-              <NavLink to={``} className="header__nav--item">
+              <NavLink to={`/export`} className="header__nav--item">
                 EXPORT
               </NavLink>
-              <NavLink to={``} className="header__nav--item">
+              <NavLink to={`/catalogs`} className="header__nav--item">
                 KATALOQ
               </NavLink>
-              <NavLink to={``} className="header__nav--item">
+              <NavLink to={`/contact`} className="header__nav--item">
                 ƏLAQƏ
               </NavLink>
             </nav>

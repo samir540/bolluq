@@ -1,0 +1,148 @@
+.contact {
+  padding-bottom: 159px;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__map {
+    padding-right: 24px;
+
+    iframe {
+      height: 100%;
+    }
+  }
+
+  &__form {
+    padding-bottom: 50px;
+    h2 {
+      font-weight: 600;
+      font-size: 31px;
+      line-height: 38px;
+      color: #bf0807;
+      margin-bottom: 46px;
+    }
+
+    &--in {
+      form {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      textarea {
+        width: 100%;
+        margin-bottom: 15px;
+        border: 1px solid rgba(191, 8, 7, 0.5);
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 17px 33px;
+        height: 217px;
+        resize: none;
+
+        &::placeholder {
+          font-size: 15px;
+          line-height: 18px;
+          color: rgba(151, 151, 151, 0.9);
+        }
+      }
+
+      &__file {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+
+        input {
+          border: 1px solid rgba(191, 8, 7, 0.5);
+          color: transparent;
+          width: 109px;
+          border-radius: 11px;
+          height: 30px;
+        }
+      }
+
+      &__items {
+        position: relative;
+        width: calc(50% - 19px);
+        height: 52px;
+        margin-bottom: 26px;
+
+        svg {
+          position: absolute;
+          left: 33px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+
+        &:not(:nth-child(even)) {
+          margin-right: 38px;
+        }
+
+        input {
+          width: 100%;
+          height: 100%;
+          border: 1px solid rgba(191, 8, 7, 0.5);
+          box-sizing: border-box;
+          border-radius: 8px;
+          padding-left: 63px;
+          padding-right: 20px;
+
+          &::placeholder {
+            font-size: 15px;
+            line-height: 18px;
+            color: #c4c4c4;
+          }
+        }
+      }
+    }
+  }
+
+  &__end {
+    background: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 92px;
+    padding: 44px 62px;
+
+    &--items {
+      display: flex;
+      align-items: center;
+      width: calc(100% / 3);
+
+      &:not(:last-child) {
+        padding-right: 20px;
+      }
+
+      p {
+        margin-bottom: 0;
+        margin-left: 32px;
+
+        span {
+          display: block;
+          font-weight: 500;
+          font-size: 19px;
+          line-height: 23px;
+          text-align: center;
+          color: #000000;
+          text-align: left;
+          margin-bottom: 5px;
+        }
+
+        a {
+          font-weight: 300;
+          font-size: 19px;
+          line-height: 23px;
+          text-align: center;
+          color: #000000;
+        }
+      }
+    }
+  }
+}
