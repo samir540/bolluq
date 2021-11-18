@@ -19,7 +19,7 @@ export const animateBody = (element) => {
 };
 
 export const resize = () => {
-  var footer_height = document.getElementsByTagName("footer")[0].clientHeight,
+  let footer_height = document.getElementsByTagName("footer")[0].clientHeight,
     header_height = document.getElementsByTagName("header")[0].clientHeight,
     plus_height = footer_height + header_height,
     window_height = window.innerHeight,
@@ -81,6 +81,26 @@ export const changeMapLocations = (btnRef, spanRefEast, spanRefWest) => {
       });
       element.classList.add("activeSpan");
       btnRef.current[2].classList.add("active");
+    };
+  });
+};
+
+export const searchSpan = (searchRef) => {
+  searchRef.current.forEach((elem) => {
+    elem.onkeyup = function (e) {
+      let spanParent = e.target.parentElement.nextElementSibling;
+      const targetValue = e.target.value.toUpperCase();
+      const span = spanParent.querySelectorAll("span");
+
+      span.forEach((elem) => {
+        const spanValue = elem.textContent.toUpperCase();
+
+        if (spanValue.indexOf(targetValue) > -1) {
+          elem.style.display = "block";
+        } else {
+          elem.style.display = "none";
+        }
+      });
     };
   });
 };

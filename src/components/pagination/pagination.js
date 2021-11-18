@@ -16,7 +16,7 @@ const CustomPagination = ({ total, defaultCurrent, pageSize, setPage }) => {
 };
 
 CustomPagination.propTypes = {
-  events: PropTypes.object.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default React.memo(CustomPagination);

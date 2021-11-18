@@ -21,6 +21,7 @@ const InternShip = lazy(() => import("./pages/internShip"));
 const InternShipRules = lazy(() => import("./pages/internShipRules"));
 const About = lazy(() => import("./pages/about"));
 const Vacancies = lazy(() => import("./pages/vacancies"));
+const VacanciesDetail = lazy(() => import("./pages/vacanciesDetail"));
 const History = lazy(() => import("./pages/history"));
 const Values = lazy(() => import("./pages/values"));
 const Form = lazy(() => import("./pages/form"));
@@ -62,6 +63,7 @@ function App() {
             <Route path={`/branch`} render={() => <Branch />} />
             <Route path={`/internship`} render={() => <InternShip />} />
             <Route path={`/rules`} render={() => <InternShipRules />} />
+            <Route path={`/vacancies/:id`} render={() => <VacanciesDetail />} />
             <Route path={`/vacancies`} render={() => <Vacancies />} />
             <Route path={`/about`} render={() => <About />} />
             <Route path={`/history`} render={() => <History />} />

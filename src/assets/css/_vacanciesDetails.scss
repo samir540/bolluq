@@ -1,0 +1,64 @@
+.vacancyDetails {
+  margin-top: 114px;
+  margin-bottom: 127px;
+
+  &__content {
+    width: calc(100% - 294px);
+    margin-left: 58px;
+    & > div:not(:first-child) {
+      margin-top: 86px;
+    }
+    h4 {
+      color: #bf0807;
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+    p {
+      color: #000000;
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 300;
+      // white-space:pre;
+    }
+    &__offers {
+      &__head {
+        width: 140px;
+        margin-right: 125px;
+      }
+      &__text {
+        width: calc(100% - 140px);
+      }
+    }
+    &__responsibilities {
+      &__head {
+        width: 140px;
+        margin-right: 126px;
+      }
+      &__text {
+        width: calc(100% - 140px);
+      }
+    }
+    &__services {
+      &__head {
+        width: 140px;
+        margin-right: 127px;
+      }
+      &__text {
+        width: calc(100% - 140px);
+      }
+    }
+  }
+  &__btn-send {
+    margin-top: 87px;
+    width: 246px;
+    height: 55px;
+    button {
+      color: #ffffff;
+      background-color: #bf0807;
+      width: 100%;
+      border: 1px solid #bf0807;
+      border-radius: 8px;
+    }
+  }
+}

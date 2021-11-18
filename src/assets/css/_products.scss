@@ -1,3 +1,16 @@
-.products{
-    
+.products {
+  padding-bottom: 159px;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__info {
+    width: calc(100% - 294px);
+    margin-top: -50px;
+
+    .col-lg-4 {
+      margin-bottom: 80px;
+    }
+  }
 }

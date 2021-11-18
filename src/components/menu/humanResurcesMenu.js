@@ -14,4 +14,4 @@ const HumanResurcesMenu = () => {
   );
 };
 
-export default HumanResurcesMenu;
+export default React.memo(HumanResurcesMenu);
