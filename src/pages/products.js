@@ -1,14 +1,10 @@
-import React from 'react'
+import React from "react";
 
 // css
 import "../assets/css/_products.scss";
 
-const Products=()=> {
-    return (
-        <div className="products">
-            
-        </div>
-    )
-}
+const Products = () => {
+  return <div className="products"></div>;
+};
 
-export Products;
+export default Products;

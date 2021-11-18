@@ -26,7 +26,7 @@ const Values = lazy(() => import("./pages/values"));
 const Form = lazy(() => import("./pages/form"));
 const Catalogs = lazy(() => import("./pages/catalogs"));
 const Contact = lazy(() => import("./pages/contact"));
-const Contact = lazy(() => import("./pages/contact"));
+const Products = lazy(() => import("./pages/products"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -69,6 +69,7 @@ function App() {
             <Route path={`/form`} render={() => <Form />} />
             <Route path={`/catalogs`} render={() => <Catalogs />} />
             <Route path={`/contact`} render={() => <Contact />} />
+            <Route path={`/products`} render={() => <Products />} />
             <Route path={"*"} render={() => <ErrorPage />} />
           </Switch>
         </Suspense>
