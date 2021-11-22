@@ -1,6 +1,10 @@
 .catalogs {
   padding-bottom: 159px;
 
+  &__wrapper {
+    width: 70%;
+  }
+
   &__items {
     display: flex;
     align-items: center;

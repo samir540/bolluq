@@ -2,54 +2,41 @@ import React from "react";
 import { Container } from "reactstrap";
 import Menu from "../components/menu/menu";
 import "../assets/css/_productions.scss";
+import { useQuery } from "react-query";
+import { productions } from "../queries/queries";
+import { Link } from "react-router-dom";
+import renderHtml from "react-render-html";
 
 const Productions = () => {
+  const { data, isLoading } = useQuery(["productions"], productions, {
+    refetchOnWindowFocus: false,
+  });
+
   return (
     <section className="productions">
       <Container>
         <div className="d-flex ">
           <Menu />
           <div className="productions__wrapper">
-            <div className="productions__wrapper__item d-flex justify-content-center align-items-center flex-row">
-              <img
-                src={require("../assets/images/koroglu.png").default}
-                alt="Koroglu_Fabriki"
-              />
-              <div className="productions__wrapper__item--content">
-                <h2>Koroglu fabriki</h2>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into.
-                </p>
-                <div className="productions__wrapper__item--content--arrow">
-                  <a href="2#">Daha ətraflı &#8594; </a>
+            {isLoading === false &&
+              data !== undefined &&
+              data.data.map((item) => (
+                <div
+                  className="productions__wrapper__item d-flex justify-content-center align-items-center flex-row"
+                  key={item.id}
+                >
+                  <img src={item.image} alt={item.title} />
+                  <div className="productions__wrapper__item--content">
+                    <h2>{item.title}</h2>
+                    <p>{renderHtml(item.description)}</p>
+                    <div className="productions__wrapper__item--content--arrow">
+                      <Link to={"/productions/" + item.slug}>
+                        Daha ətraflı &#8594;
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="productions__wrapper__item d-flex justify-content-center align-items-center flex-row">
-              <img
-                src={require("../assets/images/masazir.png").default}
-                alt="Koroglu_Fabriki"
-              />
-              <div className="productions__wrapper__item--content">
-                <h2>Masazir fabriki</h2>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into.
-                </p>
-                <div className="productions__wrapper__item--content--arrow">
-                  <a href="2#">Daha ətraflı &#8594; </a>
-                </div>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </Container>

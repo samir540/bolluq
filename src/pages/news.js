@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "reactstrap";
 
@@ -15,7 +15,14 @@ import { newsApi } from "../queries/queries";
 const News = () => {
   const [number, setNumber] = useState(0);
 
-  const { data, isLoading } = useQuery(["newsAll", number], newsApi);
+  const totalRef = useRef(null);
+
+  const { data, isLoading } = useQuery(["newsAll", number], newsApi, {
+    refetchOnWindowFocus: false,
+    onSuccess: function (succ) {
+      totalRef.current = succ.meta;
+    },
+  });
 
   const setPage = useCallback((e) => {
     setNumber(e);
@@ -72,16 +79,14 @@ const News = () => {
               ))}
           </div>
           <div className="d-flex justify-content-center news__pagination">
-            {isLoading === false &&
-              data !== undefined &&
-              data.meta.total > 1 && (
-                <CustomPagination
-                  defaultCurrent={1}
-                  total={data.meta.total}
-                  pageSize={data.meta.per_page}
-                  setPage={setPage}
-                />
-              )}
+            {totalRef.current !== null && (
+              <CustomPagination
+                defaultCurrent={1}
+                total={totalRef.current.total}
+                pageSize={totalRef.current.per_page}
+                setPage={setPage}
+              />
+            )}
           </div>
         </Container>
       </div>

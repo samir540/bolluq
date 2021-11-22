@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fancyapps/ui": "^4.0.9",
     "@rematch/core": "^2.1.1",
     "@splidejs/react-splide": "^0.6.7",
     "@testing-library/jest-dom": "^5.15.0",

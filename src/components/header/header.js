@@ -10,7 +10,7 @@ const Header = ({ headerId }) => {
       <Container>
         <div className="d-flex justify-content-between align-items-center">
           <div className="header__logo">
-            <Link to={``}>
+            <Link to={`/`}>
               <img
                 className="img-fluid"
                 src={require("../../assets/images/logo.png").default}

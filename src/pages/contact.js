@@ -21,9 +21,11 @@ const Contact = () => {
         <div className="contact__wrapper">
           <div className="contact__map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.6736565119377!2d49.880916136827636!3d40.3939248927585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d30833d972d%3A0x47e813ce6ab12211!2zWsmZZsmZcmFuIEhvc3BpdGFs!5e0!3m2!1saz!2s!4v1637146078827!5m2!1saz!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.1780545432694!2d49.845644315706416!3d40.427056062934675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030887534e7cca1%3A0x4152a74543f2c50f!2sBolluq%20%C4%B0K!5e0!3m2!1saz!2s!4v1637514478612!5m2!1saz!2s"
               width={600}
               height={450}
+              style={{ border: 0 }}
+              allowFullScreen
               loading="lazy"
             />
           </div>

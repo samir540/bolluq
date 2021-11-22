@@ -60,6 +60,10 @@
         padding: 0 13px;
         cursor: pointer;
 
+        &.activeSpan {
+          color: #c21716;
+        }
+
         &:not(:last-child) {
           margin-bottom: 16px;
         }

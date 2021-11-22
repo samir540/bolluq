@@ -42,3 +42,27 @@ export const partners = async (key) => {
 
   return await res.data;
 };
+
+export const histories = async (key) => {
+  const res = await axios.get(baseUrl + "histories");
+
+  return await res.data;
+};
+
+export const principles = async (key) => {
+  const res = await axios.get(baseUrl + "principles");
+
+  return await res.data;
+};
+
+export const productions = async (key) => {
+  const res = await axios.get(baseUrl + "productions");
+
+  return await res.data;
+};
+
+export const productionDetail = async (key) => {
+  const res = await axios.get(baseUrl + `production/${key.queryKey[1]}`);
+
+  return await res.data;
+};

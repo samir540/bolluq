@@ -23,11 +23,12 @@ const About = lazy(() => import("./pages/about"));
 const Vacancies = lazy(() => import("./pages/vacancies"));
 const VacanciesDetail = lazy(() => import("./pages/vacanciesDetail"));
 const History = lazy(() => import("./pages/history"));
-const Values = lazy(() => import("./pages/values"));
+const Principles = lazy(() => import("./pages/principles"));
 const Form = lazy(() => import("./pages/form"));
 const Catalogs = lazy(() => import("./pages/catalogs"));
 const Contact = lazy(() => import("./pages/contact"));
 const Products = lazy(() => import("./pages/products"));
+const Structure = lazy(() => import("./pages/structure"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
             <Route path={`/news/:id`} render={() => <NewsDetail />} />
             <Route path={`/news`} render={() => <News />} />
             <Route
-              path={`/productions/:id`}
+              path={`/productions/:slug`}
               render={() => <ProductionsDetails />}
             />
             <Route path={`/productions`} render={() => <Productions />} />
@@ -67,11 +68,12 @@ function App() {
             <Route path={`/vacancies`} render={() => <Vacancies />} />
             <Route path={`/about`} render={() => <About />} />
             <Route path={`/history`} render={() => <History />} />
-            <Route path={`/values`} render={() => <Values />} />
+            <Route path={`/principles`} render={() => <Principles />} />
             <Route path={`/form`} render={() => <Form />} />
             <Route path={`/catalogs`} render={() => <Catalogs />} />
             <Route path={`/contact`} render={() => <Contact />} />
             <Route path={`/products`} render={() => <Products />} />
+            <Route path={`/structure`} render={() => <Structure />} />
             <Route path={"*"} render={() => <ErrorPage />} />
           </Switch>
         </Suspense>
