@@ -1,13 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { searchSpan } from "../../helper/helper";
 import PropTypes from "prop-types";
 
 // css
 import "../../assets/css/_menu.scss";
 
-const ProductsMenu = ({ id, setId }) => {
+const ProductsMenu = ({ data }) => {
+  const { pathname } = useLocation();
+
   const searchRef = useRef([]);
+
+  const allSpan = useRef([]);
 
   useEffect(() => {
     searchSpan(searchRef);
@@ -39,17 +43,31 @@ const ProductsMenu = ({ id, setId }) => {
             </svg>
           </div>
           <div className="parent">
-            {[1, 2, 3, 4, 5, 6].map((item, index) => (
-              <span
-                data-id={item}
-                key={index}
-                onClick={(e) => {
-                  setId((prev) => [...prev, ""]);
-                }}
-              >
-                Yag {item}
-              </span>
-            ))}
+            {data !== undefined &&
+              data.dryFood.map((item, index) => (
+                <Link to={`/products/our-products/category/${item.slug}`}>
+                  <span
+                    className={
+                      pathname
+                        .split("/")
+                        [pathname.split("/").length - 1].toUpperCase() ==
+                      item.title.toUpperCase()
+                        ? "activeSpan"
+                        : ""
+                    }
+                    ref={(e) => (allSpan.current[item.id] = e)}
+                    key={item.id}
+                    onClick={(e) => {
+                      allSpan.current.forEach((element) => {
+                        element.classList.remove("activeSpan");
+                      });
+                      e.target.classList.add("activeSpan");
+                    }}
+                  >
+                    {item.title}
+                  </span>
+                </Link>
+              ))}
           </div>
         </div>
         <div className="menu__details--item">
@@ -73,17 +91,31 @@ const ProductsMenu = ({ id, setId }) => {
             </svg>
           </div>
           <div className="parent">
-            {[7, 8, 9].map((item, index) => (
-              <span
-                data-id={item}
-                key={index}
-                onClick={(e) => {
-                  setId((prev) => [...prev, ""]);
-                }}
-              >
-                Yag {item}
-              </span>
-            ))}
+            {data !== undefined &&
+              data.confectionery.map((item) => (
+                <Link to={`/products/our-products/category/${item.slug}`}>
+                  <span
+                    className={
+                      pathname
+                        .split("/")
+                        [pathname.split("/").length - 1].toUpperCase() ==
+                      item.title.toUpperCase()
+                        ? "activeSpan"
+                        : ""
+                    }
+                    ref={(e) => (allSpan.current[item.id] = e)}
+                    key={item.id}
+                    onClick={(e) => {
+                      allSpan.current.forEach((element) => {
+                        element.classList.remove("activeSpan");
+                      });
+                      e.target.classList.add("activeSpan");
+                    }}
+                  >
+                    {item.title}
+                  </span>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
@@ -94,6 +126,7 @@ const ProductsMenu = ({ id, setId }) => {
 ProductsMenu.propTypes = {
   setId: PropTypes.func.isRequired,
   id: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default React.memo(ProductsMenu);

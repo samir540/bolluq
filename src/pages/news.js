@@ -79,14 +79,15 @@ const News = () => {
               ))}
           </div>
           <div className="d-flex justify-content-center news__pagination">
-            {totalRef.current !== null && (
-              <CustomPagination
-                defaultCurrent={1}
-                total={totalRef.current.total}
-                pageSize={totalRef.current.per_page}
-                setPage={setPage}
-              />
-            )}
+            {totalRef.current !== null &&
+              totalRef.current.total > totalRef.current.per_page && (
+                <CustomPagination
+                  defaultCurrent={1}
+                  total={totalRef.current.total}
+                  pageSize={totalRef.current.per_page}
+                  setPage={setPage}
+                />
+              )}
           </div>
         </Container>
       </div>

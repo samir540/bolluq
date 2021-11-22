@@ -42,21 +42,24 @@ language().then((res) => {
         document.getElementById("root")
       );
     } else {
-      localStorage.setItem("i18nextLng", "az");
-      SetInterceptors();
-      ReactDOM.render(
-        <React.StrictMode>
-          <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
-            <Provider store={store}>
-              <QueryClientProvider client={newClient}>
-                <App />
-              </QueryClientProvider>
-            </Provider>
-          </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById("root")
-      );
-      reportWebVitals();
+      if (lang.default === 1) {
+        localStorage.setItem("i18nextLng", lang.locale);
+        SetInterceptors();
+
+        ReactDOM.render(
+          <React.StrictMode>
+            <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
+              <Provider store={store}>
+                <QueryClientProvider client={newClient}>
+                  <App />
+                </QueryClientProvider>
+              </Provider>
+            </BrowserRouter>
+          </React.StrictMode>,
+          document.getElementById("root")
+        );
+        reportWebVitals();
+      }
     }
   });
 });

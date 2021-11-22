@@ -66,3 +66,15 @@ export const productionDetail = async (key) => {
 
   return await res.data;
 };
+
+export const ourBrands = async (key) => {
+  const res = await axios.get(baseUrl + `our-brands/${key.queryKey[1]}`);
+
+  return await res.data;
+};
+
+export const foreignBrands = async (key) => {
+  const res = await axios.get(baseUrl + `foreign-brands/${key.queryKey[1]}`);
+
+  return await res.data;
+};

@@ -90,9 +90,9 @@ export const searchSpan = (searchRef) => {
     elem.onkeyup = function (e) {
       let spanParent = e.target.parentElement.nextElementSibling;
       const targetValue = e.target.value.toUpperCase();
-      const span = spanParent.querySelectorAll("span");
+      const a = spanParent.querySelectorAll("a");
 
-      span.forEach((elem) => {
+      a.forEach((elem) => {
         const spanValue = elem.textContent.toUpperCase();
 
         if (spanValue.indexOf(targetValue) > -1) {
