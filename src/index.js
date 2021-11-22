@@ -15,19 +15,48 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import App from "./App";
 // css
 import "./assets/css/_base.scss";
+import { SetInterceptors } from "./services/interCeptors";
+import { language } from "./queries/queries";
 
 const newClient = new QueryClient();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
-      <Provider store={store}>
-        <QueryClientProvider client={newClient}>
-          <App />
-        </QueryClientProvider>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
-reportWebVitals();
+language().then((res) => {
+  const path = window.location.pathname.split("/")[1];
+
+  const filtered = res.data.filter((e) => e.locale === path);
+
+  res.data.forEach((lang) => {
+    if (filtered.length !== 0) {
+      localStorage.setItem("i18nextLng", path);
+      SetInterceptors();
+      ReactDOM.render(
+        <React.StrictMode>
+          <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
+            <Provider store={store}>
+              <QueryClientProvider client={newClient}>
+                <App />
+              </QueryClientProvider>
+            </Provider>
+          </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById("root")
+      );
+    } else {
+      localStorage.setItem("i18nextLng", "az");
+      SetInterceptors();
+      ReactDOM.render(
+        <React.StrictMode>
+          <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
+            <Provider store={store}>
+              <QueryClientProvider client={newClient}>
+                <App />
+              </QueryClientProvider>
+            </Provider>
+          </BrowserRouter>
+        </React.StrictMode>,
+        document.getElementById("root")
+      );
+      reportWebVitals();
+    }
+  });
+});

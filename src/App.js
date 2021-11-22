@@ -7,9 +7,7 @@ import Footer from "./components/footer/footer";
 import Title from "./title/title";
 import { resize } from "./helper/helper";
 import HomePage from "./pages/home";
-import { SetInterceptors } from "./services/interCeptors";
-import "./i18/i18n";
-import { useTranslation } from "react-i18next";
+
 
 // pages
 const News = lazy(() => import("./pages/news"));
@@ -33,16 +31,10 @@ const ErrorPage = lazy(() => import("./pages/error"));
 
 function App() {
   const { pathname } = useLocation();
-  const { i18n } = useTranslation();
 
   useEffect(() => {
     resize();
   });
-
-  useEffect(() => {
-    SetInterceptors();
-    i18n.changeLanguage("az");
-  }, []);
 
   return (
     <div className="App">
@@ -57,7 +49,7 @@ function App() {
             <Route path={`/news/:id`} render={() => <NewsDetail />} />
             <Route path={`/news`} render={() => <News />} />
             <Route
-              path={`/productions/:slug`}
+              path={`/productions/:id`}
               render={() => <ProductionsDetails />}
             />
             <Route path={`/productions`} render={() => <Productions />} />

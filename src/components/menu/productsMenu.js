@@ -9,8 +9,6 @@ import "../../assets/css/_menu.scss";
 const ProductsMenu = ({ id, setId }) => {
   const searchRef = useRef([]);
 
-  console.log("rendered");
-
   useEffect(() => {
     searchSpan(searchRef);
   }, []);
@@ -46,28 +44,7 @@ const ProductsMenu = ({ id, setId }) => {
                 data-id={item}
                 key={index}
                 onClick={(e) => {
-                  if (
-                    id.includes(Number(e.target.getAttribute("data-id"))) ===
-                    false
-                  ) {
-                    setId((prev) => [
-                      ...prev,
-                      Number(e.target.getAttribute("data-id")),
-                    ]);
-
-                    e.target.classList.add("activeSpan");
-                  } else {
-                    const index = id.indexOf(
-                      Number(e.target.getAttribute("data-id")),
-                      0
-                    );
-
-                    if (index > -1) {
-                      id.splice(index, 1);
-                      setId(id);
-                      e.target.classList.remove("activeSpan");
-                    }
-                  }
+                  setId((prev) => [...prev, ""]);
                 }}
               >
                 Yag {item}
@@ -101,28 +78,7 @@ const ProductsMenu = ({ id, setId }) => {
                 data-id={item}
                 key={index}
                 onClick={(e) => {
-                  if (
-                    id.includes(Number(e.target.getAttribute("data-id"))) ===
-                    false
-                  ) {
-                    setId((prev) => [
-                      ...prev,
-                      Number(e.target.getAttribute("data-id")),
-                    ]);
-
-                    e.target.classList.add("activeSpan");
-                  } else {
-                    const index = id.indexOf(
-                      Number(e.target.getAttribute("data-id")),
-                      0
-                    );
-
-                    if (index > -1) {
-                      id.splice(index, 1);
-                      e.target.classList.remove("activeSpan");
-                      setId(id);
-                    }
-                  }
+                  setId((prev) => [...prev, ""]);
                 }}
               >
                 Yag {item}

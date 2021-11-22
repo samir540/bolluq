@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { Container } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../assets/css/_header.scss";
 
 const Header = ({ headerId }) => {
+  const searchRef = useRef();
+
   return (
     <header className="header" id={headerId}>
+      <div className="header__search" ref={searchRef}>
+        <div className="header__search--item">
+          <img
+            src={require("../../assets/images/close.svg").default}
+            alt="close"
+            onClick={() => {
+              searchRef.current.style.display = "none";
+            }}
+          />
+          <input type="search" placeholder="Axtar..." />
+          <svg
+            width="27"
+            height="27"
+            viewBox="0 0 27 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.2967 16.9811H18.0772L17.6449 16.5643C19.1578 14.8045 20.0686 12.5197 20.0686 10.0343C20.0686 4.49228 15.5763 0 10.0343 0C4.49228 0 0 4.49228 0 10.0343C0 15.5763 4.49228 20.0686 10.0343 20.0686C12.5197 20.0686 14.8045 19.1578 16.5643 17.6449L16.9811 18.0772V19.2967L24.6998 27L27 24.6998L19.2967 16.9811ZM10.0343 16.9811C6.19039 16.9811 3.08748 13.8782 3.08748 10.0343C3.08748 6.19039 6.19039 3.08748 10.0343 3.08748C13.8782 3.08748 16.9811 6.19039 16.9811 10.0343C16.9811 13.8782 13.8782 16.9811 10.0343 16.9811Z"
+              fill="white"
+              fillOpacity="0.62"
+            />
+          </svg>
+        </div>
+      </div>
       <Container>
         <div className="d-flex justify-content-between align-items-center">
           <div className="header__logo">
@@ -48,7 +75,11 @@ const Header = ({ headerId }) => {
           </div>
           <div className="header__langBox d-flex align-items-center">
             <div className="header__langBox--search">
-              <button>
+              <button
+                onClick={() => {
+                  searchRef.current.style.display = "flex";
+                }}
+              >
                 <svg
                   width={24}
                   height={24}
