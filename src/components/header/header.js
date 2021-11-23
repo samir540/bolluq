@@ -53,10 +53,7 @@ const Header = ({ headerId }) => {
               <NavLink to={`/branch`} className="header__nav--item">
                 FİLİALLAR
               </NavLink>
-              <NavLink
-                to={`/products/our-products`}
-                className="header__nav--item"
-              >
+              <NavLink to={`/our-products`} className="header__nav--item">
                 MEHSULLAR
               </NavLink>
               <NavLink to={`/internship`} className="header__nav--item">
