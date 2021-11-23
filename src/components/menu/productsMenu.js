@@ -19,8 +19,8 @@ const ProductsMenu = ({ data }) => {
 
   return (
     <div className="menu">
-      <NavLink to={"/products/our-products"}>BİZİM MARKALAR</NavLink>
-      <NavLink to={"/products/external-products"}>XARİCİ MARKALAR</NavLink>
+      <NavLink to={"/our-products"}>BİZİM MARKALAR</NavLink>
+      <NavLink to={"/external-products"}>XARİCİ MARKALAR</NavLink>
       <div className="menu__details">
         <div className="menu__details--item">
           <div className="menu__detailsSearch">
@@ -45,7 +45,7 @@ const ProductsMenu = ({ data }) => {
           <div className="parent">
             {data !== undefined &&
               data.dryFood.map((item, index) => (
-                <Link to={`/products/our-products/category/${item.slug}`}>
+                <Link to={`/our-products/category/${item.slug}`} key={item.id}>
                   <span
                     className={
                       pathname
@@ -56,7 +56,6 @@ const ProductsMenu = ({ data }) => {
                         : ""
                     }
                     ref={(e) => (allSpan.current[item.id] = e)}
-                    key={item.id}
                     onClick={(e) => {
                       allSpan.current.forEach((element) => {
                         element.classList.remove("activeSpan");
@@ -93,7 +92,7 @@ const ProductsMenu = ({ data }) => {
           <div className="parent">
             {data !== undefined &&
               data.confectionery.map((item) => (
-                <Link to={`/products/our-products/category/${item.slug}`}>
+                <Link to={`/our-products/category/${item.slug}`} key={item.id}>
                   <span
                     className={
                       pathname
@@ -104,7 +103,6 @@ const ProductsMenu = ({ data }) => {
                         : ""
                     }
                     ref={(e) => (allSpan.current[item.id] = e)}
-                    key={item.id}
                     onClick={(e) => {
                       allSpan.current.forEach((element) => {
                         element.classList.remove("activeSpan");
@@ -124,9 +122,7 @@ const ProductsMenu = ({ data }) => {
 };
 
 ProductsMenu.propTypes = {
-  setId: PropTypes.func.isRequired,
-  id: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 };
 
 export default React.memo(ProductsMenu);

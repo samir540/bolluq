@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Row, Col, Container } from "reactstrap";
+import { useParams } from "react-router-dom";
 import Title from "../components/title/title";
 import ProductsMenu from "../components/menu/productsMenu";
 import CustomPagination from "../components/pagination/pagination";
@@ -14,14 +15,18 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
+  const { slug } = useParams();
 
-  const [id, setId] = useState(null);
-
-  const { data, isLoading } = useQuery(["ourBrands", ""], ourBrands, {
-    onSuccess: function (succ) {
-      totalRef.current = succ.meta;
-    },
-  });
+  const { data, isLoading } = useQuery(
+    ["ourBrands", slug !== undefined ? slug : "", page],
+    ourBrands,
+    {
+      refetchOnWindowFocus: false,
+      onSuccess: function (succ) {
+        totalRef.current = succ.meta;
+      },
+    }
+  );
 
   return (
     <div className="products">
@@ -29,7 +34,7 @@ const Products = () => {
       <Container>
         <FancyBox options={{ infinite: false }}>
           <div className="products__wrapper">
-            <ProductsMenu setId={setId} id={id} data={data} />
+            <ProductsMenu data={data} />
             <div className="products__info">
               <Row>
                 {isLoading === false &&
