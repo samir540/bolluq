@@ -109,6 +109,7 @@
       &:hover {
         .header__langBox--multiBox {
           display: flex;
+          flex-direction: column;
         }
       }
 

@@ -8,6 +8,8 @@ import NewsSlider from "../components/sliders/newsSlider";
 import { useQueries } from "react-query";
 import {
   certificates,
+  homePageSliderProducts,
+  homePageTopSlider,
   newsApi,
   partners,
   statistics,
@@ -27,6 +29,16 @@ const HomePage = () => {
     },
     { queryKey: ["newsApi"], queryFn: newsApi, refetchOnWindowFocus: false },
     { queryKey: ["partnyors"], queryFn: partners, refetchOnWindowFocus: false },
+    {
+      queryKey: ["homePageTopSlider"],
+      queryFn: homePageTopSlider,
+      refetchOnWindowFocus: false,
+    },
+    {
+      queryKey: ["homePageSliderProducts"],
+      queryFn: homePageSliderProducts,
+      refetchOnWindowFocus: false,
+    },
   ]);
 
   return (
@@ -38,15 +50,13 @@ const HomePage = () => {
             type: "loop",
           }}
         >
-          <SplideSlide>
-            <img src={require("../assets/images/cookie.jfif").default} alt="" />
-          </SplideSlide>
-          <SplideSlide>
-            <img src={require("../assets/images/cookie.jfif").default} alt="" />
-          </SplideSlide>
-          <SplideSlide>
-            <img src={require("../assets/images/cookie.jfif").default} alt="" />
-          </SplideSlide>
+          {results[4].isLoading === false &&
+            results[4].data !== undefined &&
+            results[4].data.data.map((item) => (
+              <SplideSlide key={item.id}>
+                <img src={item.image} alt={item.id} />
+              </SplideSlide>
+            ))}
         </Splide>
       </div>
       <Container>
@@ -66,7 +76,9 @@ const HomePage = () => {
               </div>
             ))}
         </div>
-        <ProductSlider items={[1, 2, 3, 4]} />
+        {results[5].isLoading === false && results[5].data !== undefined && (
+          <ProductSlider items={results[5].data} />
+        )}
         {results[1].isLoading === false && results[1].data !== undefined && (
           <MultiSlider items={results[1].data} title={"Sertifikatlar"} />
         )}

@@ -29,7 +29,7 @@ const ProductsExternal = lazy(() => import("./pages/productsExternal"));
 const Structure = lazy(() => import("./pages/structure"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
-function App() {
+function App({ lang }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -41,7 +41,10 @@ function App() {
       <Title>
         <title>Bolluq</title>
       </Title>
-      <Header headerId={pathname === "/" ? "homeHeader" : "inHeader"} />
+      <Header
+        lang={lang}
+        headerId={pathname === "/" ? "homeHeader" : "inHeader"}
+      />
       <Main>
         <Suspense fallback={<Loading />}>
           <Switch>
@@ -69,6 +72,10 @@ function App() {
               render={() => <ProductsOur />}
             />
             <Route path={`/our-products`} render={() => <ProductsOur />} />
+            <Route
+              path={`/external-products/category/:slug`}
+              render={() => <ProductsExternal />}
+            />
             <Route
               path={`/external-products`}
               render={() => <ProductsExternal />}

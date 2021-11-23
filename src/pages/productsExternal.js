@@ -3,6 +3,7 @@ import { Row, Col, Container } from "reactstrap";
 import Title from "../components/title/title";
 import ProductsMenu from "../components/menu/productsMenu";
 import CustomPagination from "../components/pagination/pagination";
+import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { foreignBrands } from "../queries/queries";
 
@@ -13,9 +14,9 @@ import { Link } from "react-router-dom";
 const ProductsExternal = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
-
+  const { slug } = useParams();
   const { data, isLoading } = useQuery(
-    ["foreignBrands", "", page],
+    ["foreignBrands", slug !== undefined ? slug : "", page],
     foreignBrands,
     {
       refetchOnWindowFocus: false,
@@ -30,14 +31,14 @@ const ProductsExternal = () => {
       <Title title={"MƏHSULLAR"} />
       <Container>
         <div className="products__wrapper">
-          <ProductsMenu data={data} />
+          <ProductsMenu type="external-products" data={data} />
           <div className="products__info">
             <Row>
               {isLoading === false &&
                 data !== undefined &&
                 data.data.map((item, index) => (
                   <Col lg="4" key={index}>
-                    <Link to={`/external-products/${item.slug}`}>
+                    <Link to={`/external-products/category/${item.slug}`}>
                       <div className="productSlider__items">
                         <div className="productSlider__items--img">
                           <img
@@ -46,21 +47,6 @@ const ProductsExternal = () => {
                             src={item.image}
                             alt={item.title}
                           />
-                        </div>
-                        <div className="productSlider__items--info">
-                          <h2>{item.title}</h2>
-                          <p>
-                            <span>Çəki</span>
-                            <span>{item.weight}</span>
-                          </p>
-                          <p>
-                            <span>Qablaşdırma</span>
-                            <span>{item.packaging}</span>
-                          </p>
-                          <p>
-                            <span>Kod</span>
-                            <span>{item.code}</span>
-                          </p>
                         </div>
                       </div>
                     </Link>

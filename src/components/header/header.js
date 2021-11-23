@@ -3,9 +3,14 @@ import { connect } from "react-redux";
 import { Container } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../assets/css/_header.scss";
+import i18n from "../../i18/i18n";
 
-const Header = ({ headerId }) => {
+const Header = ({ headerId, lang }) => {
   const searchRef = useRef();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <header className="header" id={headerId}>
@@ -94,7 +99,7 @@ const Header = ({ headerId }) => {
             </div>
             <div className="header__langBox--multiLang d-flex align-items-center justify-content-center flex-column">
               <button className="az">
-                AZ
+                {localStorage.getItem("i18nextLng").toUpperCase()}
                 <svg
                   width={10}
                   height={6}
@@ -106,7 +111,18 @@ const Header = ({ headerId }) => {
                 </svg>
               </button>
               <div className="header__langBox--multiBox">
-                <button className="en">EN</button>
+                {lang.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      changeLanguage(item.locale);
+                      window.location.href = `/${item.locale}`;
+                      // window.location.reload();
+                    }}
+                  >
+                    {item.locale.toUpperCase()}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

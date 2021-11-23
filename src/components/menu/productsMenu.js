@@ -6,11 +6,9 @@ import PropTypes from "prop-types";
 // css
 import "../../assets/css/_menu.scss";
 
-const ProductsMenu = ({ data }) => {
+const ProductsMenu = ({ data, type }) => {
   const { pathname } = useLocation();
-
   const searchRef = useRef([]);
-
   const allSpan = useRef([]);
 
   useEffect(() => {
@@ -44,8 +42,8 @@ const ProductsMenu = ({ data }) => {
           </div>
           <div className="parent">
             {data !== undefined &&
-              data.dryFood.map((item, index) => (
-                <Link to={`/our-products/category/${item.slug}`} key={item.id}>
+              data.dryFood.map((item) => (
+                <Link to={`/${type}/category/${item.slug}`} key={item.id}>
                   <span
                     className={
                       pathname
@@ -92,7 +90,7 @@ const ProductsMenu = ({ data }) => {
           <div className="parent">
             {data !== undefined &&
               data.confectionery.map((item) => (
-                <Link to={`/our-products/category/${item.slug}`} key={item.id}>
+                <Link to={`/${type}/category/${item.slug}`} key={item.id}>
                   <span
                     className={
                       pathname
@@ -123,6 +121,7 @@ const ProductsMenu = ({ data }) => {
 
 ProductsMenu.propTypes = {
   data: PropTypes.object,
+  type: PropTypes.string.isRequired,
 };
 
 export default React.memo(ProductsMenu);

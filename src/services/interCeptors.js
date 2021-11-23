@@ -1,11 +1,9 @@
 import axios from "axios";
 
 export function SetInterceptors() {
+  let lang = localStorage.getItem("i18nextLng");
+
   axios.interceptors.request.use(async function (config) {
-    let lang = localStorage.getItem("i18nextLng");
-
-    console.log(lang)
-
     if (lang) {
       config.headers["locale"] = lang;
     } else {
@@ -21,6 +19,10 @@ export function SetInterceptors() {
     },
     function (error) {
       if (error.response !== undefined) {
+        if (error.response.status !== 200) {
+          window.location.href = `/${lang}/404`;
+        }
+
         return Promise.reject(error);
       }
     }

@@ -34,7 +34,7 @@ language().then((res) => {
           <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
             <Provider store={store}>
               <QueryClientProvider client={newClient}>
-                <App />
+                <App lang={res.data} />
               </QueryClientProvider>
             </Provider>
           </BrowserRouter>
@@ -51,7 +51,7 @@ language().then((res) => {
             <BrowserRouter basename={localStorage.getItem("i18nextLng")}>
               <Provider store={store}>
                 <QueryClientProvider client={newClient}>
-                  <App />
+                  <App lang={res.data} />
                 </QueryClientProvider>
               </Provider>
             </BrowserRouter>

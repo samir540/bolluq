@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Row, Col, Container } from "reactstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Title from "../components/title/title";
 import ProductsMenu from "../components/menu/productsMenu";
 import CustomPagination from "../components/pagination/pagination";
@@ -34,7 +34,7 @@ const Products = () => {
       <Container>
         <FancyBox options={{ infinite: false }}>
           <div className="products__wrapper">
-            <ProductsMenu data={data} />
+            <ProductsMenu type="our-products" data={data} />
             <div className="products__info">
               <Row>
                 {isLoading === false &&

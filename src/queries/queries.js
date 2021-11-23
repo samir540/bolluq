@@ -76,7 +76,21 @@ export const ourBrands = async (key) => {
 };
 
 export const foreignBrands = async (key) => {
-  const res = await axios.get(baseUrl + `foreign-brands/${key.queryKey[1]}`);
+  const res = await axios.get(
+    baseUrl + `foreign-brands/${key.queryKey[1]}?page=${key.queryKey[2]}`
+  );
+
+  return await res.data;
+};
+
+export const homePageTopSlider = async (key) => {
+  const res = await axios.get(baseUrl + `sliders`);
+
+  return await res.data;
+};
+
+export const homePageSliderProducts = async (key) => {
+  const res = await axios.get(baseUrl + `products`);
 
   return await res.data;
 };
