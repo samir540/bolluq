@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Container } from "reactstrap";
 import HRMenu from "../components/menu/humanResurcesMenu";
 import CustomPagination from "../components/pagination/pagination";
@@ -6,17 +6,30 @@ import CustomPagination from "../components/pagination/pagination";
 import "../assets/css/_vacancies.scss";
 import Title from "../components/title/title";
 import { useQuery } from "react-query";
-import { vacanciesApi } from "../queries/queries";
-import { Link } from "react-router-dom";
+import { vacanciesApi, vacanciesFilter } from "../queries/queries";
+import { Link, useLocation, useHistory } from "react-router-dom";
+
+function useQueryData() {
+  return new URLSearchParams(useLocation().search);
+}
 
 const Vacancies = () => {
-  const [number, setNumber] = useState(0);
-  const [params, setParams] = useState([]);
+  const searchLink = useQueryData();
 
+  const [number, setNumber] = useState(0);
   const totalRef = useRef(null);
 
+  const [position, setPosition] = useState([]);
+  const [occupation, setOccupation] = useState([]);
+
+  const btnRef = useRef([]);
   const { data, isLoading } = useQuery(
-    ["newsAll", params, number],
+    [
+      "newsAll",
+      position.length !== 0 ? position : null,
+      occupation.length !== 0 ? occupation : null,
+      number,
+    ],
     vacanciesApi,
     {
       refetchOnWindowFocus: false,
@@ -26,9 +39,27 @@ const Vacancies = () => {
     }
   );
 
+  const vacancyFilter = useQuery(["vacancyFilter"], vacanciesFilter, {
+    refetchOnWindowFocus: false,
+  });
+
   const setPage = useCallback((e) => {
     setNumber(e);
   }, []);
+
+  useEffect(() => {
+    btnRef.current.forEach((elem) => {
+      elem.onclick = function () {
+        if (elem.nextElementSibling.classList.contains("hideElem")) {
+          elem.nextElementSibling.classList.remove("hideElem");
+        } else {
+          elem.nextElementSibling.classList.add("hideElem");
+        }
+      };
+    });
+  }, []);
+
+  const history = useHistory();
 
   return (
     <div className="vacancies">
@@ -56,7 +87,7 @@ const Vacancies = () => {
                 </div>
                 <div className="parent">
                   <div className="parent__info">
-                    <button>
+                    <button ref={(e) => (btnRef.current[0] = e)}>
                       Vezife
                       <svg
                         width="20"
@@ -71,19 +102,35 @@ const Vacancies = () => {
                         />
                       </svg>
                     </button>
-                    {isLoading === false &&
-                      data !== undefined &&
-                      data.positions.map((item) => (
-                        <p className="parent__checkBox" key={item.id}>
-                          <label htmlFor={item.title}>
-                            <input id={item.title} type="checkbox" />
-                            {item.title}
-                          </label>
-                        </p>
-                      ))}
+                    <div className="hideElem">
+                      {vacancyFilter.isLoading === false &&
+                        vacancyFilter.data !== undefined &&
+                        vacancyFilter.data.positions.map((item) => (
+                          <p className="parent__checkBox" key={item.id}>
+                            <label htmlFor={item.title}>
+                              <input
+                                id={item.title}
+                                type="checkbox"
+                                onClick={(e) => {
+                                  if (e.target.checked === true) {
+                                    setPosition((prev) => [...prev, item.id]);
+                                  } else {
+                                    const index = position.indexOf(item.id, 0);
+                                    if (index > -1) {
+                                      position.splice(index, 1);
+                                      setPosition(occupation);
+                                    }
+                                  }
+                                }}
+                              />
+                              {item.title}
+                            </label>
+                          </p>
+                        ))}
+                    </div>
                   </div>
                   <div className="parent__info">
-                    <button>
+                    <button ref={(e) => (btnRef.current[1] = e)}>
                       Vezife
                       <svg
                         width="20"
@@ -98,16 +145,39 @@ const Vacancies = () => {
                         />
                       </svg>
                     </button>
-                    {isLoading === false &&
-                      data !== undefined &&
-                      data.occupations.map((item) => (
-                        <p className="parent__checkBox" key={item.id}>
-                          <label htmlFor={item.title}>
-                            <input id={item.title} type="checkbox" />
-                            {item.title}
-                          </label>
-                        </p>
-                      ))}
+                    <div className="hideElem">
+                      {vacancyFilter.isLoading === false &&
+                        vacancyFilter.data !== undefined &&
+                        vacancyFilter.data.occupations.map((item) => (
+                          <p className="parent__checkBox" key={item.id}>
+                            <label htmlFor={item.title}>
+                              <input
+                                id={item.title}
+                                type="checkbox"
+                                onClick={(e) => {
+                                  if (e.target.checked === true) {
+                                    setOccupation((prev) => [...prev, item.id]);
+                                    history.push({
+                                      pathname: `/vacancies/qwdqwd`,
+                                    });
+                                  } else {
+                                    const index = occupation.indexOf(
+                                      item.id,
+                                      0
+                                    );
+
+                                    if (index > -1) {
+                                      occupation.splice(index, 1);
+                                      setOccupation(occupation);
+                                    }
+                                  }
+                                }}
+                              />
+                              {item.title}
+                            </label>
+                          </p>
+                        ))}
+                    </div>
                   </div>
                 </div>
               </div>

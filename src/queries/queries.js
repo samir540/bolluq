@@ -72,9 +72,23 @@ export const foreignBrands = async (key) => {
 };
 
 export const vacanciesApi = async (key) => {
+  const request = {
+    params: {
+      position: key.queryKey[1],
+      occupation: key.queryKey[2],
+    },
+  };
+
   const res = await axios.get(
-    baseUrl + `vacancies/${key.queryKey[1]}?page=${key.queryKey[2]}`
+    baseUrl + `vacancies/?page=${key.queryKey[3]}`,
+    request
   );
+
+  return await res.data;
+};
+
+export const vacanciesFilter = async (key) => {
+  const res = await axios.get(baseUrl + `vacancy-filter`);
 
   return await res.data;
 };
