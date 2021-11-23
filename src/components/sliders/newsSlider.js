@@ -14,10 +14,10 @@ const NewsSlider = ({ items, title, lang }) => {
           options={{
             gap: "39px",
             perPage: 3,
-            arrows: items.data.length > 3 ? true : false,
+            arrows: items.length > 3 ? true : false,
           }}
         >
-          {items.data.map((item) => (
+          {items.map((item) => (
             <SplideSlide key={item.id}>
               <div className="newsSlider__items">
                 <div className="newsSlider__items--imgBox">
@@ -57,7 +57,7 @@ const NewsSlider = ({ items, title, lang }) => {
 };
 
 NewsSlider.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 };
 

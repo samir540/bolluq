@@ -1,5 +1,59 @@
 .vacancies {
   margin-bottom: 159px;
+
+  .menu__details {
+    padding-right: 50px;
+  }
+
+  .parent {
+    padding: 0 20px;
+    &__info {
+      &:last-child {
+        margin-top: 28px;
+      }
+
+      button {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        font-family: Poppins !important;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 25px;
+        color: #000000;
+        margin-bottom: 25px;
+      }
+    }
+
+    &__checkBox {
+      display: flex;
+      align-items: center;
+      input {
+        margin-right: 7px;
+        appearance: none;
+        background: rgba(196, 196, 196, 0.5);
+        width: 15px;
+        height: 15px;
+        border-radius: 5px;
+        margin-bottom: -2px;
+
+        &:checked {
+          background-image: url("../images/check.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 70%;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
   &__wrapper {
     width: calc(100% - 292px);
 
@@ -41,7 +95,7 @@
         div {
           border: 1px solid rgba(0, 0, 0, 0.22);
           border-radius: 15px;
-          padding: 13px 36px 0px;
+          padding: 13px 36px;
         }
 
         p {
@@ -49,10 +103,12 @@
           font-size: 12px;
           font-weight: 400;
           line-height: 15px;
+          margin-bottom: 0;
         }
         span img {
           margin-right: 5px;
           margin-top: -4px;
+          margin-right: 15px;
         }
         &--date {
           color: #bf0807;
@@ -64,6 +120,13 @@
           font-size: 12px;
           font-weight: 600;
           line-height: 15px;
+
+          a {
+            color: #000000;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 15px;
+          }
           span {
             margin-left: 14px;
           }

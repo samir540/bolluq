@@ -16,7 +16,7 @@ i18n
       caches: ["localStorage"],
     },
     backend: {
-      loadPath: baseUrl + "translation/messages/{{lng}}",
+      loadPath: baseUrl + "translation/{{lng}}",
     },
     debug: process.env.NODE_ENV !== "production",
     lng: localStorage.getItem("i18nextLng"),

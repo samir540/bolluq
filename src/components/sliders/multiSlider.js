@@ -11,10 +11,10 @@ const MultiSlider = ({ items, title, id }) => {
         options={{
           gap: "39px",
           perPage: 4,
-          arrows: items.data.length > 4 ? true : false,
+          arrows: items.length > 4 ? true : false,
         }}
       >
-        {items.data.map((item) => (
+        {items.map((item) => (
           <SplideSlide key={item.id}>
             <div className="productSlider__items">
               <div className="productSlider__items--img">
@@ -29,7 +29,7 @@ const MultiSlider = ({ items, title, id }) => {
 };
 
 MultiSlider.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 };
 

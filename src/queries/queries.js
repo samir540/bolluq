@@ -1,8 +1,8 @@
 import { baseUrl } from "../services/api";
 import axios from "axios";
 
-export const statistics = async (key) => {
-  const res = await axios.get(baseUrl + "statistics");
+export const init = async (key) => {
+  const res = await axios.get(baseUrl + `init`);
 
   return await res.data;
 };
@@ -19,12 +19,6 @@ export const aboutApi = async (key) => {
   return await res.data;
 };
 
-export const certificates = async (key) => {
-  const res = await axios.get(baseUrl + "certificates");
-
-  return await res.data;
-};
-
 export const newsApi = async (key) => {
   const res = await axios.get(baseUrl + `news/?page=${key.queryKey[1]}`);
 
@@ -33,12 +27,6 @@ export const newsApi = async (key) => {
 
 export const newsDetailApi = async (key) => {
   const res = await axios.get(baseUrl + `news/${key.queryKey[1]}`);
-
-  return await res.data;
-};
-
-export const partners = async (key) => {
-  const res = await axios.get(baseUrl + "partners");
 
   return await res.data;
 };
@@ -83,14 +71,10 @@ export const foreignBrands = async (key) => {
   return await res.data;
 };
 
-export const homePageTopSlider = async (key) => {
-  const res = await axios.get(baseUrl + `sliders`);
-
-  return await res.data;
-};
-
-export const homePageSliderProducts = async (key) => {
-  const res = await axios.get(baseUrl + `products`);
+export const vacanciesApi = async (key) => {
+  const res = await axios.get(
+    baseUrl + `vacancies/${key.queryKey[1]}?page=${key.queryKey[2]}`
+  );
 
   return await res.data;
 };

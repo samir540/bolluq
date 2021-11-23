@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import { Container } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../../assets/css/_header.scss";
+import { useTranslation } from "react-i18next";
 import i18n from "../../i18/i18n";
 
 const Header = ({ headerId, lang }) => {
+  const { t } = useTranslation();
   const searchRef = useRef();
 
   const changeLanguage = (lng) => {
@@ -53,25 +55,25 @@ const Header = ({ headerId, lang }) => {
           <div className="header__nav">
             <nav>
               <NavLink to={`/about`} className="header__nav--item">
-                BİZ KİMİK
+                {t("BİZ KİMİK")}
               </NavLink>
               <NavLink to={`/branch`} className="header__nav--item">
-                FİLİALLAR
+                {t("FİLİALLAR")}
               </NavLink>
               <NavLink to={`/our-products`} className="header__nav--item">
-                MEHSULLAR
+                {t("MEHSULLAR")}
               </NavLink>
               <NavLink to={`/internship`} className="header__nav--item">
-                İNSAN RESURSLARI
+                {t("İNSAN RESURSLARI")}
               </NavLink>
               <NavLink to={`/export`} className="header__nav--item">
-                EXPORT
+                {t("EXPORT")}
               </NavLink>
               <NavLink to={`/catalogs`} className="header__nav--item">
-                KATALOQ
+                {t("KATALOQ")}
               </NavLink>
               <NavLink to={`/contact`} className="header__nav--item">
-                ƏLAQƏ
+                {t("ƏLAQƏ")}
               </NavLink>
             </nav>
           </div>
@@ -117,7 +119,6 @@ const Header = ({ headerId, lang }) => {
                     onClick={() => {
                       changeLanguage(item.locale);
                       window.location.href = `/${item.locale}`;
-                      // window.location.reload();
                     }}
                   >
                     {item.locale.toUpperCase()}

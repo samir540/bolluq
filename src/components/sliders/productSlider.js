@@ -15,7 +15,7 @@ const ProductSlider = ({ items }) => {
           arrows: items.length > 4 ? true : false,
         }}
       >
-        {items.data.map((item) => (
+        {items.map((item) => (
           <SplideSlide key={item.id}>
             <Link to={`/products-detail/${item.slug}`}>
               <div className="productSlider__items">
@@ -47,7 +47,7 @@ const ProductSlider = ({ items }) => {
 };
 
 ProductSlider.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 export default ProductSlider;

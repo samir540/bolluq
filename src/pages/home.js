@@ -5,44 +5,23 @@ import { Container } from "reactstrap";
 import ProductSlider from "../components/sliders/productSlider";
 import MultiSlider from "../components/sliders/multiSlider";
 import NewsSlider from "../components/sliders/newsSlider";
-import { useQueries } from "react-query";
-import {
-  certificates,
-  homePageSliderProducts,
-  homePageTopSlider,
-  newsApi,
-  partners,
-  statistics,
-} from "../queries/queries";
+import { useQueries, useQuery } from "react-query";
+import Title from "../title/title";
+import { useTranslation } from "react-i18next";
+import { init } from "../queries/queries";
 
 const HomePage = () => {
-  const results = useQueries([
-    {
-      queryKey: ["statistics"],
-      queryFn: statistics,
-      refetchOnWindowFocus: false,
-    },
-    {
-      queryKey: ["certifcates"],
-      queryFn: certificates,
-      refetchOnWindowFocus: false,
-    },
-    { queryKey: ["newsApi"], queryFn: newsApi, refetchOnWindowFocus: false },
-    { queryKey: ["partnyors"], queryFn: partners, refetchOnWindowFocus: false },
-    {
-      queryKey: ["homePageTopSlider"],
-      queryFn: homePageTopSlider,
-      refetchOnWindowFocus: false,
-    },
-    {
-      queryKey: ["homePageSliderProducts"],
-      queryFn: homePageSliderProducts,
-      refetchOnWindowFocus: false,
-    },
-  ]);
+  const { t } = useTranslation();
+
+  const { data, isLoading } = useQuery(["init", ""], init, {
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <div className="homePage">
+      <Title>
+        <title>Bolluq</title>
+      </Title>
       <div className="homePage__slider">
         <div className="homePage__sliderLayout"></div>
         <Splide
@@ -50,9 +29,9 @@ const HomePage = () => {
             type: "loop",
           }}
         >
-          {results[4].isLoading === false &&
-            results[4].data !== undefined &&
-            results[4].data.data.map((item) => (
+          {isLoading === false &&
+            data !== undefined &&
+            data.sliders.map((item) => (
               <SplideSlide key={item.id}>
                 <img src={item.image} alt={item.id} />
               </SplideSlide>
@@ -61,9 +40,9 @@ const HomePage = () => {
       </div>
       <Container>
         <div className="homePage__count d-flex align-items-center">
-          {results[0].isLoading === false &&
-            results[0].data !== undefined &&
-            results[0].data.data.map((item) => (
+          {isLoading === false &&
+            data !== undefined &&
+            data.statistics.map((item) => (
               <div
                 key={item.id}
                 className="homePage__count--item d-flex justify-content-center align-items-center flex-column"
@@ -76,18 +55,18 @@ const HomePage = () => {
               </div>
             ))}
         </div>
-        {results[5].isLoading === false && results[5].data !== undefined && (
-          <ProductSlider items={results[5].data} />
+        {isLoading === false && data !== undefined && data.products && (
+          <ProductSlider items={data.products} />
         )}
-        {results[1].isLoading === false && results[1].data !== undefined && (
-          <MultiSlider items={results[1].data} title={"Sertifikatlar"} />
+        {isLoading === false && data !== undefined && data.certificates && (
+          <MultiSlider items={data.certificates} title={"Sertifikatlar"} />
         )}
-        {results[2].isLoading === false && results[2].data !== undefined && (
-          <NewsSlider items={results[2].data} title={"Xəbərlər"} />
+        {isLoading === false && data !== undefined && data.news && (
+          <NewsSlider items={data.news} title={"Xəbərlər"} />
         )}
-        {results[3].isLoading === false && results[3].data !== undefined && (
+        {isLoading === false && data !== undefined && (
           <MultiSlider
-            items={results[3].data}
+            items={data.partners}
             title={"Partnyorlar"}
             id={"endMultiSlider"}
           />
