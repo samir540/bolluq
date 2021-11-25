@@ -15,8 +15,9 @@ const ProductsExternal = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
   const { slug } = useParams();
+
   const { data, isLoading } = useQuery(
-    ["foreignBrands", slug !== undefined ? slug : "", page],
+    ["foreignBrands", slug !== undefined ? "/" + slug : "", page],
     foreignBrands,
     {
       refetchOnWindowFocus: false,
@@ -38,7 +39,13 @@ const ProductsExternal = () => {
                 data !== undefined &&
                 data.data.map((item, index) => (
                   <Col lg="4" key={index}>
-                    <Link to={`/external-products/category/${item.slug}`}>
+                    <Link
+                      to={
+                        slug !== undefined
+                          ? `/products-detail/${item.slug}`
+                          : `/external-products/category/${item.slug}`
+                      }
+                    >
                       <div className="productSlider__items">
                         <div className="productSlider__items--img">
                           <img

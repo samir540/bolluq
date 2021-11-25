@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import renderHtml from "react-render-html";
 import PropTypes from "prop-types";
 
-const NewsSlider = ({ items, title, lang }) => {
+const NewsSlider = ({ items, title }) => {
   return (
     <div className="newsSlider">
       <h2 className="title">{title}</h2>
@@ -31,7 +31,7 @@ const NewsSlider = ({ items, title, lang }) => {
                   <div className="newsSlider__items--text">
                     {renderHtml(item.description)}
                   </div>
-                  <Link to={`${lang}/news/${item.slug}`}>
+                  <Link to={`/news/${item.slug}`}>
                     Daha ətrafli bax
                     <svg
                       width={15}

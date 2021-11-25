@@ -20,7 +20,7 @@ export const aboutApi = async (key) => {
 };
 
 export const newsApi = async (key) => {
-  const res = await axios.get(baseUrl + `news/?page=${key.queryKey[1]}`);
+  const res = await axios.get(baseUrl + `news?page=${key.queryKey[1]}`);
 
   return await res.data;
 };
@@ -57,7 +57,7 @@ export const productionDetail = async (key) => {
 
 export const ourBrands = async (key) => {
   const res = await axios.get(
-    baseUrl + `our-brands/${key.queryKey[1]}?page=${key.queryKey[2]}`
+    baseUrl + `our-brands${key.queryKey[1]}?page=${key.queryKey[2]}`
   );
 
   return await res.data;
@@ -65,7 +65,15 @@ export const ourBrands = async (key) => {
 
 export const foreignBrands = async (key) => {
   const res = await axios.get(
-    baseUrl + `foreign-brands/${key.queryKey[1]}?page=${key.queryKey[2]}`
+    baseUrl + `foreign-brands${key.queryKey[1]}?page=${key.queryKey[2]}`
+  );
+
+  return await res.data;
+};
+
+export const productDetail = async (key) => {
+  const res = await axios.get(
+    baseUrl + `product/${key.queryKey[1]}?page=${key.queryKey[2]}`
   );
 
   return await res.data;
@@ -74,13 +82,13 @@ export const foreignBrands = async (key) => {
 export const vacanciesApi = async (key) => {
   const request = {
     params: {
-      position: key.queryKey[1],
-      occupation: key.queryKey[2],
+      position: key.queryKey[1].position,
+      occupation: key.queryKey[1].occupation,
     },
   };
 
   const res = await axios.get(
-    baseUrl + `vacancies/?page=${key.queryKey[3]}`,
+    baseUrl + `vacancies?page=${key.queryKey[2]}`,
     request
   );
 
@@ -89,6 +97,24 @@ export const vacanciesApi = async (key) => {
 
 export const vacanciesFilter = async (key) => {
   const res = await axios.get(baseUrl + `vacancy-filter`);
+
+  return await res.data;
+};
+
+export const vacanciesDetail = async (key) => {
+  const res = await axios.get(baseUrl + `vacancies/${key.queryKey[1]}`);
+
+  return await res.data;
+};
+
+export const internship = async (key) => {
+  const res = await axios.get(baseUrl + `internship`);
+
+  return await res.data;
+};
+
+export const rule = async (key) => {
+  const res = await axios.get(baseUrl + `rule`);
 
   return await res.data;
 };

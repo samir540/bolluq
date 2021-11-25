@@ -7,29 +7,18 @@ import "../assets/css/_vacancies.scss";
 import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { vacanciesApi, vacanciesFilter } from "../queries/queries";
-import { Link, useLocation, useHistory } from "react-router-dom";
-
-function useQueryData() {
-  return new URLSearchParams(useLocation().search);
-}
+import { Link } from "react-router-dom";
 
 const Vacancies = () => {
-  const searchLink = useQueryData();
-
   const [number, setNumber] = useState(0);
   const totalRef = useRef(null);
-
-  const [position, setPosition] = useState([]);
-  const [occupation, setOccupation] = useState([]);
-
+  const [params, setParams] = useState({
+    position: [],
+    occupation: [],
+  });
   const btnRef = useRef([]);
-  const { data, isLoading } = useQuery(
-    [
-      "newsAll",
-      position.length !== 0 ? position : null,
-      occupation.length !== 0 ? occupation : null,
-      number,
-    ],
+  const { data, isLoading, refetch } = useQuery(
+    ["vacanciesAll", params, number],
     vacanciesApi,
     {
       refetchOnWindowFocus: false,
@@ -58,8 +47,6 @@ const Vacancies = () => {
       };
     });
   }, []);
-
-  const history = useHistory();
 
   return (
     <div className="vacancies">
@@ -113,12 +100,19 @@ const Vacancies = () => {
                                 type="checkbox"
                                 onClick={(e) => {
                                   if (e.target.checked === true) {
-                                    setPosition((prev) => [...prev, item.id]);
+                                    setParams((prev) => ({
+                                      ...prev,
+                                      position: [...params.position, item.id],
+                                    }));
                                   } else {
-                                    const index = position.indexOf(item.id, 0);
+                                    const index = params.position.indexOf(
+                                      item.id,
+                                      0
+                                    );
                                     if (index > -1) {
-                                      position.splice(index, 1);
-                                      setPosition(occupation);
+                                      params.position.splice(index, 1);
+                                      setParams(params);
+                                      refetch();
                                     }
                                   }
                                 }}
@@ -131,7 +125,7 @@ const Vacancies = () => {
                   </div>
                   <div className="parent__info">
                     <button ref={(e) => (btnRef.current[1] = e)}>
-                      Vezife
+                      Fəaliyyət
                       <svg
                         width="20"
                         height="20"
@@ -156,19 +150,22 @@ const Vacancies = () => {
                                 type="checkbox"
                                 onClick={(e) => {
                                   if (e.target.checked === true) {
-                                    setOccupation((prev) => [...prev, item.id]);
-                                    history.push({
-                                      pathname: `/vacancies/qwdqwd`,
-                                    });
+                                    setParams((prev) => ({
+                                      ...prev,
+                                      occupation: [
+                                        ...params.occupation,
+                                        item.id,
+                                      ],
+                                    }));
                                   } else {
-                                    const index = occupation.indexOf(
+                                    const index = params.occupation.indexOf(
                                       item.id,
                                       0
                                     );
-
-                                    if (index > -1) {
-                                      occupation.splice(index, 1);
-                                      setOccupation(occupation);
+                                    if (index >= -1) {
+                                      params.occupation.splice(index, 1);
+                                      setParams(params);
+                                      refetch();
                                     }
                                   }
                                 }}

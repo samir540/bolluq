@@ -26,6 +26,7 @@ const Catalogs = lazy(() => import("./pages/catalogs"));
 const Contact = lazy(() => import("./pages/contact"));
 const ProductsOur = lazy(() => import("./pages/productsOur"));
 const ProductsExternal = lazy(() => import("./pages/productsExternal"));
+const ProductsDetails = lazy(() => import("./pages/productDetails"));
 const Structure = lazy(() => import("./pages/structure"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
@@ -59,7 +60,10 @@ function App({ lang }) {
             <Route path={`/branch`} render={() => <Branch />} />
             <Route path={`/internship`} render={() => <InternShip />} />
             <Route path={`/rules`} render={() => <InternShipRules />} />
-            <Route path={`/vacancies/:id`} render={() => <VacanciesDetail />} />
+            <Route
+              path={`/vacancies/:slug`}
+              render={() => <VacanciesDetail />}
+            />
             <Route path={`/vacancies`} render={() => <Vacancies />} />
             <Route path={`/about`} render={() => <About />} />
             <Route path={`/history`} render={() => <History />} />
@@ -79,6 +83,10 @@ function App({ lang }) {
             <Route
               path={`/external-products`}
               render={() => <ProductsExternal />}
+            />
+            <Route
+              path={`/products-detail/:slug`}
+              render={() => <ProductsDetails />}
             />
             <Route path={`/structure`} render={() => <Structure />} />
             <Route path={"*"} render={() => <ErrorPage />} />
