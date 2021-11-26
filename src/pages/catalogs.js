@@ -8,10 +8,32 @@ import { useQuery } from "react-query";
 import { catalog } from "../queries/queries";
 import { saveAs } from "file-saver";
 
+var FileSaver = require("file-saver");
+
 const Catalogs = () => {
   const { data, isLoading } = useQuery(["catalogs"], catalog, {
     refetchOnWindowFocus: false,
   });
+
+  const download = (url) => {
+    var oReq = new XMLHttpRequest();
+
+    var URLToPDF = url;
+
+    oReq.open("GET", URLToPDF, true);
+
+    oReq.responseType = "blob";
+
+    oReq.onload = function () {
+      var file = new Blob([oReq.response], {
+        type: "application/pdf",
+      });
+
+      saveAs(file, "mypdffilename.pdf");
+    };
+
+    oReq.send();
+  };
 
   return (
     <div className="catalogs">
@@ -63,6 +85,7 @@ const Catalogs = () => {
                     href={item.file}
                     onClick={(e) => {
                       e.preventDefault();
+                      download(item.file);
                     }}
                   >
                     <span>

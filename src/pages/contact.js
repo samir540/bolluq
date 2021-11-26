@@ -18,7 +18,6 @@ const Contact = () => {
   const { mutate, isLoading } = useMutation((data) => contact(data), {
     onSuccess: (succ) => {
       if (succ.status === 200) {
-        
       }
 
       swal({
@@ -30,9 +29,14 @@ const Contact = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-
-    mutate(data);
+    const formData = new FormData();
+    formData.append("firstname", data.firstname);
+    formData.append("lastname", data.lastname);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("message", data.message);
+    formData.append("file", data.file[0]);
+    mutate(formData);
   };
 
   return (

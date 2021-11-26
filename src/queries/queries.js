@@ -120,9 +120,14 @@ export const rule = async (key) => {
 };
 
 export const contact = async (key) => {
+
+  console.log(key)
+
   const res = await axios.post(baseUrl + `contact`, key, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type":
+        "application/x-www-form-urlencoded; multipart/form-data; charset=utf-8; boundary=" +
+        Math.random().toString().substr(2),
     },
   });
 
