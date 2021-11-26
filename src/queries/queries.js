@@ -118,3 +118,19 @@ export const rule = async (key) => {
 
   return await res.data;
 };
+
+export const contact = async (key) => {
+  const res = await axios.post(baseUrl + `contact`, key, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return await res.data;
+};
+
+export const catalog = async (key) => {
+  const res = await axios.get(baseUrl + `catalog`);
+
+  return await res.data;
+};

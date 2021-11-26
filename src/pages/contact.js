@@ -2,8 +2,11 @@ import React from "react";
 import { Container } from "reactstrap";
 import { useForm } from "react-hook-form";
 import Title from "../components/title/title";
+import { useMutation } from "react-query";
 // css
 import "../assets/css/_contact.scss";
+import { contact } from "../queries/queries";
+import swal from "sweetalert";
 
 const Contact = () => {
   const {
@@ -12,7 +15,25 @@ const Contact = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const { mutate, isLoading } = useMutation((data) => contact(data), {
+    onSuccess: (succ) => {
+      if (succ.status === 200) {
+        
+      }
+
+      swal({
+        title: "Təbriklər!",
+        text: "Mesajınız göndərildi",
+        icon: "success",
+      });
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    mutate(data);
+  };
 
   return (
     <div className="contact">
@@ -50,7 +71,7 @@ const Contact = () => {
                   <input
                     placeholder="Ad"
                     type="text"
-                    {...register("firstName", { required: true })}
+                    {...register("firstname", { required: true })}
                   />
                 </div>
                 <div className="contact__form--in__items">
@@ -69,7 +90,7 @@ const Contact = () => {
                   <input
                     placeholder="Soyad"
                     type="text"
-                    {...register("lastName", {
+                    {...register("lastname", {
                       required: true,
                       pattern: /^[A-Za-z]+$/i,
                     })}
@@ -113,11 +134,11 @@ const Contact = () => {
                   <input
                     placeholder="Telefon"
                     type="text"
-                    {...register("phone", { required: true, pattern: /^\d*$/ })}
+                    {...register("phone", { required: false })}
                   />
                 </div>
                 <textarea
-                  {...register("note", { required: false })}
+                  {...register("message", { required: false })}
                   placeholder="Mətn"
                 ></textarea>
                 <div className="contact__form--in__file">

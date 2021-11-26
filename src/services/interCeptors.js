@@ -19,9 +19,9 @@ export function SetInterceptors() {
     },
     function (error) {
       if (error.response !== undefined) {
-        // if (error.response.status !== 200) {
-        //   window.location.href = `/${lang}/404`;
-        // }
+        if (error.response.status === 404) {
+          window.location.href = `/${lang}/404`;
+        }
 
         return Promise.reject(error);
       }
