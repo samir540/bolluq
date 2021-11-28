@@ -28,6 +28,7 @@ const ProductsOur = lazy(() => import("./pages/productsOur"));
 const ProductsExternal = lazy(() => import("./pages/productsExternal"));
 const ProductsDetails = lazy(() => import("./pages/productDetails"));
 const Structure = lazy(() => import("./pages/structure"));
+const Export = lazy(() => import("./pages/export"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App({ lang }) {
@@ -49,7 +50,7 @@ function App({ lang }) {
       <Main>
         <Suspense fallback={<Loading />}>
           <Switch>
-            <Route exact path={`/`} render={() => <HomePage />} />
+            <Route exact path={`/`} component={() => <HomePage />} />
             <Route path={`/news/:id`} render={() => <NewsDetail />} />
             <Route path={`/news`} render={() => <News />} />
             <Route
@@ -68,7 +69,7 @@ function App({ lang }) {
             <Route path={`/about`} render={() => <About />} />
             <Route path={`/history`} render={() => <History />} />
             <Route path={`/principles`} render={() => <Principles />} />
-            <Route path={`/form`} render={() => <Form />} />
+            <Route path={`/form/:slug`} render={() => <Form />} />
             <Route path={`/catalogs`} render={() => <Catalogs />} />
             <Route path={`/contact`} render={() => <Contact />} />
             <Route
@@ -89,6 +90,7 @@ function App({ lang }) {
               render={() => <ProductsDetails />}
             />
             <Route path={`/structure`} render={() => <Structure />} />
+            <Route path={`/export`} render={() => <Export />} />
             <Route path={"*"} render={() => <ErrorPage />} />
           </Switch>
         </Suspense>

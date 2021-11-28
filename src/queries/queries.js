@@ -120,8 +120,7 @@ export const rule = async (key) => {
 };
 
 export const contact = async (key) => {
-
-  console.log(key)
+  console.log(key);
 
   const res = await axios.post(baseUrl + `contact`, key, {
     headers: {
@@ -136,6 +135,30 @@ export const contact = async (key) => {
 
 export const catalog = async (key) => {
   const res = await axios.get(baseUrl + `catalog`);
+
+  return await res.data;
+};
+
+export const branches = async (key) => {
+  const res = await axios.get(baseUrl + `branches`);
+
+  return await res.data;
+};
+
+export const branchesDescription = async (key) => {
+  const res = await axios.get(baseUrl + `branches/${key.queryKey[1]}`);
+
+  return await res.data;
+};
+
+export const exportApi = async (key) => {
+  const res = await axios.post(baseUrl + `export`, key);
+
+  return await res.data;
+};
+
+export const resumeCv = async (key, slug) => {
+  const res = await axios.post(baseUrl + `resume-send/${slug}`, key);
 
   return await res.data;
 };

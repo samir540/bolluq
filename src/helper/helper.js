@@ -35,6 +35,8 @@ export const changeMapLocations = (btnRef, spanRefEast, spanRefWest) => {
   // firstTimeRender
   btnRef.current[0].classList.add("active");
 
+  console.log(btnRef.current)
+
   btnRef.current.forEach((element) => {
     element.onclick = () => {
       spanRefEast.current.forEach((element) => {
