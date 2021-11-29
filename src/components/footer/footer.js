@@ -31,22 +31,21 @@ const Footer = () => {
         <div className="d-flex justify-content-between">
           <div className="footer__items">
             <h3>Biz kimik</h3>
-            <NavLink to={"/"}>Haqqımızda</NavLink>
-            <NavLink to={"/"}>Tariximiz</NavLink>
-            <NavLink to={"/"}>Tariximiz</NavLink>
-            <NavLink to={"/"}>Struktur</NavLink>
-            <NavLink to={"/"}>İstehsalat</NavLink>
+            <NavLink to={"/about"}>Haqqımızda</NavLink>
+            <NavLink to={"/history"}>Tariximiz</NavLink>
+            <NavLink to={"/structure"}>Struktur</NavLink>
+            <NavLink to={"/productions"}>İstehsalat</NavLink>
           </div>
           <div className="footer__items">
             <h3>Məhsullar</h3>
-            <NavLink to={"/"}>Bizim markalar</NavLink>
-            <NavLink to={"/"}>Xarici markalar</NavLink>
+            <NavLink to={"/our-products"}>Bizim markalar</NavLink>
+            <NavLink to={"/external-products"}>Xarici markalar</NavLink>
           </div>
           <div className="footer__items">
             <h3>İnsan Resursları</h3>
-            <NavLink to={"/"}>Təcrübə proqramları</NavLink>
-            <NavLink to={"/"}>İşə Müraciət Qaydaları</NavLink>
-            <NavLink to={"/"}>Vakansiyalar</NavLink>
+            <NavLink to={"/internship"}>Təcrübə proqramları</NavLink>
+            <NavLink to={"/rules"}>İşə Müraciət Qaydaları</NavLink>
+            <NavLink to={"/vacancies"}>Vakansiyalar</NavLink>
           </div>
           <div className="footer__items">
             <h3>Əlaqə malumatları</h3>

@@ -1,11 +1,12 @@
 import React from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { Container } from "reactstrap";
 import { useForm } from "react-hook-form";
 import "../assets/css/_export.scss";
 import Title from "../components/title/title";
-import { exportApi } from "../queries/queries";
+import { exportApi, exportGetApi } from "../queries/queries";
 import swal from "sweetalert";
+import renderHTML from "react-render-html";
 
 const Export = () => {
   const {
@@ -29,6 +30,14 @@ const Export = () => {
       reset();
     },
   });
+
+  const { data, isLoading: isloadingExport } = useQuery(
+    ["exportGetApi"],
+    exportGetApi,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -11634,26 +11643,9 @@ const Export = () => {
               </svg>
             </div>
             <div className="export__map--text">
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
-            </div>
-          </div>
-          <div className="export__videos d-flex  flex-row justify-content-center align-items-center">
-            <div>
-              <video width="320" height="240" controls></video>
-            </div>
-            <div>
-              <video width="320" height="240" controls></video>
+              {isloadingExport === false &&
+                data !== undefined &&
+                renderHTML(data.data.description)}
             </div>
           </div>
           <div className="export__partner d-flex flex-column">
@@ -11662,52 +11654,76 @@ const Export = () => {
             </div>
             <div className="export__partner--content d-flex flex-row justify-content-between">
               <div className="contact-person d-flex flex-column">
-                <div className="name-position">
-                  <p>Rashad Piriyev</p>
-                  <p>Export&Marketing Director</p>
-                </div>
-                <div className="phone d-flex flex-row">
-                  <div className="icon d-flex fit">
-                    <img
-                      src={require("../assets/images/phoneIcon.png").default}
-                    />
-                  </div>
-                  <div className="numbers">
-                    <p>
-                      <span>Tel:</span> (+994 12) 347 83 12 (226)
-                    </p>
-                    <p>
-                      <span>Mob:</span> (+994 12) 347 83 12
-                    </p>
-                    <p>
-                      <span>Fax:</span> (+994 12) 347 83 12 (226)
-                    </p>
-                  </div>
-                </div>
-                <div className="email d-flex flex-row">
-                  <div className="icon">
-                    <img
-                      src={require("../assets/images/letterIcon.png").default}
-                    />
-                  </div>
-                  <div>
-                    <p>rashadpiriyev@bolluq.az</p>
-                    <p>reshadbolluq@bolluq.az</p>
-                    <p>rashadpiriyev@bolluq.az</p>
-                  </div>
-                </div>
-                <div className="location d-flex flex-row">
-                  <div className="icon">
-                    <img
-                      src={require("../assets/images/locationIcon.png").default}
-                    />
-                  </div>
-                  <div>
-                    <p>Bolluq LTD MMC Adress: Azerbaijan Republic,</p>
-                    <p> Az 0100, Absheron region, Baku-Sumgait highway</p>
-                    <p> 13th km</p>
-                  </div>
-                </div>
+                {isloadingExport === false && data !== undefined && (
+                  <>
+                    <div className="name-position">
+                      <p>{data.director.full_name}</p>
+                      <p>{data.director.position}</p>
+                    </div>
+                    <div className="phone d-flex flex-row flexAlign">
+                      <div className="icon d-flex fit">
+                        <img
+                          src={
+                            require("../assets/images/phoneIcon.png").default
+                          }
+                        />
+                      </div>
+                      <div className="numbers flexAlign">
+                        <p>
+                          <a href={`tel:${data.director.phone}`}>
+                            <span>Tel:</span> {data.director.phone}
+                          </a>
+                        </p>
+                        <p>
+                          <p>
+                            <a href={`tel:${data.director.mobile}`}>
+                              <span>Mob:</span> {data.director.mobile}
+                            </a>
+                          </p>
+                        </p>
+                        <p>
+                          <a href={`mailto:${data.director.fax}`}>
+                            <span>Fax:</span>
+                            {data.director.fax}
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="email flexAlign d-flex flex-row">
+                      <div className="icon">
+                        <img
+                          src={
+                            require("../assets/images/letterIcon.png").default
+                          }
+                        />
+                      </div>
+                      <div>
+                        {data.director.emails.map((item, index) => (
+                          <p key={index}>
+                            <a
+                              style={{ color: "#000" }}
+                              href={`mailto:${item}`}
+                            >
+                              {item}
+                            </a>
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="location flexAlign d-flex flex-row">
+                      <div className="icon">
+                        <img
+                          src={
+                            require("../assets/images/locationIcon.png").default
+                          }
+                        />
+                      </div>
+                      <div>
+                        <p>{data.director.address}</p>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
               <div className="contact">
                 <form

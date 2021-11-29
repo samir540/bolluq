@@ -36,6 +36,9 @@ function App({ lang }) {
 
   useEffect(() => {
     resize();
+    window.scrollTo({
+      top: 0,
+    });
   });
 
   return (

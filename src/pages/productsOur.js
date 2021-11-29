@@ -18,7 +18,7 @@ const Products = () => {
   const { slug } = useParams();
 
   const { data, isLoading } = useQuery(
-    ["ourBrands", slug !== undefined ? slug : "", page],
+    ["ourBrands", slug !== undefined ? "/" + slug : "", page],
     ourBrands,
     {
       refetchOnWindowFocus: false,

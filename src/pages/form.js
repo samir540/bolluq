@@ -42,6 +42,9 @@ const Form = () => {
     for (const key in data) {
       if (data[key] !== undefined) {
         formData.append(key, data[key]);
+      }
+      if (key === "file") {
+        formData.append(key, data[key][0]);
       } else {
         formData.append(key, "");
       }
@@ -189,6 +192,7 @@ const Form = () => {
                     </div>
                     <p>{img !== "" ? img : "JPEG,JPG,PNG, maks 10MB"}</p>
                     <input
+                      {...register("file", { required: false })}
                       type="file"
                       className="file"
                       onChange={(e) => {

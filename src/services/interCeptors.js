@@ -22,7 +22,6 @@ export function SetInterceptors() {
         if (error.response.status === 404) {
           window.location.href = `/${lang}/404`;
         }
-
         return Promise.reject(error);
       }
     }

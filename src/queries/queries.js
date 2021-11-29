@@ -157,8 +157,14 @@ export const exportApi = async (key) => {
   return await res.data;
 };
 
+export const exportGetApi = async () => {
+  const res = await axios.get(baseUrl + `export`);
+
+  return await res.data;
+};
+
 export const resumeCv = async (key, slug) => {
-  const res = await axios.post(baseUrl + `resume-send/${slug}`, key);
+  const res = await axios.post(baseUrl + `send-resume/${slug}`, key);
 
   return await res.data;
 };

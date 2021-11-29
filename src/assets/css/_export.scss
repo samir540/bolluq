@@ -23,6 +23,11 @@ $white-color: #ffffff;
   line-height: 22px;
   font-weight: normal;
   color: #000000;
+  margin-bottom: 0 !important;
+}
+
+.flexAlign {
+  align-items: center !important;
 }
 
 .export {
@@ -121,6 +126,12 @@ $white-color: #ffffff;
         }
         & .numbers {
           p {
+            margin-bottom: 0;
+            a {
+              display: inline-block;
+              color: #000000;
+              margin-bottom: 10px;
+            }
             span {
               font-weight: 600 !important;
             }
