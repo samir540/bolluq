@@ -27,6 +27,8 @@ language().then((res) => {
 
   res.data.forEach((lang) => {
     if (filtered.length !== 0) {
+      console.log("ok");
+
       localStorage.setItem("i18nextLng", path);
       SetInterceptors();
       ReactDOM.render(
@@ -45,6 +47,8 @@ language().then((res) => {
       if (lang.default === 1) {
         localStorage.setItem("i18nextLng", lang.locale);
         SetInterceptors();
+
+        console.log(lang);
 
         ReactDOM.render(
           <React.StrictMode>

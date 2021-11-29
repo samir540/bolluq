@@ -168,3 +168,9 @@ export const resumeCv = async (key, slug) => {
 
   return await res.data;
 };
+
+export const structureApi = async (key) => {
+  const res = await axios.get(baseUrl + `structures`);
+
+  return await res.data;
+};
