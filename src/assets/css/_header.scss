@@ -295,6 +295,14 @@
   position: relative;
   background-color: #fff;
 
+  .header__mobileBox {
+    svg {
+      path {
+        fill: #000 !important;
+      }
+    }
+  }
+
   nav {
     a {
       color: #000;

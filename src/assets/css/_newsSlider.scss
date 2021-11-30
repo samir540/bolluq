@@ -11,6 +11,10 @@
         height: 272px;
         width: 100%;
         object-fit: cover;
+
+        @media (max-width: 992px) {
+          height: auto;
+        }
       }
     }
 
@@ -43,8 +47,20 @@
         display: flex;
         flex-direction: column;
         padding: 30px 33px;
+        display: -webkit-box;
+        line-height: 24px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 111px;
+
+        @media (max-width: 992px) {
+          height: auto;
+        }
 
         span {
+          display: inline-block;
           font-size: 18px;
           line-height: 22px;
           color: #bf0807;

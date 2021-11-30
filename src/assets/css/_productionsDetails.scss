@@ -2,8 +2,17 @@
   margin-top: 128px;
   margin-bottom: 183px;
 
+  @media (max-width: 992px) {
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
   &__wrapper {
     margin-top: -38px;
+
+    @media (max-width: 992px) {
+      margin-top: 0;
+    }
 
     img {
       width: 100%;
@@ -11,6 +20,10 @@
 
     &__item--content {
       margin-left: 23px;
+
+      @media (max-width: 992px) {
+        margin-left: 0;
+      }
 
       iframe {
         width: 100%;

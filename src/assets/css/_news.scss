@@ -3,6 +3,32 @@
     &.widthHalf {
       width: calc(40% - 74px);
       margin-bottom: 129px;
+
+      @media (max-width: 1405px) {
+        width: calc(40% - 78px);
+      }
+
+      @media (max-width: 1305px) {
+        width: calc(40% - 92px);
+      }
+
+      @media (max-width: 1140px) {
+        width: calc(40% - 93px);
+      }
+
+      @media (max-width: 1236px) {
+        width: calc(40% - 99px);
+      }
+
+      @media (max-width: 1070px) {
+        width: calc(40% - 130px);
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-bottom: 25px;
+      }
     }
 
     &:not(.widthHalf) {
@@ -11,6 +37,16 @@
 
       &:not(:nth-child(3n)) {
         margin-right: 25px;
+        @media (max-width: 992px) {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
+
+        margin-left: 0 !important;
+        margin-bottom: 25px;
       }
     }
   }

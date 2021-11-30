@@ -6,7 +6,7 @@ import "../../assets/css/_menu.scss";
 
 const Menu = () => {
   return (
-    <div className="menu">
+    <div className="menu menuCommon">
       <NavLink to={"/about"}>HAQQIMIZDA</NavLink>
       <NavLink to={"/history"}>TARİXİMİZ</NavLink>
       <NavLink to={"/principles"}>DƏYƏRLƏRİMİZ</NavLink>

@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import { newsDetailApi } from "../queries/queries";
 import renderHtml from "react-render-html";
+import Title from "../components/title/title";
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const NewsDetail = () => {
 
   return (
     <div className="newsDetail">
+       <Title title="BİZ KİMİK" />
       <div className="productionsDetails">
         <Container>
           <div className="d-flex">

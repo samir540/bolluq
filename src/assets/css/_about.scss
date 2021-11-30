@@ -20,8 +20,16 @@
     flex-direction: column;
     width: calc(100% - 294px);
 
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+
     .splide--loop {
       height: 491px;
+
+      @media (max-width: 992px) {
+        height: 300px;
+      }
 
       .splide__track {
         height: 100%;
@@ -50,6 +58,10 @@
     > .splide__slide.is-active,
   .splide--nav > .splide__track > .splide__list > .splide__slide {
     border: unset;
-    height: 50px;
+  
+
+    @media (max-width: 992px) {
+      height: 70px !important;
+    }
   }
 }

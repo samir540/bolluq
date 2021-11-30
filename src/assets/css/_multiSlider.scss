@@ -15,4 +15,8 @@
 
 #endMultiSlider {
   margin-bottom: 150px;
+
+  @media (max-width: 992px) {
+    margin-bottom: 50px;
+  }
 }
