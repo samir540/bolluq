@@ -80,7 +80,6 @@ const Branch = () => {
                 ))}
             </div>
             <div className="branch__content--right">
-              22
               {branchesDetail.isLoading === false &&
               branchesDetail.data !== undefined
                 ? renderHTML(branchesDetail.data.data.description)

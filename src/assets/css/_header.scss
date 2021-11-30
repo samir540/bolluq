@@ -5,6 +5,14 @@
   width: 100%;
   z-index: 9;
 
+  &__mobileBox {
+    display: flex;
+  }
+
+  &__mobileSearch {
+    margin-right: 17px;
+  }
+
   &__search {
     display: none;
     height: 100%;
@@ -23,6 +31,11 @@
       width: 609px;
       height: 84px;
 
+      @media (max-width: 992px) {
+        height: 50px;
+        width: 90%;
+      }
+
       img {
         position: absolute;
         right: 2px;
@@ -39,11 +52,18 @@
         font-size: 24px;
         line-height: 29px;
         color: rgba(255, 255, 255, 0.62);
+        @media (max-width: 992px) {
+          font-size: 18px;
+        }
 
         &::placeholder {
           font-size: 24px;
           line-height: 29px;
           color: rgba(255, 255, 255, 0.62);
+
+          @media (max-width: 992px) {
+            font-size: 18px;
+          }
         }
       }
 
@@ -53,12 +73,121 @@
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
+
+        @media (max-width: 992px) {
+          width: 20px;
+        }
       }
     }
   }
 
   &__logo {
     width: 180px;
+
+    @media (max-width: 1201px) {
+      width: 150px;
+    }
+
+    @media (max-width: 765px) {
+      width: 90px;
+    }
+  }
+
+  &__mobMenu {
+    position: fixed;
+    right: 0;
+    height: auto;
+    width: 80%;
+    padding: 29px 20px;
+    background: #ffffff;
+    border-radius: 24px 0px 0px 24px;
+    z-index: 555;
+
+    &--close {
+      position: absolute;
+      left: -45px;
+    }
+
+    &--social {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    > p {
+      display: flex;
+      border-bottom: 1px solid #bf0807;
+      padding-bottom: 9px;
+
+      span {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        color: rgba(0, 0, 0, 0.23);
+
+        &.active {
+          color: #bf0807;
+        }
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  &__mobLink {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      svg {
+        margin-right: 9px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #000000;
+    }
+
+    .menuMob {
+      flex-direction: column;
+      padding-left: 26px;
+      a {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        color: #000000;
+      }
+      margin-bottom: 11px;
+      display: none;
+    }
+
+    .mobParent {
+      p {
+        svg {
+          margin-right: 9px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+
+      &:hover .menuMob {
+        display: flex;
+      }
+    }
   }
 
   &__nav {
@@ -72,6 +201,10 @@
       line-height: 20px;
       color: #fff;
 
+      @media (max-width: 1320px) {
+        font-size: 14px;
+      }
+
       &.active {
         font-weight: 800;
       }
@@ -82,6 +215,10 @@
 
       &:not(:last-child) {
         margin-right: 27px;
+
+        @media (max-width: 1320px) {
+          margin-right: 17px;
+        }
       }
     }
   }
@@ -95,6 +232,10 @@
         background: rgba(244, 244, 244, 0.62);
         border-radius: 8px;
         border: none;
+        @media (max-width: 1201px) {
+          width: 45px;
+          height: 45px;
+        }
       }
     }
 
@@ -105,6 +246,11 @@
       border-radius: 8px;
       border: none;
       position: relative;
+
+      @media (max-width: 1201px) {
+        width: 45px;
+        height: 45px;
+      }
 
       &:hover {
         .header__langBox--multiBox {
@@ -154,4 +300,14 @@
       color: #000;
     }
   }
+}
+
+.layoutData {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
 }

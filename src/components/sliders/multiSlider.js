@@ -11,14 +11,23 @@ const MultiSlider = ({ items, title, id }) => {
         options={{
           gap: "39px",
           perPage: 4,
+          pagination: false,
           arrows: items.length > 4 ? true : false,
+          breakpoints: {
+            1265: {
+              perPage: 2,
+            },
+            992: {
+              perPage: 1,
+            },
+          },
         }}
       >
         {items.map((item) => (
           <SplideSlide key={item.id}>
             <div className="productSlider__items">
               <div className="productSlider__items--img">
-                <img src={item.image} alt={item.title} />
+                <img id={id}  src={item.image} alt={item.title} />
               </div>
             </div>
           </SplideSlide>

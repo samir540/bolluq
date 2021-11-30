@@ -12,7 +12,16 @@ const ProductSlider = ({ items }) => {
         options={{
           gap: "39px",
           perPage: 4,
+          pagination: false,
           arrows: items.length > 4 ? true : false,
+          breakpoints: {
+            1265: {
+              perPage: 2,
+            },
+            992: {
+              perPage: 1,
+            },
+          },
         }}
       >
         {items.map((item) => (

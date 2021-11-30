@@ -12,6 +12,11 @@
   &__slider {
     height: 646px;
     position: relative;
+
+    @media (max-width: 1201px) {
+      height: 346px;
+    }
+
     .splide__arrows {
       position: absolute;
       top: 50%;
@@ -23,6 +28,14 @@
       transform: translate(-50%, -50%);
       width: 1328px;
       z-index: 5;
+
+      @media (max-width: 1350px) {
+        width: 100%;
+      }
+
+      @media (max-width: 1201px) {
+        display: none;
+      }
     }
 
     .splide__pagination {
@@ -60,6 +73,10 @@
     .splide__track {
       height: 646px;
 
+      @media (max-width: 1201px) {
+        height: 346px;
+      }
+
       img {
         width: 100%;
         height: 100%;
@@ -71,6 +88,10 @@
   &__count {
     margin-top: 80px;
 
+    @media (max-width: 1201px) {
+      flex-direction: column;
+    }
+
     &--item {
       padding: 14px;
       background: #bf0807;
@@ -78,17 +99,38 @@
       width: calc(100% / 5);
       height: 138px;
 
+      @media (max-width: 1201px) {
+        width: 100%;
+        height: 52px;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+      }
+
       &:not(:last-child) {
         margin-right: 24px;
+
+        @media (max-width: 1201px) {
+          margin-bottom: 8px;
+          margin-right: 0;
+        }
       }
 
       p {
         &:first-child {
           margin-bottom: 14px;
+
+          @media (max-width: 1201px) {
+            margin-bottom: 0;
+          }
         }
 
         img {
           width: 36px;
+
+          @media (max-width: 1201px) {
+            width: 25px;
+          }
         }
 
         font-weight: 500;

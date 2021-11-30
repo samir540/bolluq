@@ -30,6 +30,16 @@ body {
   }
 }
 
+@media (max-width: 1201px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 1300px) {
   .container,
   .container-lg,
@@ -89,6 +99,11 @@ body {
   display: inline-flex;
   margin-bottom: 45px;
 
+  @media (max-width: 765px) {
+    display: flex;
+    justify-content: center;
+  }
+
   &:after {
     position: absolute;
     content: "";
@@ -97,6 +112,11 @@ body {
     height: 5px;
     background-color: #b41309;
     width: 50%;
+
+    @media (max-width: 765px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -114,6 +134,11 @@ body {
   cursor: pointer;
   opacity: 0;
   transition: 0.2s;
+
+  @media(max-width: 1033px){
+    display: none;
+  }
+
 }
 
 .ant-pagination-disabled {
@@ -161,6 +186,15 @@ body {
   }
 }
 
+#endMultiSlider {
+  height: 300px;
+  max-height: 300px;
+}
+
+.overFlowHidden {
+  overflow: hidden;
+}
+
 .layerTitle {
   display: flex;
   align-items: center;
@@ -173,6 +207,8 @@ body {
     url("../images/aboutLayer.png");
   height: 101px;
   margin-bottom: 159px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   h1 {
     margin-bottom: 0;

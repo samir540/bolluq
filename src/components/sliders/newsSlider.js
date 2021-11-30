@@ -14,7 +14,16 @@ const NewsSlider = ({ items, title }) => {
           options={{
             gap: "39px",
             perPage: 3,
-            arrows: items.length > 3 ? true : false,
+            pagination: false,
+            arrows: items.length > 4 ? true : false,
+            breakpoints: {
+              1265: {
+                perPage: 2,
+              },
+              992: {
+                perPage: 1,
+              },
+            },
           }}
         >
           {items.map((item) => (

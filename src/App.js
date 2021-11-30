@@ -7,6 +7,7 @@ import Footer from "./components/footer/footer";
 import Title from "./title/title";
 import { resize } from "./helper/helper";
 import HomePage from "./pages/home";
+import { connect } from "react-redux";
 
 // pages
 const News = lazy(() => import("./pages/news"));
@@ -31,7 +32,7 @@ const Structure = lazy(() => import("./pages/structure"));
 const Export = lazy(() => import("./pages/export"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
-function App({ lang }) {
+function App({ lang, isHide }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function App({ lang }) {
   });
 
   return (
-    <div className="App">
+    <div className={isHide === true ? "App overFlowHidden" : "App"}>
       <Title>
         <title>Bolluq</title>
       </Title>
@@ -103,4 +104,6 @@ function App({ lang }) {
   );
 }
 
-export default App;
+export default connect((state) => ({
+  isHide: state.isHide,
+}))(App);

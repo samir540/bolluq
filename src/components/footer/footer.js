@@ -28,20 +28,21 @@ const Footer = () => {
             />
           </svg>
         </div>
-        <div className="d-flex justify-content-between">
-          <div className="footer__items">
+        <div className="d-flex flexBoxFooter justify-content-between">
+          <div className="footer__items hide">
             <h3>Biz kimik</h3>
+
             <NavLink to={"/about"}>Haqqımızda</NavLink>
             <NavLink to={"/history"}>Tariximiz</NavLink>
             <NavLink to={"/structure"}>Struktur</NavLink>
             <NavLink to={"/productions"}>İstehsalat</NavLink>
           </div>
-          <div className="footer__items">
+          <div className="footer__items hide">
             <h3>Məhsullar</h3>
             <NavLink to={"/our-products"}>Bizim markalar</NavLink>
             <NavLink to={"/external-products"}>Xarici markalar</NavLink>
           </div>
-          <div className="footer__items">
+          <div className="footer__items hide">
             <h3>İnsan Resursları</h3>
             <NavLink to={"/internship"}>Təcrübə proqramları</NavLink>
             <NavLink to={"/rules"}>İşə Müraciət Qaydaları</NavLink>
@@ -49,35 +50,37 @@ const Footer = () => {
           </div>
           <div className="footer__items">
             <h3>Əlaqə malumatları</h3>
-            <NavLink to={"/"}>
-              <img
-                src={require("../../assets/images/phone.svg").default}
-                alt=""
-              />
-              (+994 12) 347 83 12 (226)
-            </NavLink>
-            <NavLink to={"/"}>
-              <img
-                src={require("../../assets/images/office.svg").default}
-                alt=""
-              />
-              office@bolluq.az
-            </NavLink>
-            <NavLink to={"/"}>
-              <img
-                src={require("../../assets/images/location.svg").default}
-                alt=""
-              />
-              Azərbaycan Res., Az 0100, Abşeron rayonu, Bakı-Sumqayıt şossesi
-              13-cü km.
-            </NavLink>
+            <div className="d-flex flex-column">
+              <NavLink to={"/"}>
+                <img
+                  src={require("../../assets/images/phone.svg").default}
+                  alt=""
+                />
+                (+994 12) 347 83 12 (226)
+              </NavLink>
+              <NavLink to={"/"}>
+                <img
+                  src={require("../../assets/images/office.svg").default}
+                  alt=""
+                />
+                office@bolluq.az
+              </NavLink>
+              <NavLink to={"/"}>
+                <img
+                  src={require("../../assets/images/location.svg").default}
+                  alt=""
+                />
+                Azərbaycan Res., Az 0100, Abşeron rayonu, Bakı-Sumqayıt şossesi
+                13-cü km.
+              </NavLink>
+            </div>
           </div>
         </div>
-        <div className="d-flex justify-content-between align-items-center footer__margin">
+        <div className="d-flex flexBoxFooter justify-content-between align-items-center footer__margin">
           <div className="footer__end">
             <p>Bütün hüquqlar qorunur © 2021 Bolluq MMC</p>
           </div>
-          <div className="footer__end">
+          <div className="footer__end hide">
             <a href="#appstore">
               <img
                 src={require("../../assets/images/appstore.svg").default}

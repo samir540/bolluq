@@ -1,7 +1,10 @@
 import { init } from "@rematch/core";
+import { isHide } from "../rematches/rematches";
 
 const store = init({
-  models: {},
+  models: {
+    isHide,
+  },
 });
 
 export default store;
