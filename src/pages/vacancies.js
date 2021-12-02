@@ -52,7 +52,7 @@ const Vacancies = () => {
     <div className="vacancies">
       <Title title="İNSAN RESURSLARI" />
       <Container>
-        <div className="d-flex align-items-baseline">
+        <div className="d-flex align-items-baseline vacancies__wrapper">
           <div className="vacancies__menuBox">
             <HRMenu />
             <div className="menu__details">

@@ -2,6 +2,10 @@
   margin-bottom: 200px;
   margin-top: 131px;
 
+  @media (max-width: 992px) {
+    margin: 50px 0;
+  }
+
   .splide--loop {
     .splide__track {
       height: 264px;
@@ -30,12 +34,30 @@
     width: 65%;
     margin: 0 auto;
 
+    @media (max-width: 1201px) {
+      width: 100%;
+      padding: 0 50px;
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column !important;
+      padding: 0 20px;
+    }
+
     &--slider {
       width: 50%;
       margin-right: 30px;
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
     }
     &--product-details {
       width: 50%;
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
       h4 {
         margin-bottom: 28px;
         color: #ffffff;
@@ -49,7 +71,13 @@
       }
 
       &--content {
-        & div:nth-child(1) {
+        div {
+          @media (max-width: 992px) {
+            width: 50%;
+          }
+        }
+
+        div:nth-child(1) {
           padding-right: 32px;
           p {
             width: 108px;

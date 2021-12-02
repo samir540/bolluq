@@ -30,6 +30,7 @@ const ProductsExternal = lazy(() => import("./pages/productsExternal"));
 const ProductsDetails = lazy(() => import("./pages/productDetails"));
 const Structure = lazy(() => import("./pages/structure"));
 const Export = lazy(() => import("./pages/export"));
+const SearchResult = lazy(() => import("./pages/searchResult"));
 const ErrorPage = lazy(() => import("./pages/error"));
 
 function App({ lang, isHide }) {
@@ -46,6 +47,11 @@ function App({ lang, isHide }) {
     <div className={isHide === true ? "App overFlowHidden" : "App"}>
       <Title>
         <title>Bolluq</title>
+        <link
+          rel="icon"
+          href={require("./assets/images/logo.png").default}
+          type="image/jpg"
+        />
       </Title>
       <Header
         lang={lang}
@@ -92,6 +98,11 @@ function App({ lang, isHide }) {
             <Route
               path={`/products-detail/:slug`}
               render={() => <ProductsDetails />}
+            />
+            <Route
+              exact
+              path={`/search-result`}
+              render={() => <SearchResult />}
             />
             <Route path={`/structure`} render={() => <Structure />} />
             <Route path={`/export`} render={() => <Export />} />

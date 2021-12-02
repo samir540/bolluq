@@ -5,6 +5,12 @@
   &__content {
     width: calc(100% - 294px);
     margin-left: 58px;
+
+    @media (max-width: 992px) {
+      width: 100%;
+      margin-left: 0;
+    }
+
     & > div:not(:first-child) {
       margin-top: 86px;
     }
@@ -22,30 +28,64 @@
       // white-space:pre;
     }
     &__offers {
+      @media (max-width: 992px) {
+        flex-direction: column !important;
+      }
+
       &__head {
         width: 140px;
         margin-right: 125px;
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
       &__text {
         width: calc(100% - 140px);
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
     }
     &__responsibilities {
+      @media (max-width: 992px) {
+        flex-direction: column !important;
+      }
       &__head {
         width: 140px;
         margin-right: 126px;
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
       &__text {
         width: calc(100% - 140px);
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
     }
     &__services {
+      @media (max-width: 992px) {
+        flex-direction: column !important;
+      }
       &__head {
         width: 140px;
         margin-right: 127px;
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
       &__text {
         width: calc(100% - 140px);
+        @media (max-width: 992px) {
+          width: auto;
+          margin-right: 0;
+        }
       }
     }
   }
@@ -53,6 +93,11 @@
     margin-top: 87px;
     width: 246px;
     height: 55px;
+
+    @media (max-width: 992px) {
+      height: 35px;
+    }
+
     button {
       color: #ffffff;
       background-color: #bf0807;

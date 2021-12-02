@@ -2,14 +2,24 @@ import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "reactstrap";
 import { animateBody } from "../../helper/helper";
+import { useQuery } from "react-query";
+import { settingApi } from "../../queries/queries";
 import "../../assets/css/_footer.scss";
+import { connect } from "react-redux";
 
-const Footer = () => {
+const Footer = ({ dispatchSettings }) => {
   const btnTopRef = useRef();
 
   useEffect(() => {
     animateBody(btnTopRef.current);
   }, []);
+
+  const { data, isLoading } = useQuery(["setting"], settingApi, {
+    refetchOnWindowFocus: false,
+    onSuccess: (succ) => {
+      dispatchSettings(succ.data);
+    },
+  });
 
   return (
     <footer className="footer">
@@ -56,22 +66,21 @@ const Footer = () => {
                   src={require("../../assets/images/phone.svg").default}
                   alt=""
                 />
-                (+994 12) 347 83 12 (226)
+                {isLoading === false && data !== undefined && data.data.phone}
               </NavLink>
               <NavLink to={"/"}>
                 <img
                   src={require("../../assets/images/office.svg").default}
                   alt=""
                 />
-                office@bolluq.az
+                {isLoading === false && data !== undefined && data.data.email}
               </NavLink>
               <NavLink to={"/"}>
                 <img
                   src={require("../../assets/images/location.svg").default}
                   alt=""
                 />
-                Azərbaycan Res., Az 0100, Abşeron rayonu, Bakı-Sumqayıt şossesi
-                13-cü km.
+                {isLoading === false && data !== undefined && data.data.address}
               </NavLink>
             </div>
           </div>
@@ -244,4 +253,11 @@ const Footer = () => {
   );
 };
 
-export default React.memo(Footer);
+export default connect(
+  (state) => ({
+    settings: state.settings,
+  }),
+  (dispatch) => ({
+    dispatchSettings: (e) => dispatch.settings.dispatchSettings(e),
+  })
+)(React.memo(Footer));

@@ -7,8 +7,9 @@ import { useMutation } from "react-query";
 import "../assets/css/_contact.scss";
 import { contact } from "../queries/queries";
 import swal from "sweetalert";
+import { connect } from "react-redux";
 
-const Contact = () => {
+const Contact = ({ settings }) => {
   const {
     register,
     formState: { errors },
@@ -36,6 +37,7 @@ const Contact = () => {
     formData.append("phone", data.phone);
     formData.append("message", data.message);
     formData.append("file", data.file[0]);
+
     mutate(formData);
   };
 
@@ -163,9 +165,9 @@ const Contact = () => {
             />
             <p>
               <span>Telefon:</span>
-              <a href="tel:(+994 12) 347 83 12 (226)">
-                (+994 12) 347 83 12 (226)
-              </a>
+              {settings !== null && (
+                <a href={`tel:${settings.phone}`}>{settings.phone}</a>
+              )}
             </p>
           </div>
           <div className="contact__end--items">
@@ -175,7 +177,9 @@ const Contact = () => {
             />
             <p>
               <span>Email::</span>
-              <a href="mailto:office@bolluq.az">office@bolluq.az</a>
+              {settings !== null && (
+                <a href={`mailto:${settings.email}`}>{settings.email}</a>
+              )}
             </p>
           </div>
           <div className="contact__end--items">
@@ -185,10 +189,7 @@ const Contact = () => {
             />
             <p>
               <span>Ünvan:</span>
-              <a href="javascript:void(0)">
-                Azərbaycan Res., Az 0100, Abşeron rayonu, Bakı-Sumqayıt şossesi
-                13-cü km.
-              </a>
+              {settings !== null && <a>{settings.address}</a>}
             </p>
           </div>
         </div>
@@ -197,4 +198,6 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default connect((state) => ({
+  settings: state.settings,
+}))(Contact);

@@ -2,21 +2,48 @@
   &__wrapper {
     padding-bottom: 159px;
     display: flex;
+
+    @media (max-width: 1201px) {
+      flex-direction: column;
+      padding-bottom: 50px;
+    }
   }
 
   &__map {
     padding-right: 74px;
+    width: 50%;
+
+    @media (max-width: 1201px) {
+      width: 100%;
+      padding-right: 0;
+      padding: 0 25px;
+    }
+
+    img {
+      width: 100%;
+    }
   }
 
   &__content {
     display: flex;
     width: 50%;
 
+    @media (max-width: 1201px) {
+      width: 100%;
+      margin-top: 30px;
+    }
+
     &--left {
       display: flex;
       width: 50%;
       flex-direction: column;
       margin-right: 82px;
+
+      @media (max-width: 1201px) {
+        padding-right: 25px;
+        margin-right: 0;
+        width: 80%;
+      }
 
       button {
         &:not(:first-child) {
@@ -34,6 +61,10 @@
         background-color: transparent;
         border: none;
         text-align: left;
+
+        @media (max-width: 1201px) {
+          font-size: 18px;
+        }
       }
 
       span {
@@ -42,6 +73,10 @@
         color: #000000;
         margin-top: 16px;
         cursor: pointer;
+
+        @media (max-width: 1201px) {
+          font-size: 15px;
+        }
 
         &.activeSpan {
           font-weight: 600;
@@ -65,6 +100,10 @@
         width: 1px;
         height: 100%;
         background-color: #c4c4c4;
+
+        @media (max-width: 1201px) {
+          left: -37px;
+        }
       }
 
       p {
@@ -74,6 +113,11 @@
         color: #bf0807;
         display: flex;
         flex-direction: column;
+
+        @media (max-width: 1201px) {
+          font-size: 15px;
+          word-break: break-all;
+        }
 
         &:not(:last-child) {
           margin-bottom: 30px;
@@ -86,6 +130,10 @@
           line-height: 20px;
           color: #000000;
           margin-top: 8px;
+
+          @media (max-width: 1201px) {
+            font-size: 14px;
+          }
         }
       }
     }

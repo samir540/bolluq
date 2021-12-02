@@ -1,8 +1,16 @@
 .contact {
   padding-bottom: 159px;
 
+  @media (max-width: 1201px) {
+    padding-bottom: 60px;
+  }
+
   &__wrapper {
     display: flex;
+
+    @media (max-width: 1201px) {
+      flex-direction: column;
+    }
   }
 
   &__map {
@@ -10,23 +18,44 @@
 
     iframe {
       height: 100%;
+      @media (max-width: 1201px) {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 1201px) {
+      height: 300px;
+      padding-right: 0;
     }
   }
 
   &__form {
     padding-bottom: 50px;
+
+    @media (max-width: 1201px) {
+      margin-top: 50px;
+    }
+
     h2 {
       font-weight: 600;
       font-size: 31px;
       line-height: 38px;
       color: #bf0807;
       margin-bottom: 46px;
+
+      @media (max-width: 1201px) {
+        font-size: 25px;
+      }
     }
 
     &--in {
       form {
         display: flex;
         flex-wrap: wrap;
+
+        @media (max-width: 1201px) {
+          flex-direction: column;
+        }
       }
 
       textarea {
@@ -67,6 +96,10 @@
         width: calc(50% - 19px);
         height: 52px;
         margin-bottom: 26px;
+
+        @media (max-width: 1201px) {
+          width: 100%;
+        }
 
         svg {
           position: absolute;
@@ -110,6 +143,10 @@
     justify-content: space-between;
     margin-top: 92px;
     padding: 44px 62px;
+
+    @media (max-width: 1201px) {
+      display: none;
+    }
 
     &--items {
       display: flex;

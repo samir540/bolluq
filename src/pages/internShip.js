@@ -8,7 +8,9 @@ import { internship } from "../queries/queries";
 import renderHTML from "react-render-html";
 
 const InternShip = () => {
-  const { data, isLoading } = useQuery(["internShip"], internship);
+  const { data, isLoading } = useQuery(["internShip"], internship, {
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <>
@@ -24,12 +26,14 @@ const InternShip = () => {
           )}
         </div>
         <div className="humansResurces__items">
-          {[1, 2, 3, 4].map((item) => (
-            <p key={item}>
-              <img src={require("../assets/images/1.svg").default} alt="" />
-              <span> Yüksələn karyera</span>
-            </p>
-          ))}
+          {isLoading === false &&
+            data !== undefined &&
+            data.icons.map((item) => (
+              <p key={item.id}>
+                <img src={item.image} alt={item.title} />
+                <span> {item.title}</span>
+              </p>
+            ))}
         </div>
       </Container>
     </>

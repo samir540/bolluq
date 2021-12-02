@@ -6,7 +6,7 @@ import "../../assets/css/_menu.scss";
 
 const HumanResurcesMenu = () => {
   return (
-    <div className="menu">
+    <div className="menu menuCommon menuHuman">
       <NavLink to={"/internship"}>TƏCRÜBƏ PROQRAMLARI</NavLink>
       <NavLink to={"/rules"}>İŞƏ MÜRACİƏT QAYDALARI</NavLink>
       <NavLink to={"/vacancies"}>VAKANSİYALAR</NavLink>

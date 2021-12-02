@@ -3,6 +3,16 @@
 
   .menu__details {
     padding-right: 50px;
+
+    @media (max-width: 992px) {
+     padding-right: 0;
+    }
+  }
+
+  &__menuBox {
+    @media (max-width: 992px) {
+      width: 100%;
+    }
   }
 
   .parent {
@@ -55,14 +65,35 @@
   }
 
   &__wrapper {
-    width: calc(100% - 292px);
+    width: 100%;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      width: 100%;
+    }
 
     &__block {
       background-color: #fffefe;
       margin-bottom: 13px;
       border: 1px solid #fffefe;
       border-radius: 6px;
+      padding: 0 25px;
+
+      @media (max-width: 1201px) {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+
       &--position-info {
+        @media (max-width: 1201px) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
         h3 {
           margin-top: 27px;
           margin-bottom: 6px;
@@ -126,6 +157,11 @@
             font-size: 12px;
             font-weight: 600;
             line-height: 15px;
+
+            @media (max-width: 1201px) {
+              margin-top: 25px;
+              display: inline-block;
+            }
           }
           span {
             margin-left: 14px;

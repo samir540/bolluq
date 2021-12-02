@@ -41,33 +41,33 @@ const Products = () => {
                   data !== undefined &&
                   data.data.map((item, index) => (
                     <Col lg="4" key={index}>
-                      <Link to={`/products-detail/${item.slug}`}>
-                        <div className="productSlider__items">
-                          <div className="productSlider__items--img">
-                            <img
-                              data-fancybox="gallery"
-                              data-src={item.image}
-                              src={item.image}
-                              alt={item.title}
-                            />
-                          </div>
-                          <div className="productSlider__items--info">
-                            <h2>{item.title}</h2>
-                            <p>
-                              <span>Çəki</span>
-                              <span>{item.weight}</span>
-                            </p>
-                            <p>
-                              <span>Qablaşdırma</span>
-                              <span>{item.packaging}</span>
-                            </p>
-                            <p>
-                              <span>Kod</span>
-                              <span>{item.code}</span>
-                            </p>
-                          </div>
+                      <div className="productSlider__items">
+                        <div className="productSlider__items--img">
+                          <img
+                            data-fancybox="gallery"
+                            data-src={item.image}
+                            src={item.image}
+                            alt={item.title}
+                          />
                         </div>
-                      </Link>
+                        <div className="productSlider__items--info">
+                          <Link to={`/products-detail/${item.slug}`}>
+                            <h2>{item.title}</h2>
+                          </Link>
+                          <p>
+                            <span>Çəki</span>
+                            <span>{item.weight}</span>
+                          </p>
+                          <p>
+                            <span>Qablaşdırma</span>
+                            <span>{item.packaging}</span>
+                          </p>
+                          <p>
+                            <span>Kod</span>
+                            <span>{item.code}</span>
+                          </p>
+                        </div>
+                      </div>
                     </Col>
                   ))}
               </Row>

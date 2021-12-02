@@ -1,9 +1,11 @@
 import { init } from "@rematch/core";
-import { isHide } from "../rematches/rematches";
+import { isHide, settings, searchState } from "../rematches/rematches";
 
 const store = init({
   models: {
     isHide,
+    settings,
+    searchState,
   },
 });
 

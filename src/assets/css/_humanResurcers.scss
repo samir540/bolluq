@@ -1,9 +1,13 @@
 .humansResurces {
-  padding-bottom: 251px;
+  padding-bottom: 128px;
   display: flex;
 
   &__info {
     width: calc(100% - 294px);
+
+    @media (max-width: 992px) {
+      width: 100%;
+    }
 
     img {
       max-width: 100%;
@@ -21,11 +25,23 @@
 
   &__items {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 150px;
+
+    @media (max-width: 1201px) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
 
     p {
       display: flex;
       flex-direction: column;
-      align-content: center;
+      align-items: center;
+      justify-content: center;
       color: #000000;
       font-family: Poppins !important;
       font-style: normal;
@@ -33,28 +49,53 @@
       line-height: 52px;
       text-align: center;
 
+      @media (max-width: 992px) {
+        width: calc(50% - 50px);
+        line-height: unset;
+      }
+
       img {
         display: inline-block;
         margin-bottom: 39px;
         border: 1px solid rgba(191, 8, 7, 0.22);
         border-radius: 100%;
         object-fit: contain;
-        width: 192px;
-        height: 192px;
+        width: 148px;
+        height: 148px;
+        object-fit: scale-down;
+
+        @media (max-width: 1201px) {
+          width: 121px;
+          height: 121px;
+        }
       }
 
       span {
         font-family: Poppins !important;
         font-style: normal;
         font-weight: normal;
-        font-size: 35px;
+        font-size: 25px;
         line-height: 52px;
         text-align: center;
         color: #000000;
+        @media (max-width: 1201px) {
+          font-size: 18px;
+          line-height: unset;
+        }
       }
 
       &:not(:last-child) {
         margin-right: 145px;
+
+        @media (max-width: 1201px) {
+          margin-right: 50px;
+        }
+      }
+
+      &:nth-child(even) {
+        @media (max-width: 992px) {
+          margin-right: 0;
+        }
       }
     }
   }

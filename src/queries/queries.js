@@ -174,3 +174,15 @@ export const structureApi = async (key) => {
 
   return await res.data;
 };
+
+export const settingApi = async (key) => {
+  const res = await axios.get(baseUrl + `setting`);
+
+  return await res.data;
+};
+
+export const search = async (key) => {
+  const res = await axios.get(baseUrl + `search?query=${key.queryKey[1]}`);
+
+  return await res.data;
+};

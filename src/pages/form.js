@@ -40,13 +40,11 @@ const Form = () => {
     const formData = new FormData();
 
     for (const key in data) {
-      if (data[key] !== undefined) {
+      if (data[key] !== undefined && key !== "file") {
         formData.append(key, data[key]);
       }
       if (key === "file") {
-        formData.append(key, data[key][0]);
-      } else {
-        formData.append(key, "");
+        formData.append(key, data.file[0]);
       }
     }
 
@@ -187,12 +185,15 @@ const Form = () => {
                   </div>
 
                   <div className="form__personal-information__body__photo">
-                    <div className="form__personal-information__photo__download">
-                      <p>{img === "" && "Sekili yukle"}</p>
-                    </div>
+                    {img === "" && (
+                      <div className="form__personal-information__photo__download">
+                        <p>Sekili yukle</p>
+                      </div>
+                    )}
+
                     <p>{img !== "" ? img : "JPEG,JPG,PNG, maks 10MB"}</p>
                     <input
-                      {...register("file", { required: false })}
+                      {...register("file")}
                       type="file"
                       className="file"
                       onChange={(e) => {
