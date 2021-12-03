@@ -5,10 +5,11 @@ import { Container } from "reactstrap";
 import ProductSlider from "../components/sliders/productSlider";
 import MultiSlider from "../components/sliders/multiSlider";
 import NewsSlider from "../components/sliders/newsSlider";
-import { useQueries, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import Title from "../title/title";
 import { useTranslation } from "react-i18next";
 import { init } from "../queries/queries";
+import CountUp from "react-countup";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -51,7 +52,10 @@ const HomePage = () => {
                   <img src={item.image} alt={item.title} />
                 </p>
                 <p>{item.title}</p>
-                <p>{item.count}</p>
+                <p>
+                  <CountUp end={item.count} duration={2} />{" "}
+                  {item.increment && "+"}
+                </p>
               </div>
             ))}
         </div>
