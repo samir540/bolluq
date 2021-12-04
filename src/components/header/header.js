@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { Container } from "reactstrap";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
 import "../../assets/css/_header.scss";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
@@ -48,6 +48,12 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch }) => {
     dispatchSearch(data.search);
   };
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    hide(false);
+  }, [pathname]);
+
   return (
     <>
       {isHide && <div className="layoutData"></div>}
@@ -89,9 +95,17 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch }) => {
             </svg>
           </div>
           <p>
-            <span className="active">AZ</span>
-            <span>EN</span>
-            <span>RU</span>
+            {lang.map((item, index) => (
+              <span
+                key={index}
+                onClick={() => {
+                  changeLanguage(item.locale);
+                  window.location.href = `/${item.locale}`;
+                }}
+              >
+                {item.locale.toUpperCase()}
+              </span>
+            ))}
           </p>
           <div className="header__mobLink">
             <Link to={"/"}>
