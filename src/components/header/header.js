@@ -31,7 +31,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch }) => {
         headerRef.current.classList.remove("fixedHeader");
       }
     };
-  }, []);
+  });
 
   const {
     register,
