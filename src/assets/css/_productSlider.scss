@@ -22,8 +22,18 @@
   }
 
   &__items {
+    overflow: hidden;
+
+    &:hover {
+      img {
+        transition: all 0.2s;
+        transform: scale(1.1);
+      }
+    }
+
     &--img {
       img {
+        transition: all 0.2s;
         height: 174px;
         width: 100%;
         object-fit: cover;

@@ -4,8 +4,11 @@ import "../../assets/css/_newsSlider.scss";
 import { Link } from "react-router-dom";
 import renderHtml from "react-render-html";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const NewsSlider = ({ items, title }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="newsSlider">
       <h2 className="title">{title}</h2>
@@ -41,7 +44,7 @@ const NewsSlider = ({ items, title }) => {
                     {renderHtml(item.description)}
                   </div>
                   <Link to={`/news/${item.slug}`}>
-                    Daha ətrafli bax
+                    {t("dahaetraflibax")}
                     <svg
                       width={15}
                       height={12}

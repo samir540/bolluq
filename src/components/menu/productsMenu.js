@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 // css
 import "../../assets/css/_menu.scss";
+import { useTranslation } from "react-i18next";
 
 const ProductsMenu = ({ data, type }) => {
   const { pathname } = useLocation();
@@ -12,6 +13,7 @@ const ProductsMenu = ({ data, type }) => {
   const allSpan = useRef([]);
   const filter = useRef(null);
   const closeBtnForFilter = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     searchSpan(searchRef);
@@ -73,8 +75,8 @@ const ProductsMenu = ({ data, type }) => {
         </button>
       </div>
       <div className="menu menuProduct">
-        <NavLink to={"/our-products"}>BİZİM MARKALAR</NavLink>
-        <NavLink to={"/external-products"}>XARİCİ MARKALAR</NavLink>
+        <NavLink to={"/our-products"}>{t("bizimmarkalar")}</NavLink>
+        <NavLink to={"/external-products"}>{t("xaricimarkalar")}</NavLink>
         <div className="menu__details">
           <div className="menu__details--title">
             <button ref={closeBtnForFilter}>
@@ -99,7 +101,7 @@ const ProductsMenu = ({ data, type }) => {
               <input
                 ref={(e) => (searchRef.current[0] = e)}
                 type="search"
-                placeholder="Quru qida axtar..."
+                placeholder={`${t("quruqidaaxtar")}...`}
               />
               <svg
                 width="17"
@@ -146,7 +148,7 @@ const ProductsMenu = ({ data, type }) => {
               <input
                 ref={(e) => (searchRef.current[1] = e)}
                 type="search"
-                placeholder="Qənnadi axtar..."
+                placeholder={`${t("qennadiaxtar")}...`}
               />
               <svg
                 width="17"

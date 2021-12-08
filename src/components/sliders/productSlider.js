@@ -3,11 +3,14 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PropTypes from "prop-types";
 import "../../assets/css/_productSlider.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProductSlider = ({ items }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="productSlider">
-      <h1 className="title">Yeni Məhsullar</h1>
+      <h1 className="title">{t("yenimehsullar")}</h1>
       <Splide
         options={{
           gap: "39px",
@@ -34,15 +37,15 @@ const ProductSlider = ({ items }) => {
                 <div className="productSlider__items--info">
                   <h2>{item.title}</h2>
                   <p>
-                    <span>Çəki</span>
+                    <span>{t("ceki")}</span>
                     <span>{item.weight}</span>
                   </p>
                   <p>
-                    <span>Qablaşdırma</span>
+                    <span>{t("qablasdirma")}</span>
                     <span>{item.packaging}</span>
                   </p>
                   <p>
-                    <span>Kod</span>
+                    <span>{t("kod")}</span>
                     <span>{item.code}</span>
                   </p>
                 </div>

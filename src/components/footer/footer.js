@@ -6,9 +6,11 @@ import { useQuery } from "react-query";
 import { settingApi } from "../../queries/queries";
 import "../../assets/css/_footer.scss";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Footer = ({ dispatchSettings }) => {
   const btnTopRef = useRef();
+  const { t } = useTranslation();
 
   useEffect(() => {
     animateBody(btnTopRef.current);
@@ -42,24 +44,24 @@ const Footer = ({ dispatchSettings }) => {
           <div className="footer__items hide">
             <h3>Biz kimik</h3>
 
-            <NavLink to={"/about"}>Haqqımızda</NavLink>
-            <NavLink to={"/history"}>Tariximiz</NavLink>
-            <NavLink to={"/structure"}>Struktur</NavLink>
-            <NavLink to={"/productions"}>İstehsalat</NavLink>
+            <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>
+            <NavLink to={"/history"}>{t("tariximiz")}</NavLink>
+            <NavLink to={"/structure"}>{t("struktur")}</NavLink>
+            <NavLink to={"/productions"}>{t("istehsalat")}</NavLink>
           </div>
           <div className="footer__items hide">
             <h3>Məhsullar</h3>
-            <NavLink to={"/our-products"}>Bizim markalar</NavLink>
-            <NavLink to={"/external-products"}>Xarici markalar</NavLink>
+            <NavLink to={"/our-products"}>{t("bizimmarkalar")}</NavLink>
+            <NavLink to={"/external-products"}>{t("xaricimarkalar")}</NavLink>
           </div>
           <div className="footer__items hide">
             <h3>İnsan Resursları</h3>
-            <NavLink to={"/internship"}>Təcrübə proqramları</NavLink>
-            <NavLink to={"/rules"}>İşə Müraciət Qaydaları</NavLink>
-            <NavLink to={"/vacancies"}>Vakansiyalar</NavLink>
+            <NavLink to={"/internship"}>{t("tecrubeproqramlari")}</NavLink>
+            <NavLink to={"/rules"}>{t("isemuracietqaydalari")}</NavLink>
+            <NavLink to={"/vacancies"}>{t("vakansiyalar")}</NavLink>
           </div>
           <div className="footer__items">
-            <h3>Əlaqə malumatları</h3>
+            <h3>{t("elaqemelumatlari")}</h3>
             <div className="d-flex flex-column">
               <NavLink to={"/"}>
                 <img

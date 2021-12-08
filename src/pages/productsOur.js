@@ -12,10 +12,12 @@ import { ourBrands } from "../queries/queries";
 import "../assets/css/_products.scss";
 import { Link } from "react-router-dom";
 
+
 const Products = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
   const { slug } = useParams();
+
 
   const { data, isLoading } = useQuery(
     ["ourBrands", slug !== undefined ? "/" + slug : "", page],

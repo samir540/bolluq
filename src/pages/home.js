@@ -63,15 +63,15 @@ const HomePage = () => {
           <ProductSlider items={data.products} />
         )}
         {isLoading === false && data !== undefined && data.certificates && (
-          <MultiSlider items={data.certificates} title={"Sertifikatlar"} />
+          <MultiSlider items={data.certificates} title={t("sertifikatlar")} />
         )}
         {isLoading === false && data !== undefined && data.news && (
-          <NewsSlider items={data.news} title={"Xəbərlər"} />
+          <NewsSlider items={data.news} title={t("xeberler")} />
         )}
         {isLoading === false && data !== undefined && (
           <MultiSlider
             items={data.partners}
-            title={"Partnyorlar"}
+            title={t("partnyorlar")}
             id={"endMultiSlider"}
           />
         )}

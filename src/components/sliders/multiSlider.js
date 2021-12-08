@@ -11,6 +11,9 @@ const MultiSlider = ({ items, title, id }) => {
         options={{
           gap: "39px",
           perPage: 4,
+          type: "loop",
+          interval: 3000,
+          autoplay: true,
           pagination: false,
           arrows: items.length > 4 ? true : false,
           breakpoints: {
@@ -27,7 +30,7 @@ const MultiSlider = ({ items, title, id }) => {
           <SplideSlide key={item.id}>
             <div className="productSlider__items">
               <div className="productSlider__items--img">
-                <img id={id}  src={item.image} alt={item.title} />
+                <img id={id} src={item.image} alt={item.title} />
               </div>
             </div>
           </SplideSlide>

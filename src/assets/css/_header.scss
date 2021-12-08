@@ -211,6 +211,8 @@
       font-size: 16px;
       line-height: 20px;
       color: #fff;
+      transition: all 0.2s;
+
 
       @media (max-width: 1320px) {
         font-size: 14px;
@@ -222,6 +224,8 @@
 
       &:hover {
         color: #fff;
+        font-size: 18px;
+        transition: all 0.2s;
       }
 
       &:not(:last-child) {
@@ -335,6 +339,7 @@
 .fixedHeader {
   position: fixed !important;
   background-color: #bf0807 !important;
+  top: 0;
 
   a {
     color: #fff !important;

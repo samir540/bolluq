@@ -74,7 +74,7 @@ const Form = () => {
                         <input
                           type="text"
                           id="name"
-                          {...register("firstname", { required: false })}
+                          {...register("firstname", { required: true })}
                         />
                       </div>
                       <div className="form__personal-information__body__input-field__name--input__surname d-flex flex-column">
@@ -82,7 +82,7 @@ const Form = () => {
                         <input
                           type="text"
                           id="surname"
-                          {...register("surname", { required: false })}
+                          {...register("surname", { required: true })}
                         />
                       </div>
                       <div className="form__personal-information__body__input-field__name--input__patronymic d-flex flex-column">
@@ -90,7 +90,7 @@ const Form = () => {
                         <input
                           type="text"
                           id="patronymic"
-                          {...register("patronymic", { required: false })}
+                          {...register("patronymic", { required: true })}
                         />
                       </div>
                     </div>
@@ -99,29 +99,31 @@ const Form = () => {
                       <div className="form__personal-information__body__input-field__birth--input__b-place d-flex flex-column">
                         <label htmlFor="b-place">*Doğum yeri</label>
                         <input
-                          type="date"
+                          type="text"
                           id="b-place"
-                          {...register("bplace", { required: false })}
+                          {...register("bplace", { required: true })}
                         />
                       </div>
                       <div className="form__personal-information__body__input-field__birth--input__b-date d-flex flex-column">
                         <label htmlFor="b-date">*Doğum tarixi</label>
                         <input
-                          type="text"
+                          type="date"
                           id="b-date"
-                          {...register("bdate", { required: false })}
+                          {...register("bdate", { required: true })}
                         />
                       </div>
                       <div className="form__personal-information__body__input-field__birth--input__citizenship d-flex flex-column">
                         <label>*Vətəndaşlıq</label>
                         <Controller
                           control={control}
+                          rules={{ required: true }}
                           name="citizenship"
                           render={({ field }) => (
                             <select
                               {...field}
                               style={{ padding: "5px 10px 5px" }}
                             >
+                              <option value="">Sec</option>
                               <option value="azerbaycanli">Azerbaycanli</option>
                             </select>
                           )}
@@ -134,7 +136,7 @@ const Form = () => {
                       <input
                         type="text"
                         id="address"
-                        {...register("address", { required: false })}
+                        {...register("address", { required: true })}
                       />
                     </div>
 
@@ -144,6 +146,7 @@ const Form = () => {
                         <Controller
                           control={control}
                           name="familysituation"
+                          rules={{ required: true }}
                           render={({ field }) => (
                             <select {...field}>
                               <option value=""></option>
@@ -157,6 +160,7 @@ const Form = () => {
                         <label>*Hərbi mükəlləfiyyət</label>
                         <Controller
                           control={control}
+                          rules={{ required: true }}
                           name="army"
                           render={({ field }) => (
                             <select {...field}>
@@ -171,6 +175,7 @@ const Form = () => {
                         <label>*Sürücülük vəsiqəsi</label>
                         <Controller
                           control={control}
+                          rules={{ required: true }}
                           name="drivelisence"
                           render={({ field }) => (
                             <select {...field}>
@@ -215,6 +220,7 @@ const Form = () => {
                       <Controller
                         control={control}
                         name="phonecity"
+                        rules={{ required: false }}
                         render={({ field }) => (
                           <select {...field}>
                             <option value="012"></option>
@@ -254,7 +260,7 @@ const Form = () => {
                     <div>
                       <input
                         type="email"
-                        {...register("emailperson", { required: false })}
+                        {...register("emailperson", { required: true })}
                       />
                     </div>
                   </div>
@@ -271,7 +277,7 @@ const Form = () => {
                       <div>
                         <input
                           type="text"
-                          {...register("education", { required: false })}
+                          {...register("education", { required: true })}
                         />
                       </div>
                     </div>
@@ -280,7 +286,7 @@ const Form = () => {
                       <div>
                         <input
                           type="text"
-                          {...register("cityperson", { required: false })}
+                          {...register("cityperson", { required: true })}
                         />
                       </div>
                     </div>
@@ -292,7 +298,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("educationname", { required: false })}
+                            {...register("educationname", { required: true })}
                           />
                         </div>
                       </div>
@@ -301,7 +307,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("faculty", { required: false })}
+                            {...register("faculty", { required: true })}
                           />
                         </div>
                       </div>
@@ -310,7 +316,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("specialty", { required: false })}
+                            {...register("specialty", { required: true })}
                           />
                         </div>
                       </div>
@@ -321,7 +327,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("eduationstart", { required: false })}
+                            {...register("eduationstart", { required: true })}
                           />
                         </div>
                       </div>
@@ -330,7 +336,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("educationend", { required: false })}
+                            {...register("educationend", { required: true })}
                           />
                         </div>
                       </div>
@@ -339,7 +345,7 @@ const Form = () => {
                         <div>
                           <input
                             type="text"
-                            {...register("degree", { required: false })}
+                            {...register("degree", { required: true })}
                           />
                         </div>
                       </div>
@@ -433,7 +439,7 @@ const Form = () => {
                     <div>
                       <input
                         type="text"
-                        {...register("referencename", { required: false })}
+                        {...register("referencename", { required: true })}
                       />
                     </div>
                   </div>
@@ -442,7 +448,7 @@ const Form = () => {
                     <div>
                       <input
                         type="text"
-                        {...register("referencelastname", { required: false })}
+                        {...register("referencelastname", { required: true })}
                       />
                     </div>
                   </div>
@@ -452,7 +458,7 @@ const Form = () => {
                       <input
                         type="text"
                         {...register("referencerelationsipdegree", {
-                          required: false,
+                          required: true,
                         })}
                       />
                     </div>
@@ -463,7 +469,7 @@ const Form = () => {
                       <input
                         type="text"
                         {...register("referencecontact", {
-                          required: false,
+                          required: true,
                         })}
                       />
                     </div>
