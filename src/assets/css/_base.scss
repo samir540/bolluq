@@ -13,6 +13,20 @@ body {
   background-color: #fafafa;
 }
 
+.opacityNone {
+  opacity: 0;
+  z-index: -1;
+  top: -340px;
+  transition: all 0.2s;
+}
+
+.image-box {
+  img {
+    height: auto;
+    transform: unset !important;
+  }
+}
+
 @media (max-width: 722px) {
   .container,
   .container-lg,

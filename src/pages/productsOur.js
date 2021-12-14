@@ -7,17 +7,17 @@ import CustomPagination from "../components/pagination/pagination";
 import FancyBox from "../components/fancyBox/fancyBox";
 import { useQuery } from "react-query";
 import { ourBrands } from "../queries/queries";
+import ReactFancyBox from "react-fancybox";
 
 // css
+import "react-fancybox/lib/fancybox.css";
 import "../assets/css/_products.scss";
 import { Link } from "react-router-dom";
-
 
 const Products = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
   const { slug } = useParams();
-
 
   const { data, isLoading } = useQuery(
     ["ourBrands", slug !== undefined ? "/" + slug : "", page],
@@ -45,11 +45,9 @@ const Products = () => {
                     <Col lg="4" key={index}>
                       <div className="productSlider__items">
                         <div className="productSlider__items--img">
-                          <img
-                            data-fancybox="gallery"
-                            data-src={item.image}
-                            src={item.image}
-                            alt={item.title}
+                          <ReactFancyBox
+                            thumbnail={item.image}
+                            image={item.galleryImage}
                           />
                         </div>
                         <div className="productSlider__items--info">

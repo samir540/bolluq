@@ -133,6 +133,12 @@ export const contact = async (key) => {
   return await res.data;
 };
 
+export const chat = async (key) => {
+  const res = await axios.post(baseUrl + `chat`, key);
+
+  return await res.data;
+};
+
 export const catalog = async (key) => {
   const res = await axios.get(baseUrl + `catalog`);
 

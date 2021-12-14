@@ -1,4 +1,7 @@
 export const animateBody = (element) => {
+
+  console.log(element)
+
   window.onscroll = function () {
     if (this.scrollY > 100) {
       element.style.opacity = "1";

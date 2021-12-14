@@ -2,19 +2,33 @@ import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "reactstrap";
 import { animateBody } from "../../helper/helper";
-import { useQuery } from "react-query";
+import swal from "sweetalert";
+import { useQuery, useMutation } from "react-query";
 import { settingApi } from "../../queries/queries";
 import "../../assets/css/_footer.scss";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { chat } from "../../queries/queries";
+import { useForm } from "react-hook-form";
 
 const Footer = ({ dispatchSettings }) => {
   const btnTopRef = useRef();
   const { t } = useTranslation();
 
+  const sendRef = useRef();
+  const sendMessageBox = useRef();
+  const closeRef = useRef();
+
   useEffect(() => {
     animateBody(btnTopRef.current);
-  }, []);
+    sendRef.current.onclick = () => {
+      sendMessageBox.current.classList.remove("opacityNone");
+    };
+
+    closeRef.current.onclick = () => {
+      sendMessageBox.current.classList.add("opacityNone");
+    };
+  });
 
   const { data, isLoading } = useQuery(["setting"], settingApi, {
     refetchOnWindowFocus: false,
@@ -23,8 +37,117 @@ const Footer = ({ dispatchSettings }) => {
     },
   });
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const { mutate } = useMutation((data) => chat(data), {
+    onSuccess: (succ) => {
+      if (succ.status === 200) {
+      }
+
+      swal({
+        title: "Təbriklər!",
+        text: "Mesajınız göndərildi",
+        icon: "success",
+      });
+    },
+  });
+
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key]);
+    }
+    mutate(formData);
+  };
+
   return (
     <footer className="footer">
+      <div className="footer__sendMessage">
+        <div
+          ref={sendMessageBox}
+          className="footer__sendMessageBox opacityNone"
+        >
+          <div className="footer__sendTitle">
+            <h3>Formanı doldurun</h3>
+            <button ref={closeRef}>
+              <svg
+                width={22}
+                height={22}
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx={11} cy={11} r={11} fill="white" />
+                <path d="M6 11H16" stroke="#7D7D7D" strokeWidth={2} />
+              </svg>
+            </button>
+          </div>
+          <div className="footer__sendForm">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                {...register("firstname", { required: true })}
+                type="text"
+                placeholder="*Ad"
+              />
+              <input
+                {...register("lastname", { required: true })}
+                type="text"
+                placeholder="*Soyad"
+              />
+              <input
+                {...register("email", { required: true })}
+                type="text"
+                placeholder="*Email"
+              />
+              <textarea
+                {...register("message", { required: true })}
+                placeholder="*Mesaj yaz"
+              ></textarea>
+              <button className="sendBtnFormFooter" type="submit">
+                <svg
+                  width={18}
+                  height={16}
+                  viewBox="0 0 18 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.15411 7.99983H2.5559L1.01824 1.88262C1.00839 1.84707 1.00239 1.81057 1.00035 1.77373C0.983237 1.21296 1.60079 0.82407 2.1359 1.08074L16.5559 7.99983L2.1359 14.9189C1.60701 15.1733 0.997237 14.7953 1.00035 14.2446C1.00192 14.1954 1.01057 14.1467 1.02601 14.0999L2.16701 10.3332"
+                    fill="white"
+                  />
+                  <path
+                    d="M7.15411 7.99983H2.5559L1.01824 1.88262C1.00839 1.84707 1.00239 1.81057 1.00035 1.77373C0.983237 1.21296 1.60079 0.82407 2.1359 1.08074L16.5559 7.99983L2.1359 14.9189C1.60701 15.1733 0.997237 14.7953 1.00035 14.2446C1.00192 14.1954 1.01057 14.1467 1.02601 14.0999L2.16701 10.3332"
+                    stroke="white"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Göndər
+              </button>
+            </form>
+          </div>
+        </div>
+        <button ref={sendRef}>
+          <svg
+            width={20}
+            height={16}
+            viewBox="0 0 20 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 14H2V4L10 9L18 4V14ZM10 7L2 2H18L10 7Z"
+              fill="black"
+            />
+          </svg>
+          Bizə ismarıc göndər
+        </button>
+      </div>
       <Container>
         <div className="btnTop" ref={btnTopRef}>
           <svg
