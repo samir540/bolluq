@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { productionDetail } from "../queries/queries";
 import { useParams } from "react-router";
 import renderHtml from "react-render-html";
+import Title from "../components/title/title";
 
 const ProductionsDetails = () => {
   const { slug } = useParams();
@@ -19,24 +20,27 @@ const ProductionsDetails = () => {
   );
 
   return (
-    <section className="productionsDetails">
-      <Container>
-        <div className="d-flex">
-          <Menu />
-          {isLoading === false && data !== undefined && (
-            <div className="productionsDetails__wrapper">
-              <div className="productionsDetails__wrapper__item d-flex justify-content-center align-items-center flex-column">
-                <img src={data.data.image} alt="Koroglu_Fabriki" />
-                <div className="productionsDetails__wrapper__item--content">
-                  <h2>{data.data.title}</h2>
-                  {renderHtml(data.data.description)}
+    <>
+      <Title title="BİZ KİMİK" />
+      <section className="productionsDetails">
+        <Container>
+          <div className="d-flex">
+            <Menu />
+            {isLoading === false && data !== undefined && (
+              <div className="productionsDetails__wrapper">
+                <div className="productionsDetails__wrapper__item d-flex justify-content-center align-items-center flex-column">
+                  <img src={data.data.image} alt="Koroglu_Fabriki" />
+                  <div className="productionsDetails__wrapper__item--content">
+                    <h2>{data.data.title}</h2>
+                    {renderHtml(data.data.description)}
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </Container>
-    </section>
+            )}
+          </div>
+        </Container>
+      </section>
+    </>
   );
 };
 

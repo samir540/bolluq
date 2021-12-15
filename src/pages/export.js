@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { Container } from "reactstrap";
 import { useForm } from "react-hook-form";
@@ -49,6 +49,8 @@ const Export = () => {
     formData.append("file", data.file[0]);
     mutate(formData);
   };
+
+  const [name, setName] = useState("Choose File");
 
   return (
     <>
@@ -11827,8 +11829,18 @@ const Export = () => {
                     {...register("message", { required: false })}
                   ></textarea>
                   <div className="contact__form--in__file">
-                    <label className="file-label">
-                      <input type="file" {...register("file")} />
+                    <label className="file-label" data-name={name}>
+                      <input
+                        type="file"
+                        {...register("file")}
+                        onChange={(e) => {
+                          if (e.target.files.length !== 0) {
+                            setName(e.target.files[0].name);
+                          } else {
+                            setName("Choose File");
+                          }
+                        }}
+                      />
                     </label>
                   </div>
                   <button className="submitInput" type="submit">

@@ -166,11 +166,8 @@ const Footer = ({ dispatchSettings }) => {
         <div className="d-flex flexBoxFooter justify-content-between">
           <div className="footer__items hide">
             <h3>Biz kimik</h3>
-
-            <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>
-            <NavLink to={"/history"}>{t("tariximiz")}</NavLink>
-            <NavLink to={"/structure"}>{t("struktur")}</NavLink>
-            <NavLink to={"/productions"}>{t("istehsalat")}</NavLink>
+            <NavLink to={"/principles"}>{t("deyerlerimiz")}</NavLink>
+            <NavLink to={"/news"}>{t("xeberler")}</NavLink>
           </div>
           <div className="footer__items hide">
             <h3>Məhsullar</h3>
@@ -186,27 +183,43 @@ const Footer = ({ dispatchSettings }) => {
           <div className="footer__items">
             <h3>{t("elaqemelumatlari")}</h3>
             <div className="d-flex flex-column">
-              <NavLink to={"/"}>
+              <a
+                href={`tel:${
+                  isLoading === false && data !== undefined && data.data.phone
+                }`}
+              >
                 <img
                   src={require("../../assets/images/phone.svg").default}
                   alt=""
                 />
                 {isLoading === false && data !== undefined && data.data.phone}
-              </NavLink>
-              <NavLink to={"/"}>
+              </a>
+              <a
+                href={`mailto:${
+                  isLoading === false && data !== undefined && data.data.email
+                }`}
+              >
                 <img
                   src={require("../../assets/images/office.svg").default}
                   alt=""
                 />
                 {isLoading === false && data !== undefined && data.data.email}
-              </NavLink>
-              <NavLink to={"/"}>
+              </a>
+              <a
+                href={
+                  isLoading === false &&
+                  data !== undefined &&
+                  data.data.address.link
+                }
+              >
                 <img
                   src={require("../../assets/images/location.svg").default}
                   alt=""
                 />
-                {isLoading === false && data !== undefined && data.data.address}
-              </NavLink>
+                {isLoading === false &&
+                  data !== undefined &&
+                  data.data.address.name}
+              </a>
             </div>
           </div>
         </div>

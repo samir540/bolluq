@@ -1,7 +1,4 @@
 export const animateBody = (element) => {
-
-  console.log(element)
-
   window.onscroll = function () {
     if (this.scrollY > 100) {
       element.style.opacity = "1";
@@ -38,7 +35,7 @@ export const changeMapLocations = (btnRef, spanRefEast, spanRefWest) => {
   // firstTimeRender
   btnRef.current[0].classList.add("active");
 
-  console.log(btnRef.current)
+  console.log(btnRef.current);
 
   btnRef.current.forEach((element) => {
     element.onclick = () => {
@@ -109,3 +106,15 @@ export const searchSpan = (searchRef) => {
     };
   });
 };
+
+export function readURL(input, setImgPath) {
+  if (input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      setImgPath(e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}

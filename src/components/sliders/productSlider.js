@@ -14,8 +14,11 @@ const ProductSlider = ({ items }) => {
       <Splide
         options={{
           gap: "39px",
+          type: "loop",
           perPage: 4,
           pagination: false,
+          interval: 3000,
+          autoplay: true,
           arrows: items.length > 4 ? true : false,
           breakpoints: {
             1265: {

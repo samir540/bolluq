@@ -18,6 +18,8 @@ const NewsSlider = ({ items, title }) => {
             gap: "39px",
             perPage: 3,
             pagination: false,
+            interval: 3000,
+            autoplay: true,
             arrows: items.length > 4 ? true : false,
             breakpoints: {
               1265: {

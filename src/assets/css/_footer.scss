@@ -5,9 +5,9 @@
   padding: 78px 0;
 
   &__sendMessage {
-    position: absolute;
+    position: fixed;
     right: 150px;
-    top: -45px;
+    bottom: 78px;
 
     > button {
       padding: 5px 0;

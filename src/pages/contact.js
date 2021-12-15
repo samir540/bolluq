@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "reactstrap";
 import { useForm } from "react-hook-form";
 import Title from "../components/title/title";
@@ -40,6 +40,8 @@ const Contact = ({ settings }) => {
 
     mutate(formData);
   };
+
+  const [name, setName] = useState("Choose File");
 
   return (
     <div className="contact">
@@ -147,8 +149,21 @@ const Contact = ({ settings }) => {
                   {...register("message", { required: false })}
                   placeholder="Mətn"
                 ></textarea>
-                <div className="contact__form--in__file">
-                  <input type="file" {...register("file")} />
+                <div className="width100Flex">
+                  <div className="contact__form--in__file">
+                    <p> {name}</p>
+                    <input
+                      type="file"
+                      {...register("file")}
+                      onChange={(e) => {
+                        if (e.target.files.length !== 0) {
+                          setName(e.target.files[0].name);
+                        } else {
+                          setName("Choose File");
+                        }
+                      }}
+                    />
+                  </div>
                 </div>
                 <button className="submitInput" type="submit">
                   Göndər

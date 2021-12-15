@@ -1,6 +1,12 @@
 .contact {
   padding-bottom: 159px;
 
+  .width100Flex {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   @media (max-width: 1201px) {
     padding-bottom: 60px;
   }
@@ -77,18 +83,32 @@
       }
 
       &__file {
-        display: flex;
-        justify-content: flex-end;
+        display: inline-flex;
+        flex-direction: column;
+        align-self: flex-end;
         width: 100%;
         box-sizing: border-box;
         border-radius: 8px;
+        border: 1px solid rgba(191, 8, 7, 0.5);
+        width: auto;
+        position: relative;
+
+        p {
+          position: relative;
+          margin-bottom: 0;
+          margin: 0 15px;
+        }
 
         input {
-          border: 1px solid rgba(191, 8, 7, 0.5);
           color: transparent;
           width: 109px;
           border-radius: 11px;
           height: 30px;
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
         }
       }
 

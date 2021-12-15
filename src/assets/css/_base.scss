@@ -14,8 +14,7 @@ body {
 }
 
 .opacityNone {
-  opacity: 0;
-  z-index: -1;
+  display: none;
   top: -340px;
   transition: all 0.2s;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "reactstrap";
 import { useMutation } from "react-query";
 import { Controller, useForm } from "react-hook-form";
@@ -7,11 +7,16 @@ import "../assets/css/_form.scss";
 import { exportApi, resumeCv } from "../queries/queries";
 import swal from "sweetalert";
 import { useParams } from "react-router";
+import { readURL } from "../helper/helper";
 
 const Form = () => {
   const { slug } = useParams();
 
   const [img, setImg] = useState("");
+
+  const [imgPath, setImgPath] = useState(null);
+
+  const [forceUpdate, setForceUpdate] = useState();
 
   const {
     register,
@@ -50,6 +55,12 @@ const Form = () => {
 
     mutate(formData);
   };
+
+  useEffect(() => {
+    if (img !== "") {
+      readURL(img, setImgPath);
+    }
+  }, [img, forceUpdate]);
 
   return (
     <>
@@ -195,14 +206,22 @@ const Form = () => {
                         <p>Sekili yukle</p>
                       </div>
                     )}
+                    <p className="imgPath">
+                      {imgPath !== null ? (
+                        <img src={imgPath} />
+                      ) : (
+                        "JPEG,JPG,PNG, maks 10MB"
+                      )}
+                    </p>
 
-                    <p>{img !== "" ? img : "JPEG,JPG,PNG, maks 10MB"}</p>
                     <input
                       {...register("file")}
+                      accept="image/png, image/jpg,image/jpeg"
                       type="file"
                       className="file"
                       onChange={(e) => {
-                        setImg(e.target.files[0].name);
+                        setImg(e.target);
+                        setForceUpdate(Math.floor(Math.random(1) * 10));
                       }}
                     />
                   </div>
@@ -223,7 +242,7 @@ const Form = () => {
                         rules={{ required: false }}
                         render={({ field }) => (
                           <select {...field}>
-                            <option value="012"></option>
+                            <option value=""></option>
                             <option value="012">012</option>
                           </select>
                         )}
@@ -242,7 +261,7 @@ const Form = () => {
                         name="phonemobile"
                         render={({ field }) => (
                           <select {...field}>
-                            <option value="+994"></option>
+                            <option value=""></option>
                             <option value="+994">+994</option>
                           </select>
                         )}
