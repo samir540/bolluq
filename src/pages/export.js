@@ -57,7 +57,7 @@ const Export = () => {
 
   return (
     <>
-      <Title title={t("export")} />
+      <Title title={t("EXPORT")} />
       <div className="export">
         <Container>
           <div className="export__map">

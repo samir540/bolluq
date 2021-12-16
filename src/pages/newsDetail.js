@@ -7,9 +7,13 @@ import { useParams } from "react-router";
 import { newsDetailApi } from "../queries/queries";
 import renderHtml from "react-render-html";
 import Title from "../components/title/title";
+import { useTranslation } from "react-i18next";
+
 
 const NewsDetail = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
+
 
   const { data, isLoading } = useQuery(["newsDetail", id], newsDetailApi, {
     refetchOnWindowFocus: false,
@@ -17,7 +21,7 @@ const NewsDetail = () => {
 
   return (
     <div className="newsDetail">
-       <Title title="BİZ KİMİK" />
+       <Title title={t("bizkimik")} />
       <div className="productionsDetails">
         <Container>
           <div className="d-flex">

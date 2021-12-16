@@ -9,7 +9,6 @@ import { catalog } from "../queries/queries";
 import { saveAs } from "file-saver";
 import { useTranslation } from "react-i18next";
 
-
 const Catalogs = () => {
   const { t } = useTranslation();
 
@@ -39,7 +38,7 @@ const Catalogs = () => {
 
   return (
     <div className="catalogs">
-      <Title title={"kataloq"} />
+      <Title title={t("kataloq")} />
       <Container>
         <div className="catalogs__wrapper">
           {isLoading === false &&

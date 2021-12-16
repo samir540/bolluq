@@ -16,6 +16,7 @@ const NewsSlider = ({ items, title }) => {
         <Splide
           options={{
             gap: "39px",
+            type: "loop",
             perPage: 3,
             pagination: false,
             interval: 3000,

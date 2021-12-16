@@ -8,6 +8,7 @@ import FancyBox from "../components/fancyBox/fancyBox";
 import { useQuery } from "react-query";
 import { ourBrands } from "../queries/queries";
 import ReactFancyBox from "react-fancybox";
+import { useTranslation } from "react-i18next";
 
 // css
 import "react-fancybox/lib/fancybox.css";
@@ -18,6 +19,7 @@ const Products = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
   const { slug } = useParams();
+  const { t } = useTranslation();
 
   const { data, isLoading } = useQuery(
     ["ourBrands", slug !== undefined ? "/" + slug : "", page],
@@ -32,7 +34,7 @@ const Products = () => {
 
   return (
     <div className="products">
-      <Title title={"MƏHSULLAR"} />
+      <Title title={t("mehsullar")} />
       <Container>
         <FancyBox options={{ infinite: false }}>
           <div className="products__wrapper">

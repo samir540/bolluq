@@ -11,9 +11,12 @@ import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import renderHtml from "react-render-html";
 import { newsApi } from "../queries/queries";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
   const [number, setNumber] = useState(0);
+
+  const { t } = useTranslation();
 
   const totalRef = useRef(null);
 
@@ -30,7 +33,7 @@ const News = () => {
 
   return (
     <div className="news">
-      <Title title={"BİZ KİMİK"} />
+      <Title title={t("bizkimik")} />
       <div className="news__info">
         <Container>
           <div className="news__wrapper">
