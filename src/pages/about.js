@@ -6,11 +6,14 @@ import { Container } from "reactstrap";
 import { aboutApi } from "../queries/queries";
 import { useQuery } from "react-query";
 import renderHtml from "react-render-html";
+import { useTranslation } from "react-i18next";
 
 // css
 import "../assets/css/_about.scss";
 
 const About = () => {
+  const { t } = useTranslation();
+
   const mainRef = useRef();
 
   const thumbsRef = useRef();
@@ -46,7 +49,7 @@ const About = () => {
 
   return (
     <div className="about">
-      <Title title={"BİZ KİMİK"} />
+      <Title title={t("bizkimik")} />
       <Container>
         <div className="about__wrapper">
           <Menu />

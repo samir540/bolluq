@@ -8,8 +8,11 @@ import "../assets/css/_contact.scss";
 import { contact } from "../queries/queries";
 import swal from "sweetalert";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Contact = ({ settings }) => {
+  const { t } = useTranslation();
+
   const {
     register,
     formState: { errors },
@@ -45,7 +48,7 @@ const Contact = ({ settings }) => {
 
   return (
     <div className="contact">
-      <Title title={"ƏLAQƏ"} />
+      <Title title={t("elaqe")} />
       <Container>
         <div className="contact__wrapper">
           <div className="contact__map">
@@ -59,7 +62,7 @@ const Contact = ({ settings }) => {
             />
           </div>
           <div className="contact__form">
-            <h2>Əlaqə üçün bizə yazın</h2>
+            <h2>{t("elaqeucun")}</h2>
             <div className="contact__form--in">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="contact__form--in__items">
@@ -77,7 +80,7 @@ const Contact = ({ settings }) => {
                   </svg>
 
                   <input
-                    placeholder="Ad"
+                    placeholder={t("ad")}
                     type="text"
                     {...register("firstname", { required: true })}
                   />
@@ -96,7 +99,7 @@ const Contact = ({ settings }) => {
                     />
                   </svg>
                   <input
-                    placeholder="Soyad"
+                    placeholder={t("soyad")}
                     type="text"
                     {...register("lastname", {
                       required: true,
@@ -118,7 +121,7 @@ const Contact = ({ settings }) => {
                     />
                   </svg>
                   <input
-                    placeholder="Email"
+                    placeholder={t("email")}
                     type="text"
                     {...register("email", {
                       required: true,
@@ -140,14 +143,14 @@ const Contact = ({ settings }) => {
                     />
                   </svg>
                   <input
-                    placeholder="Telefon"
+                    placeholder={t("mobilnomre")}
                     type="text"
                     {...register("phone", { required: false })}
                   />
                 </div>
                 <textarea
                   {...register("message", { required: false })}
-                  placeholder="Mətn"
+                  placeholder={t("metn")}
                 ></textarea>
                 <div className="width100Flex">
                   <div className="contact__form--in__file">
@@ -166,7 +169,7 @@ const Contact = ({ settings }) => {
                   </div>
                 </div>
                 <button className="submitInput" type="submit">
-                  Göndər
+                  {t("gonder")}
                 </button>
               </form>
             </div>
@@ -176,10 +179,10 @@ const Contact = ({ settings }) => {
           <div className="contact__end--items">
             <img
               src={require("../assets/images/tel.svg").default}
-              alt="Telefon"
+              alt={t("telefon")}
             />
             <p>
-              <span>Telefon:</span>
+              <span>{t("telefon")}:</span>
               {settings !== null && (
                 <a href={`tel:${settings.phone}`}>{settings.phone}</a>
               )}
@@ -188,10 +191,10 @@ const Contact = ({ settings }) => {
           <div className="contact__end--items">
             <img
               src={require("../assets/images/mail.svg").default}
-              alt="Email"
+              alt={t("email")}
             />
             <p>
-              <span>Email::</span>
+              <span>{t("email")}:</span>
               {settings !== null && (
                 <a href={`mailto:${settings.email}`}>{settings.email}</a>
               )}
@@ -200,11 +203,15 @@ const Contact = ({ settings }) => {
           <div className="contact__end--items">
             <img
               src={require("../assets/images/locate.svg").default}
-              alt="Ünvan"
+              alt={t("unvan")}
             />
             <p>
-              <span>Ünvan:</span>
-              {settings !== null && <a>{settings.address}</a>}
+              <span>{t("unvan")}:</span>
+              {settings !== null && (
+                <a target="_blank" href={settings.address.link}>
+                  {settings.address.name}
+                </a>
+              )}
             </p>
           </div>
         </div>

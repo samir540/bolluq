@@ -5,6 +5,8 @@ import { Container, Row, Col } from "reactstrap";
 import { useQuery } from "react-query";
 import { search } from "../queries/queries";
 import Title from "../components/title/title";
+import { useTranslation } from "react-i18next";
+
 
 function useQueryData() {
   return new URLSearchParams(useLocation().search);
@@ -13,6 +15,8 @@ function useQueryData() {
 const SearchResult = ({ searchState, dispatchSearch }) => {
   // vacancy search url
   let query = useQueryData();
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     dispatchSearch(query.get("query"));
@@ -25,7 +29,7 @@ const SearchResult = ({ searchState, dispatchSearch }) => {
 
   return (
     <>
-      <Title title={"MƏHSULLAR"} />
+      <Title title={t("mehsullar")} />
       <div className="searchResult">
         <Container>
           <Row>

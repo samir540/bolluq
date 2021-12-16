@@ -8,8 +8,10 @@ import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { vacanciesApi, vacanciesFilter } from "../queries/queries";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Vacancies = () => {
+  const { t } = useTranslation();
   const [number, setNumber] = useState(0);
   const totalRef = useRef(null);
   const [params, setParams] = useState({
@@ -75,7 +77,7 @@ const Vacancies = () => {
                 <div className="parent">
                   <div className="parent__info">
                     <button ref={(e) => (btnRef.current[0] = e)}>
-                      Vezife
+                      {t("vezife")}
                       <svg
                         width="20"
                         height="20"
@@ -125,7 +127,7 @@ const Vacancies = () => {
                   </div>
                   <div className="parent__info">
                     <button ref={(e) => (btnRef.current[1] = e)}>
-                      Fəaliyyət
+                      {t("fealiyyet")}
                       <svg
                         width="20"
                         height="20"
@@ -213,7 +215,7 @@ const Vacancies = () => {
                             alt="mapIcon"
                           />
                         </span>
-                        Son müraciət tarixi:{" "}
+                        {t("sonmuraciettarixi")}:{" "}
                         <span className="vacancies__wrapper__block--deadline-date--date">
                           {item.expired_at}
                         </span>
@@ -223,7 +225,7 @@ const Vacancies = () => {
                   <div className="vacancies__wrapper__block--more-info d-flex align-items-end">
                     <p>
                       <Link to={`/vacancies/${item.slug}`}>
-                        Daha ətraflı bax
+                        {t("dahaetraflibax")}
                         <span>
                           <img
                             src={require("../assets/images/arrow.svg").default}

@@ -72,7 +72,7 @@ const Footer = ({ dispatchSettings }) => {
           className="footer__sendMessageBox opacityNone"
         >
           <div className="footer__sendTitle">
-            <h3>Formanı doldurun</h3>
+            <h3>{t("formanidoldurun")}</h3>
             <button ref={closeRef}>
               <svg
                 width={22}
@@ -91,21 +91,21 @@ const Footer = ({ dispatchSettings }) => {
               <input
                 {...register("firstname", { required: true })}
                 type="text"
-                placeholder="*Ad"
+                placeholder={`*${t("ad")}`}
               />
               <input
                 {...register("lastname", { required: true })}
                 type="text"
-                placeholder="*Soyad"
+                placeholder={`*${t("soyad")}`}
               />
               <input
                 {...register("email", { required: true })}
                 type="text"
-                placeholder="*Email"
+                placeholder={`*${t("email")}`}
               />
               <textarea
                 {...register("message", { required: true })}
-                placeholder="*Mesaj yaz"
+                placeholder={`*${t("mesajyaz")}`}
               ></textarea>
               <button className="sendBtnFormFooter" type="submit">
                 <svg
@@ -127,7 +127,7 @@ const Footer = ({ dispatchSettings }) => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Göndər
+                {t("gonder")}
               </button>
             </form>
           </div>
@@ -145,7 +145,7 @@ const Footer = ({ dispatchSettings }) => {
               fill="black"
             />
           </svg>
-          Bizə ismarıc göndər
+          {t("bizeismaric")}
         </button>
       </div>
       <Container>
@@ -351,34 +351,6 @@ const Footer = ({ dispatchSettings }) => {
                       height={16}
                       fill="white"
                       transform="translate(0.585876)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-            <a href="2#">
-              <svg
-                width={17}
-                height={16}
-                viewBox="0 0 17 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_702:1281)">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M13.4467 2.67206C12.0434 1.26709 10.1771 0.493011 8.18881 0.492188C4.09183 0.492188 0.757477 3.82645 0.755829 7.92453C0.75528 9.23456 1.0975 10.5134 1.74799 11.6406L0.693481 15.4922L4.63382 14.4586C5.71954 15.0508 6.94186 15.3629 8.18579 15.3633H8.1889C12.2854 15.3633 15.6201 12.0287 15.6217 7.93048C15.6225 5.94434 14.8501 4.07693 13.4467 2.67206ZM8.18881 14.108H8.18625C7.07773 14.1075 5.99054 13.8096 5.04187 13.2469L4.81638 13.1129L2.47812 13.7263L3.10223 11.4466L2.95529 11.2128C2.33685 10.2292 2.01028 9.09228 2.01083 7.92499C2.01212 4.51877 4.7836 1.74756 8.19128 1.74756C9.84143 1.74811 11.3926 2.39154 12.559 3.5593C13.7254 4.72705 14.3673 6.27923 14.3668 7.93002C14.3653 11.3365 11.594 14.108 8.18881 14.108ZM11.5775 9.48102C11.3919 9.388 10.4787 8.93884 10.3084 8.87677C10.1383 8.81479 10.0144 8.78393 9.89068 8.96979C9.76681 9.15564 9.41095 9.57403 9.30255 9.6979C9.19415 9.82187 9.08594 9.83743 8.90018 9.74441C8.71442 9.65149 8.11603 9.45529 7.40658 8.82257C6.85452 8.33011 6.48181 7.72192 6.37341 7.53607C6.2652 7.35004 6.3725 7.25922 6.45489 7.15704C6.65594 6.90738 6.85727 6.64563 6.91916 6.52176C6.98114 6.3978 6.9501 6.28931 6.90359 6.19638C6.85727 6.10345 6.48584 5.1893 6.33111 4.81732C6.18024 4.45532 6.02725 4.50421 5.91318 4.49853C5.80496 4.49313 5.68109 4.49203 5.55722 4.49203C5.43344 4.49203 5.23221 4.53845 5.06192 4.72449C4.89172 4.91043 4.41199 5.35968 4.41199 6.27383C4.41199 7.18799 5.07748 8.0711 5.17032 8.19507C5.26315 8.31903 6.47998 10.1949 8.34299 10.9993C8.7861 11.1909 9.13199 11.305 9.40179 11.3906C9.84674 11.532 10.2515 11.512 10.5716 11.4642C10.9284 11.4109 11.6703 11.0149 11.8252 10.5811C11.9799 10.1472 11.9799 9.77545 11.9334 9.6979C11.8871 9.62045 11.7632 9.57403 11.5775 9.48102Z"
-                    fill="white"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_702:1281">
-                    <rect
-                      width="15.9448"
-                      height={16}
-                      fill="white"
-                      transform="translate(0.447876)"
                     />
                   </clipPath>
                 </defs>

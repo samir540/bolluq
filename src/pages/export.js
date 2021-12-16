@@ -7,8 +7,11 @@ import Title from "../components/title/title";
 import { exportApi, exportGetApi } from "../queries/queries";
 import swal from "sweetalert";
 import renderHTML from "react-render-html";
+import { useTranslation } from "react-i18next";
 
 const Export = () => {
+  const { t } = useTranslation();
+
   const {
     register,
     formState: { errors },
@@ -54,7 +57,7 @@ const Export = () => {
 
   return (
     <>
-      <Title title={"EXPORT"} />
+      <Title title={t("export")} />
       <div className="export">
         <Container>
           <div className="export__map">
@@ -11755,7 +11758,7 @@ const Export = () => {
                     </svg>
 
                     <input
-                      placeholder="Ad"
+                      placeholder={t("ad")}
                       type="text"
                       {...register("firstname", { required: true })}
                     />
@@ -11774,7 +11777,7 @@ const Export = () => {
                       />
                     </svg>
                     <input
-                      placeholder="Soyad"
+                      placeholder={t("soyad")}
                       type="text"
                       {...register("lastname", {
                         required: true,
@@ -11796,7 +11799,7 @@ const Export = () => {
                       />
                     </svg>
                     <input
-                      placeholder="Email"
+                      placeholder={t("email")}
                       type="text"
                       {...register("email", {
                         required: true,
@@ -11819,13 +11822,13 @@ const Export = () => {
                       />
                     </svg>
                     <input
-                      placeholder="Telefon"
+                      placeholder={t("mobilnomre")}
                       type="text"
                       {...register("phone", { required: false })}
                     />
                   </div>
                   <textarea
-                    placeholder="Mətn"
+                    placeholder={t("metn")}
                     {...register("message", { required: false })}
                   ></textarea>
                   <div className="contact__form--in__file">
@@ -11844,7 +11847,7 @@ const Export = () => {
                     </label>
                   </div>
                   <button className="submitInput" type="submit">
-                    Göndər
+                    {t("gonder")}
                   </button>
                 </form>
               </div>

@@ -4,12 +4,15 @@ import Title from "../components/title/title";
 import { changeMapLocations } from "../helper/helper";
 import { useQuery } from "react-query";
 import renderHTML from "react-render-html";
+import { useTranslation } from "react-i18next";
 
 // css
 import "../assets/css/_branch.scss";
 import { branches, branchesDescription } from "../queries/queries";
 
 const Branch = () => {
+  const { t } = useTranslation();
+
   const [name, setName] = useState("merkez");
 
   const btnRef = useRef([]);
@@ -32,7 +35,7 @@ const Branch = () => {
 
   return (
     <div className="branch">
-      <Title title={"FİLİALLAR"} />
+      <Title title={t("filial")} />
       <Container>
         <div className="branch__wrapper">
           <div className="branch__map">

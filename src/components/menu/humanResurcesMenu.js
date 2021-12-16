@@ -3,13 +3,17 @@ import { NavLink } from "react-router-dom";
 
 // css
 import "../../assets/css/_menu.scss";
+import { useTranslation } from "react-i18next";
 
 const HumanResurcesMenu = () => {
+
+  const { t } = useTranslation();
+
   return (
     <div className="menu menuCommon menuHuman">
-      <NavLink to={"/internship"}>TƏCRÜBƏ PROQRAMLARI</NavLink>
-      <NavLink to={"/rules"}>İŞƏ MÜRACİƏT QAYDALARI</NavLink>
-      <NavLink to={"/vacancies"}>VAKANSİYALAR</NavLink>
+      <NavLink to={"/internship"}>{t("tecrubeproqramlari")}</NavLink>
+      <NavLink to={"/rules"}>{t("isemuracietqaydalari")}</NavLink>
+      <NavLink to={"/vacancies"}>{t("vakansiyalar")}</NavLink>
     </div>
   );
 };

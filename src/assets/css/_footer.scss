@@ -6,8 +6,9 @@
 
   &__sendMessage {
     position: fixed;
-    right: 150px;
-    bottom: 78px;
+    right: 88px;
+    bottom: 29px;
+    z-index: 999;
 
     > button {
       padding: 5px 0;
@@ -69,6 +70,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
+    background-color: #fff;
 
     input {
       background: #ffffff;
@@ -111,6 +113,10 @@
       font-size: 14px;
       line-height: 17px;
       height: 41px;
+
+      svg {
+        margin-right: 15px;
+      }
     }
   }
 

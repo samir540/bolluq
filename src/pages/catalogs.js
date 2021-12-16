@@ -7,10 +7,12 @@ import "../assets/css/_catalogs.scss";
 import { useQuery } from "react-query";
 import { catalog } from "../queries/queries";
 import { saveAs } from "file-saver";
+import { useTranslation } from "react-i18next";
 
-var FileSaver = require("file-saver");
 
 const Catalogs = () => {
+  const { t } = useTranslation();
+
   const { data, isLoading } = useQuery(["catalogs"], catalog, {
     refetchOnWindowFocus: false,
   });
@@ -37,7 +39,7 @@ const Catalogs = () => {
 
   return (
     <div className="catalogs">
-      <Title title={"KATALOQ"} />
+      <Title title={"kataloq"} />
       <Container>
         <div className="catalogs__wrapper">
           {isLoading === false &&
