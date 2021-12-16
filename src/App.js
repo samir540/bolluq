@@ -8,6 +8,8 @@ import Title from "./title/title";
 import { resize } from "./helper/helper";
 import HomePage from "./pages/home";
 import { connect } from "react-redux";
+import { useQuery } from "react-query";
+import { translations } from "./queries/queries";
 
 // pages
 const News = lazy(() => import("./pages/news"));
@@ -35,6 +37,34 @@ const ErrorPage = lazy(() => import("./pages/error"));
 
 function App({ lang, isHide }) {
   const { pathname } = useLocation();
+
+  useQuery(["translations", localStorage.getItem("i18nextLng")], translations, {
+    refetchOnWindowFocus: false,
+    retry: false,
+    onSuccess: (succ) => {
+      if (
+        localStorage.getItem(
+          `TRANSLATE${localStorage.getItem("i18nextLng")}`
+        ) === null
+      ) {
+        localStorage.setItem(
+          `TRANSLATE${localStorage.getItem("i18nextLng")}`,
+          JSON.stringify(succ)
+        );
+      } else {
+        if (
+          localStorage.getItem(
+            `TRANSLATE${localStorage.getItem("i18nextLng")}`
+          ) !== JSON.stringify(succ)
+        ) {
+          localStorage.setItem(
+            `TRANSLATE${localStorage.getItem("i18nextLng")}`,
+            JSON.stringify(succ)
+          );
+        }
+      }
+    },
+  });
 
   useEffect(() => {
     resize();

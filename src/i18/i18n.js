@@ -5,6 +5,16 @@ import { initReactI18next } from "react-i18next";
 // baseurl
 import { baseUrl } from "../services/api";
 
+const trans = JSON.parse(
+  localStorage.getItem(`TRANSLATE${localStorage.getItem("i18nextLng")}`)
+);
+
+const resources = {
+  [localStorage.getItem("i18nextLng")]: {
+    translation: trans,
+  },
+};
+
 i18n
   .use(XHR)
   .use(LanguageDetector)

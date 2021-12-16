@@ -53,7 +53,7 @@ const Contact = ({ settings }) => {
         <div className="contact__wrapper">
           <div className="contact__map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.1780545432694!2d49.845644315706416!3d40.427056062934675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030887534e7cca1%3A0x4152a74543f2c50f!2sBolluq%20%C4%B0K!5e0!3m2!1saz!2s!4v1637514478612!5m2!1saz!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d758.6679065560024!2d49.759150429238154!3d40.48252909870984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40308f7becb217db%3A0xe0311625b34415d0!2sBolluq%20Ltd!5e0!3m2!1sru!2s!4v1639656058991!5m2!1sru!2s"
               width={600}
               height={450}
               style={{ border: 0 }}

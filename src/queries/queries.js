@@ -192,3 +192,9 @@ export const search = async (key) => {
 
   return await res.data;
 };
+
+export const translations = async (key) => {
+  const res = await axios.get(baseUrl + `translation/${key.queryKey[1]}`);
+
+  return await res.data;
+};
