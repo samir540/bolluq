@@ -13,6 +13,32 @@ body {
   background-color: #fafafa;
 }
 
+.splide__arrows {
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+
+.show{
+  display: unset !important;
+}
+
+.btnSendMob {
+  width: 34px !important;
+  height: 34px !important;
+  background: #bf0807 !important;
+  border-radius: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  right: 20px !important;
+
+  svg{
+    margin-right: 0 !important;
+  }
+}
+
 .opacityNone {
   display: none;
   top: -340px;

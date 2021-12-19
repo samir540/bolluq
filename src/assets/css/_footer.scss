@@ -10,6 +10,11 @@
     bottom: 29px;
     z-index: 999;
 
+    @media (max-width: 992px) {
+      right: 20px;
+      bottom: 20px;
+    }
+
     > button {
       padding: 5px 0;
       display: flex;
@@ -42,6 +47,11 @@
     height: 375px;
     border-radius: 8px;
     transition: all 0.2s;
+
+    @media (max-width: 1223px) {
+      left: -262px;
+      width: 300px;
+    }
   }
 
   &__sendTitle {

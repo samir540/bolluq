@@ -195,8 +195,10 @@
         color: #000000;
       }
 
-      &:hover .menuMob {
-        display: flex;
+      &.showMenu {
+        .menuMob {
+          display: flex;
+        }
       }
     }
   }
@@ -212,7 +214,6 @@
       line-height: 20px;
       color: #fff;
       transition: all 0.2s;
-
 
       @media (max-width: 1320px) {
         font-size: 14px;

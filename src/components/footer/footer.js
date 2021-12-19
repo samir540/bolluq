@@ -10,8 +10,11 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { chat } from "../../queries/queries";
 import { useForm } from "react-hook-form";
+import { useMediaQuery } from "react-responsive";
 
 const Footer = ({ dispatchSettings }) => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   const btnTopRef = useRef();
   const { t } = useTranslation();
 
@@ -132,20 +135,38 @@ const Footer = ({ dispatchSettings }) => {
             </form>
           </div>
         </div>
-        <button ref={sendRef}>
-          <svg
-            width={20}
-            height={16}
-            viewBox="0 0 20 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 14H2V4L10 9L18 4V14ZM10 7L2 2H18L10 7Z"
-              fill="black"
-            />
-          </svg>
-          {t("bizeismaric")}
+        <button className={isTabletOrMobile ? "btnSendMob" : ""} ref={sendRef}>
+          {!isTabletOrMobile ? (
+            <>
+              {" "}
+              <svg
+                width={20}
+                height={16}
+                viewBox="0 0 20 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 14H2V4L10 9L18 4V14ZM10 7L2 2H18L10 7Z"
+                  fill="black"
+                />
+              </svg>
+              {t("bizeismaric")}
+            </>
+          ) : (
+            <svg
+              width={16}
+              height={14}
+              viewBox="0 0 16 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.4 0H1.6C0.72 0 0.00799999 0.7875 0.00799999 1.75L0 12.25C0 13.2125 0.72 14 1.6 14H14.4C15.28 14 16 13.2125 16 12.25V1.75C16 0.7875 15.28 0 14.4 0ZM14.4 12.25H1.6V3.5L8 7.875L14.4 3.5V12.25ZM8 6.125L1.6 1.75H14.4L8 6.125Z"
+                fill="#FBFBFB"
+              />
+            </svg>
+          )}
         </button>
       </div>
       <Container>
@@ -166,7 +187,11 @@ const Footer = ({ dispatchSettings }) => {
         <div className="d-flex flexBoxFooter justify-content-between">
           <div className="footer__items hide">
             <h3>Biz kimik</h3>
+            <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>
+            <NavLink to={"/history"}>{t("tariximiz")}</NavLink>
             <NavLink to={"/principles"}>{t("deyerlerimiz")}</NavLink>
+            <NavLink to={"/structure"}>{t("struktur")}</NavLink>
+            <NavLink to={"/productions"}>{t("istehsalat")}</NavLink>
             <NavLink to={"/news"}>{t("xeberler")}</NavLink>
           </div>
           <div className="footer__items hide">
@@ -229,7 +254,7 @@ const Footer = ({ dispatchSettings }) => {
             <p>Bütün hüquqlar qorunur © 2021 Bolluq MMC</p>
           </div>
           <div className="footer__end hide">
-            <a href="#appstore">
+            {/* <a href="#appstore">
               <img
                 src={require("../../assets/images/appstore.svg").default}
                 alt=""
@@ -246,12 +271,12 @@ const Footer = ({ dispatchSettings }) => {
                 src={require("../../assets/images/appGalery.svg").default}
                 alt=""
               />
-            </a>
+            </a> */}
           </div>
           <div className="footer__end">
             {isLoading === false && (
               <>
-                <a href={data.data.facebook}>
+                <a href={data.data.facebook} target={"_blank"}>
                   <svg
                     width={16}
                     height={16}
@@ -265,7 +290,7 @@ const Footer = ({ dispatchSettings }) => {
                     />
                   </svg>
                 </a>
-                <a href={data.data.linkedin}>
+                <a href={data.data.linkedin} target={"_blank"}>
                   <svg
                     width={17}
                     height={16}
@@ -299,7 +324,7 @@ const Footer = ({ dispatchSettings }) => {
                     </defs>
                   </svg>
                 </a>
-                <a href={data.data.instagram}>
+                <a href={data.data.instagram} target={"_blank"}>
                   <svg
                     width={17}
                     height={16}
@@ -331,6 +356,60 @@ const Footer = ({ dispatchSettings }) => {
                         />
                       </clipPath>
                     </defs>
+                  </svg>
+                </a>
+                <a
+                  href={`https://t.me/${data.data.telegram}`}
+                  target={"_blank"}
+                >
+                  <svg
+                    width={17}
+                    height={14}
+                    viewBox="0 0 17 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.41874 9.12055L6.15408 12.8432C6.53274 12.8432 6.69674 12.6805 6.89341 12.4852L8.66874 10.7885L12.3474 13.4825C13.0221 13.8585 13.4974 13.6605 13.6794 12.8619L16.0941 1.54721C16.3081 0.54988 15.7341 0.159213 15.0767 0.40388L0.88341 5.83788C-0.0852564 6.21388 -0.0705897 6.75388 0.718744 6.99855L4.34741 8.12721L12.7761 2.85321C13.1727 2.59055 13.5334 2.73588 13.2367 2.99855L6.41874 9.12055Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  className="show"
+                  href={` https://wa.me/${data.data.whatsapp}`}
+                  target={"_blank"}
+                >
+                  <svg
+                    width={16}
+                    height={15}
+                    viewBox="0 0 16 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M13.4467 2.17987C12.0434 0.774902 10.1771 0.000823973 8.18881 0C4.09183 0 0.757477 3.33426 0.755829 7.43234C0.75528 8.74237 1.0975 10.0212 1.74799 11.1484L0.693481 15L4.63382 13.9664C5.71954 14.5586 6.94186 14.8707 8.18579 14.8711H8.1889C12.2854 14.8711 15.6201 11.5366 15.6217 7.43829C15.6225 5.45215 14.8501 3.58475 13.4467 2.17987ZM8.18881 13.6158H8.18625C7.07773 13.6154 5.99054 13.3174 5.04187 12.7547L4.81638 12.6207L2.47812 13.2341L3.10223 10.9544L2.95529 10.7206C2.33685 9.737 2.01028 8.6001 2.01083 7.4328C2.01212 4.02658 4.7836 1.25537 8.19128 1.25537C9.84143 1.25592 11.3926 1.89935 12.559 3.06711C13.7254 4.23486 14.3673 5.78705 14.3668 7.43783C14.3653 10.8443 11.594 13.6158 8.18881 13.6158ZM11.5775 8.98883C11.3919 8.89581 10.4787 8.44665 10.3084 8.38458C10.1383 8.3226 10.0144 8.29175 9.89068 8.4776C9.76681 8.66345 9.41095 9.08185 9.30255 9.20572C9.19415 9.32968 9.08594 9.34524 8.90018 9.25223C8.71442 9.1593 8.11603 8.9631 7.40658 8.33038C6.85452 7.83792 6.48181 7.22974 6.37341 7.04388C6.2652 6.85785 6.3725 6.76703 6.45489 6.66486C6.65594 6.41519 6.85727 6.15344 6.91916 6.02957C6.98114 5.90561 6.9501 5.79712 6.90359 5.70419C6.85727 5.61127 6.48584 4.69711 6.33111 4.32513C6.18024 3.96313 6.02725 4.01202 5.91318 4.00635C5.80496 4.00095 5.68109 3.99985 5.55722 3.99985C5.43344 3.99985 5.23221 4.04626 5.06192 4.2323C4.89172 4.41824 4.41199 4.86749 4.41199 5.78165C4.41199 6.6958 5.07748 7.57892 5.17032 7.70288C5.26315 7.82684 6.47998 9.70276 8.34299 10.5071C8.7861 10.6987 9.13199 10.8128 9.40179 10.8984C9.84674 11.0398 10.2515 11.0198 10.5716 10.972C10.9284 10.9187 11.6703 10.5227 11.8252 10.0889C11.9799 9.65506 11.9799 9.28326 11.9334 9.20572C11.8871 9.12826 11.7632 9.08185 11.5775 8.98883Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a href={data.data.twitter} target={"_blank"}>
+                  <svg
+                    width={19}
+                    height={16}
+                    viewBox="0 0 19 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.1648 1.00785C18.1648 1.00785 16.5903 1.93787 15.7149 2.20158C15.245 1.66129 14.6205 1.27834 13.9259 1.10454C13.2313 0.930729 12.5 0.974449 11.8311 1.22978C11.1621 1.48511 10.5877 1.93974 10.1855 2.53217C9.78333 3.1246 9.57281 3.82626 9.58241 4.54224V5.32246C8.21128 5.35801 6.85264 5.05391 5.62749 4.43726C4.40233 3.8206 3.34871 2.91052 2.56044 1.78806C2.56044 1.78806 -0.560438 8.81003 6.46153 11.9309C4.85469 13.0216 2.94053 13.5685 1 13.4913C8.02197 17.3924 16.6044 13.4913 16.6044 4.51883C16.6044 4.30193 16.5825 4.08503 16.542 3.87125C17.3378 3.08635 18.1648 1.00785 18.1648 1.00785Z"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </a>
               </>
