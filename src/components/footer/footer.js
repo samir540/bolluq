@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Container } from "reactstrap";
 import { animateBody } from "../../helper/helper";
 import swal from "sweetalert";
@@ -14,6 +14,8 @@ import { useMediaQuery } from "react-responsive";
 
 const Footer = ({ dispatchSettings }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+  const { pathname } = useLocation();
 
   const btnTopRef = useRef();
   const { t } = useTranslation();
@@ -31,7 +33,7 @@ const Footer = ({ dispatchSettings }) => {
     closeRef.current.onclick = () => {
       sendMessageBox.current.classList.add("opacityNone");
     };
-  });
+  }, [pathname]);
 
   const { data, isLoading } = useQuery(["setting"], settingApi, {
     refetchOnWindowFocus: false,
