@@ -19,8 +19,7 @@ body {
   }
 }
 
-
-.show{
+.show {
   display: unset !important;
 }
 
@@ -34,7 +33,7 @@ body {
   justify-content: center !important;
   right: 20px !important;
 
-  svg{
+  svg {
     margin-right: 0 !important;
   }
 }
@@ -227,7 +226,6 @@ body {
 
 #endMultiSlider {
   height: 300px;
-  max-height: 300px;
 
   @media (max-width: 575px) {
     height: auto;

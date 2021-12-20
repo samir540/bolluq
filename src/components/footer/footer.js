@@ -208,28 +208,30 @@ const Footer = ({ dispatchSettings }) => {
           <div className="footer__items">
             <h3>{t("elaqemelumatlari")}</h3>
             <div className="d-flex flex-column">
-              <a
-                href={`tel:${
-                  isLoading === false && data !== undefined && data.data.phone
-                }`}
-              >
-                <img
-                  src={require("../../assets/images/phone.svg").default}
-                  alt=""
-                />
-                {isLoading === false && data !== undefined && data.data.phone}
-              </a>
-              <a
-                href={`mailto:${
-                  isLoading === false && data !== undefined && data.data.email
-                }`}
-              >
-                <img
-                  src={require("../../assets/images/office.svg").default}
-                  alt=""
-                />
-                {isLoading === false && data !== undefined && data.data.email}
-              </a>
+              <div>
+                <a
+                  href={`tel:${
+                    isLoading === false && data !== undefined && data.data.phone
+                  }`}
+                >
+                  <img
+                    src={require("../../assets/images/phone.svg").default}
+                    alt=""
+                  />
+                  {isLoading === false && data !== undefined && data.data.phone}
+                </a>
+                <a
+                  href={`mailto:${
+                    isLoading === false && data !== undefined && data.data.email
+                  }`}
+                >
+                  <img
+                    src={require("../../assets/images/office.svg").default}
+                    alt=""
+                  />
+                  {isLoading === false && data !== undefined && data.data.email}
+                </a>
+              </div>
               <a
                 target={"_blank"}
                 href={
