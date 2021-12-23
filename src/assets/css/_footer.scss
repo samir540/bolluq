@@ -7,7 +7,7 @@
   &__sendMessage {
     position: fixed;
     right: 88px;
-    bottom: 29px;
+    bottom: 0;
     z-index: 999;
 
     @media (max-width: 992px) {
