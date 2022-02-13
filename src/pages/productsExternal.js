@@ -6,7 +6,8 @@ import CustomPagination from "../components/pagination/pagination";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { foreignBrands } from "../queries/queries";
-
+import { useTranslation } from "react-i18next";
+import ReactFancyBox from "react-fancybox";
 // css
 import "../assets/css/_products.scss";
 import { Link } from "react-router-dom";
@@ -15,6 +16,7 @@ const ProductsExternal = () => {
   const [page, setPage] = useState(0);
   const totalRef = useRef(null);
   const { slug } = useParams();
+  const {t}=useTranslation();
 
   const { data, isLoading } = useQuery(
     ["foreignBrands", slug !== undefined ? "/" + slug : "", page],
@@ -29,7 +31,7 @@ const ProductsExternal = () => {
 
   return (
     <div className="products">
-      <Title title={"MƏHSULLAR"} />
+      <Title title={t("mehsullar")} />
       <Container>
         <div className="products__wrapper">
           <ProductsMenu type="external-products" data={data} />
@@ -43,7 +45,7 @@ const ProductsExternal = () => {
                       to={
                         slug !== undefined
                           ? `/products-detail/${item.slug}`
-                          : `/external-products/category/${item.slug}`
+                          : `/external-products/${item.slug}`
                       }
                     >
                       <div className="productSlider__items">

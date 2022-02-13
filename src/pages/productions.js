@@ -7,15 +7,17 @@ import { productions } from "../queries/queries";
 import { Link } from "react-router-dom";
 import renderHtml from "react-render-html";
 import Title from "../components/title/title";
+import { useTranslation } from "react-i18next";
 
 const Productions = () => {
   const { data, isLoading } = useQuery(["productions"], productions, {
     refetchOnWindowFocus: false,
   });
+  const {t}= useTranslation();
 
   return (
     <>
-      <Title title="BİZ KİMİK" />
+      <Title title={t("bizkimik")} />
       <section className="productions">
         <Container>
           <div className="d-flex ">
@@ -34,7 +36,7 @@ const Productions = () => {
                       <p>{renderHtml(item.description)}</p>
                       <div className="productions__wrapper__item--content--arrow">
                         <Link to={"/productions/" + item.slug}>
-                          Daha ətraflı &#8594;
+                          {t("dahaetrafli")} &#8594;
                         </Link>
                       </div>
                     </div>

@@ -6,9 +6,11 @@ import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { productDetail } from "../queries/queries";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProductDetails = () => {
   const { slug } = useParams();
+  const {t} = useTranslation();
 
   const { data, isLoading } = useQuery(
     ["productDetail", slug !== undefined ? slug : ""],
@@ -48,7 +50,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <Title title={"MƏHSULLAR"} />
+      <Title title={t("mehsullar")} />
       <div className="productDetails">
         <Container>
           <div className="productDetails__wrapper d-flex flex-row">
@@ -80,9 +82,9 @@ const ProductDetails = () => {
                   <h4>{data.data.title}</h4>
                   <div className="productDetails__wrapper--product-details--content d-flex flex-row">
                     <div>
-                      <p>Çəki</p>
-                      <p>Qablaşdırma</p>
-                      <p>Kod</p>
+                      <p>{t("ceki")}</p>
+                      <p>{t("qablasdirma")}</p>
+                      <p>{t("kod")}</p>
                     </div>
                     <div className="">
                       <p>{data.data.weight}</p>

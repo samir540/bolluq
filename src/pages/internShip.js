@@ -25,7 +25,7 @@ const InternShip = () => {
           {isLoading === false && data !== undefined && data.data.length !== 0 && (
             <div className="humansResurces__info">
               <img src={data.data.image} alt="" />
-              {renderHTML(data.data.description)}
+              {renderHTML(data.data.description ?? '')}
             </div>
           )}
         </div>

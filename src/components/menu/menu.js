@@ -13,7 +13,7 @@ const Menu = () => {
       <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>
       <NavLink to={"/history"}>{t("tariximiz")}</NavLink>
       <NavLink to={"/principles"}>{t("deyerlerimiz")}</NavLink>
-      <NavLink to={"/structure"}>{t("struktur")}</NavLink>
+      {/* <NavLink to={"/structure"}>{t("struktur")}</NavLink> */}
       <NavLink to={"/productions"}>{t("istehsalat")}</NavLink>
       <NavLink to={"/news"}>{t("xeberler")}</NavLink>
     </div>

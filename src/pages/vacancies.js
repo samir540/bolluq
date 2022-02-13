@@ -10,6 +10,7 @@ import { vacanciesApi, vacanciesFilter } from "../queries/queries";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+
 const Vacancies = () => {
   const { t } = useTranslation();
   const [number, setNumber] = useState(0);
@@ -52,7 +53,7 @@ const Vacancies = () => {
 
   return (
     <div className="vacancies">
-      <Title title="İNSAN RESURSLARI" />
+      <Title title={t("insanresurslari")} />
       <Container>
         <div className="d-flex align-items-baseline vacancies__wrapper">
           <div className="vacancies__menuBox">
@@ -60,7 +61,7 @@ const Vacancies = () => {
             <div className="menu__details">
               <div className="menu__details--item">
                 <div className="menu__detailsSearch vacancies__searchBox">
-                  <input type="search" placeholder="Axtar...." />
+                  <input type="search" placeholder={t("axtar")} />
                   <svg
                     width="17"
                     height="17"

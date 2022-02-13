@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 import { catalog } from "../queries/queries";
 import { saveAs } from "file-saver";
 import { useTranslation } from "react-i18next";
+import { baseUrl } from "../services/api";
 
 const Catalogs = () => {
   const { t } = useTranslation();
@@ -16,10 +17,10 @@ const Catalogs = () => {
     refetchOnWindowFocus: false,
   });
 
-  const download = (url) => {
+  const download = (fileName) => {
     var oReq = new XMLHttpRequest();
 
-    var URLToPDF = url;
+    var URLToPDF = `${baseUrl}download/${fileName}`
 
     oReq.open("GET", URLToPDF, true);
 
@@ -30,7 +31,7 @@ const Catalogs = () => {
         type: "application/pdf",
       });
 
-      saveAs(file, "mypdffilename.pdf");
+      saveAs(file, "kataloq.pdf");
     };
 
     oReq.send();
@@ -79,14 +80,14 @@ const Catalogs = () => {
                           fill="black"
                         />
                       </svg>
-                      Bax
+                      {t("bax")}
                     </span>
                   </a>
                   <a
                     href={item.file}
                     onClick={(e) => {
                       e.preventDefault();
-                      download(item.file);
+                      download(item.fileName);
                     }}
                   >
                     <span>
@@ -106,7 +107,7 @@ const Catalogs = () => {
                           fill="black"
                         />
                       </svg>
-                      Yüklə
+                      {t("yukle")}
                     </span>
                   </a>
                 </p>

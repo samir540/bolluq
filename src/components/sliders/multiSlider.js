@@ -1,6 +1,7 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import "../../assets/css/_multiSlider.scss";
 
 const MultiSlider = ({ items, title, id }) => {
@@ -30,7 +31,9 @@ const MultiSlider = ({ items, title, id }) => {
           <SplideSlide key={item.id}>
             <div className="productSlider__items">
               <div className="productSlider__items--img">
-                <img id={id} src={item.image} alt={item.title} />
+                <a href={item.link} target="_blank">
+                  <img id={id} src={item.image} alt={item.title} />
+                </a>
               </div>
             </div>
           </SplideSlide>

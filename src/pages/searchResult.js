@@ -52,15 +52,15 @@ const SearchResult = ({ searchState, dispatchSearch }) => {
                         <h2>{item.title}</h2>
                       </Link>
                       <p>
-                        <span>Çəki</span>
+                        <span>{t("ceki")}</span>
                         <span>{item.weight}</span>
                       </p>
                       <p>
-                        <span>Qablaşdırma</span>
+                        <span>{t("qablasdirma")}</span>
                         <span>{item.packaging}</span>
                       </p>
                       <p>
-                        <span>Kod</span>
+                        <span>{t("kod")}</span>
                         <span>{item.code}</span>
                       </p>
                     </div>
@@ -69,7 +69,12 @@ const SearchResult = ({ searchState, dispatchSearch }) => {
               ))}
             {isLoading === false &&
               data !== undefined &&
-              data.data.length === 0 && <p className="notFoundProducts">AXTARDIĞINIZ MƏHSUL TAPILMADI !</p>}
+              data.data.length === 0 && (
+                <p className="notFoundProducts">
+                  {t("axtardiginiz netice tapilmadi")}
+                  
+                </p>
+              )}
           </Row>
         </Container>
       </div>

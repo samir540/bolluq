@@ -6,13 +6,15 @@ import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { rule } from "../queries/queries";
 import renderHTML from "react-render-html";
+import { useTranslation } from "react-i18next"; 
 
 const InternShipRules = () => {
   const { data, isLoading } = useQuery(["rules"], rule);
+  const {t} = useTranslation();
 
   return (
     <>
-      <Title title={"İNSAN RESURSLARI"} />
+      <Title title={t("insanresurslari")} />
       <Container>
         <div className="humansResurces">
           <HumanResurcesMenu />

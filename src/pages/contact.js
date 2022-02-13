@@ -144,8 +144,8 @@ const Contact = ({ settings }) => {
                   </svg>
                   <input
                     placeholder={t("mobilnomre")}
-                    type="text"
-                    {...register("phone", { required: false })}
+                    type="tel "
+                    {...register("phone", { required: true, minLength:7 })}
                   />
                 </div>
                 <textarea

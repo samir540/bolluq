@@ -31,6 +31,7 @@ const News = () => {
     setNumber(e);
   }, []);
 
+
   return (
     <div className="news">
       <Title title={t("bizkimik")} />
@@ -63,7 +64,7 @@ const News = () => {
                     </div>
 
                     <Link to={"/news/" + item.slug}>
-                      Daha ətrafli bax
+                      {t("dahaetraflibax")}
                       <svg
                         width={15}
                         height={12}

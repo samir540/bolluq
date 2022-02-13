@@ -29,6 +29,9 @@ const Catalogs = lazy(() => import("./pages/catalogs"));
 const Contact = lazy(() => import("./pages/contact"));
 const ProductsOur = lazy(() => import("./pages/productsOur"));
 const ProductsExternal = lazy(() => import("./pages/productsExternal"));
+
+const Foreign = lazy(() => import("./pages/Foreign"));
+
 const ProductsDetails = lazy(() => import("./pages/productDetails"));
 const Structure = lazy(() => import("./pages/structure"));
 const Export = lazy(() => import("./pages/export"));
@@ -37,6 +40,8 @@ const ErrorPage = lazy(() => import("./pages/error"));
 
 function App({ lang, isHide }) {
   const { pathname } = useLocation();
+
+  console.log(pathname)
 
   useQuery(["translations", localStorage.getItem("i18nextLng")], translations, {
     refetchOnWindowFocus: false,
@@ -98,7 +103,7 @@ function App({ lang, isHide }) {
               render={() => <ProductionsDetails />}
             />
             <Route path={`/productions`} render={() => <Productions />} />
-            <Route path={`/branch`} render={() => <Branch />} />
+            {/* <Route path={`/branch`} render={() => <Branch />} /> */}
             <Route path={`/internship`} render={() => <InternShip />} />
             <Route path={`/rules`} render={() => <InternShipRules />} />
             <Route
@@ -113,10 +118,16 @@ function App({ lang, isHide }) {
             <Route path={`/catalogs`} render={() => <Catalogs />} />
             <Route path={`/contact`} render={() => <Contact />} />
             <Route
-              path={`/our-products/category/:slug`}
+              path={`/our-products/:slug`}
               render={() => <ProductsOur />}
             />
             <Route path={`/our-products`} render={() => <ProductsOur />} />
+
+            <Route
+              path={`/external-products/:slug`}
+              render={() => <Foreign />}
+            />
+
             <Route
               path={`/external-products/category/:slug`}
               render={() => <ProductsExternal />}
@@ -125,6 +136,7 @@ function App({ lang, isHide }) {
               path={`/external-products`}
               render={() => <ProductsExternal />}
             />
+
             <Route
               path={`/products-detail/:slug`}
               render={() => <ProductsDetails />}
@@ -134,7 +146,7 @@ function App({ lang, isHide }) {
               path={`/search-result`}
               render={() => <SearchResult />}
             />
-            <Route path={`/structure`} render={() => <Structure />} />
+            {/* <Route path={`/structure`} render={() => <Structure />} /> */}
             <Route path={`/export`} render={() => <Export />} />
             <Route path={"*"} render={() => <ErrorPage />} />
           </Switch>

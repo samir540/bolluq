@@ -7,9 +7,11 @@ import { productionDetail } from "../queries/queries";
 import { useParams } from "react-router";
 import renderHtml from "react-render-html";
 import Title from "../components/title/title";
+import {useTranslation} from "react-i18next";
 
 const ProductionsDetails = () => {
   const { slug } = useParams();
+  const {t} = useTranslation();
 
   const { data, isLoading } = useQuery(
     ["productionDetail", slug],
@@ -21,7 +23,7 @@ const ProductionsDetails = () => {
 
   return (
     <>
-      <Title title="BİZ KİMİK" />
+      <Title title={t("bizkimik")}/>
       <section className="productionsDetails">
         <Container>
           <div className="d-flex">

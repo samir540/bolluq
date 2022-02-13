@@ -22,7 +22,7 @@ const VacanciesDetails = () => {
 
   return (
     <>
-      <Title title={"İNSAN RESURSLARI"} />
+      <Title title={t("insanresurslari")} />
       <Container>
         <div className="vacancyDetails d-flex flex-row justify-content-between">
           <HRMenu />

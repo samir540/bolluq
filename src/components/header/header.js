@@ -6,14 +6,16 @@ import "../../assets/css/_header.scss";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import i18n from "../../i18/i18n";
+import {headerFixedHandler} from "../../helper/helper";
 
 import { useForm } from "react-hook-form";
 
 const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
   const { t } = useTranslation();
   const searchRef = useRef();
-
+ const { pathname } = useLocation();
   const history = useHistory();
+  const headerRef = useRef();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -21,16 +23,28 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
 
   const isMobileScreen = useMediaQuery({ query: "(max-width: 1073px)" });
 
-  const headerRef = useRef("");
+    console.log(pathname);
 
   useEffect(() => {
-    window.onscroll = function () {
-      if (this.scrollY > 120) {
-        headerRef.current.classList.add("fixedHeader");
-      } else {
-        headerRef.current.classList.remove("fixedHeader");
-      }
-    };
+
+    
+      window.addEventListener('scroll',function(event){
+        if(window.scrollY > 120){
+          headerRef.current.classList.add("fixedHeader");
+        }else{
+          headerRef.current.classList.remove("fixedHeader");
+        }
+      })
+  
+    // window.onscroll = function () {
+    //   if (this.scrollY > 120) {
+    //     headerRef.current.classList.add("fixedHeader");
+    //   } 
+    //   else {
+    //     headerRef.current.classList.remove("fixedHeader");
+    //   }
+    // };
+    
   });
 
   const {
@@ -43,12 +57,12 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
     searchRef.current.style.display = "none";
     history.push({
       pathname: `search-result`,
-      search: `query=${data.search}`,
+      search: `query=${data.search}`
     });
     dispatchSearch(data.search);
   };
 
-  const { pathname } = useLocation();
+ 
 
   useEffect(() => {
     hide(false);
@@ -130,7 +144,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               >
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#BF0807" />
               </svg>
-              ESAS SEHİFE
+              {t("esassehife")}
             </Link>
             <div className="mobParent">
               <p>
@@ -147,7 +161,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                     fill="white"
                   />
                 </svg>
-                BİZ KİMİK
+                {t("BİZ KİMİK")}
               </p>
               <div className="menuMob">
                 <Link to="/about">Haqqımızda</Link>
@@ -158,7 +172,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                 <Link to="/news">Xeberler</Link>
               </div>
             </div>
-            <Link to={"/branch"}>
+            {/* <Link to={"/branch"}>
               <svg
                 width={15}
                 height={15}
@@ -169,7 +183,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#BF0807" />
               </svg>
               FİLİALLAR
-            </Link>
+            </Link> */}
             <div className="mobParent">
               <p>
                 <svg
@@ -237,7 +251,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               >
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#BF0807" />
               </svg>
-              {t("export")}
+              {t("EXPORT")}
             </Link>
             <NavLink to={`/contact`}>
               <svg
@@ -435,7 +449,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               <input
                 {...register("search", { required: true })}
                 type="search"
-                placeholder="Axtar..."
+                placeholder={t("axtar")}
               />
               <button type="submit">
                 <svg
@@ -470,11 +484,11 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               <div className="header__nav">
                 <nav>
                   <NavLink to={`/about`} className="header__nav--item">
-                    {t("BİZ KİMİK")}
+                    {t("bizkimik")}
                   </NavLink>
-                  <NavLink to={`/branch`} className="header__nav--item">
+                  {/* <NavLink to={`/branch`} className="header__nav--item">
                     {t("FİLİALLAR")}
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to={`/our-products`} className="header__nav--item">
                     {t("MEHSULLAR")}
                   </NavLink>

@@ -11663,7 +11663,7 @@ const Export = () => {
           </div>
           <div className="export__partner d-flex flex-column">
             <div className="export__partner--header ">
-              <h4>Partnyor Ol</h4>
+              <h4>{t("partniyorol")}</h4>
             </div>
             <div className="export__partner--content d-flex flex-row justify-content-between">
               <div className="contact-person d-flex flex-column">

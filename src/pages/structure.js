@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "reactstrap";
 import Title from "../components/title/title";
 import Menu from "../components/menu/menu";
+import { useTranslation } from "react-i18next";
 
 // css
 import "../assets/css/_structure.scss";
@@ -10,10 +11,11 @@ import { structureApi } from "../queries/queries";
 
 const Structure = () => {
   const { data, isLoading } = useQuery(["structure"], structureApi);
+  const {t} = useTranslation();
 
   return (
     <div className="structure">
-      <Title title={"BİZ KİMİK"} />
+      <Title title={t("bizkimik")} />
       <Container>
         <div className="structure__wrapper">
           <Menu />
@@ -37,7 +39,7 @@ const Structure = () => {
             </div>
           </div>
           <div className="structure__person">
-            <h2 className="title">Vəzifəli şəxslər</h2>
+            <h2 className="title">{t("vezifelisexsler")}</h2>
             <div className="structure__personList">
               {isLoading === false &&
                 data.data.map((item) => (
@@ -63,13 +65,13 @@ const Structure = () => {
             </div>
           </div>
           <div className="structure__person">
-            <h2 className="title">Mükafatlandırma</h2>
+            <h2 className="title">{t("mukafatlandirma")}</h2>
             <div className="structure__personListEnd">
               {isLoading === false &&
                 data.yearly.length !== 0 &&
                 data.yearly.map((item) => (
                   <div key={item} className="structure__personListEnd--item">
-                    <h2>IlIn işçisi</h2>
+                    <h2>{t("ilinishcisi")}</h2>
                     <div className="structure__personImageBox">
                       <img src={item.image} alt="" />
                     </div>
@@ -101,7 +103,7 @@ const Structure = () => {
                 data.monthly.length !== 0 &&
                 data.monthly.map((item) => (
                   <div key={item} className="structure__personListEnd--item">
-                    <h2>Ayın işçisi</h2>
+                    <h2>{t("ayinishcisi")}</h2>
                     <div className="structure__personImageBox">
                       <img src={item.image} alt="" />
                     </div>

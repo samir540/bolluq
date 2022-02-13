@@ -7,10 +7,11 @@ import "../assets/css/_history.scss";
 import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { histories } from "../queries/queries";
+import { useTranslation } from "react-i18next";
 
 const History = () => {
   const endRef = useRef(null);
-
+  const { t } = useTranslation();
   const { data, isLoading } = useQuery(["histories"], histories, {
     refetchOnWindowFocus: false,
     onSuccess: function (succ) {
@@ -22,7 +23,7 @@ const History = () => {
 
   return (
     <div className="history">
-      <Title title="BİZ KİMİK" />
+      <Title title={t("bizkimik")} />
       <Container>
         <div className="history__wrapper">
           <Menu />

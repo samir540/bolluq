@@ -119,16 +119,16 @@ const ProductsMenu = ({ data, type }) => {
             <div className="parent">
               {data !== undefined &&
                 data.dryFood.map((item) => (
-                  <Link to={`/${type}/category/${item.slug}`} key={item.id}>
+                  <Link to={`/${type}/${item.slug}`} key={item.id}>
                     <span
-                      className={
-                        pathname
-                          .split("/")
-                          [pathname.split("/").length - 1].toUpperCase() ==
-                        item.title.toUpperCase()
-                          ? "activeSpan"
-                          : ""
-                      }
+                      // className={
+                      //   pathname
+                      //     .split("/")
+                      //     [pathname.split("/").length - 1].toUpperCase() ==
+                      //   item.title.toUpperCase()
+                      //     ? "activeSpan"
+                      //     : ""
+                      // }
                       ref={(e) => (allSpan.current[item.id] = e)}
                       onClick={(e) => {
                         allSpan.current.forEach((element) => {
@@ -166,16 +166,16 @@ const ProductsMenu = ({ data, type }) => {
             <div className="parent">
               {data !== undefined &&
                 data.confectionery.map((item) => (
-                  <Link to={`/${type}/category/${item.slug}`} key={item.id}>
+                  <Link to={`/${type}/${item.slug}`} key={item.id}>
                     <span
-                      className={
-                        pathname
-                          .split("/")
-                          [pathname.split("/").length - 1].toUpperCase() ==
-                        item.title.toUpperCase()
-                          ? "activeSpan"
-                          : ""
-                      }
+                      // className={
+                      //   pathname
+                      //     .split("/")
+                      //     [pathname.split("/").length - 1].toUpperCase() ==
+                      //   item.title.toUpperCase()
+                      //     ? "activeSpan"
+                      //     : ""
+                      // }
                       ref={(e) => (allSpan.current[item.id] = e)}
                       onClick={(e) => {
                         allSpan.current.forEach((element) => {
@@ -190,7 +190,9 @@ const ProductsMenu = ({ data, type }) => {
                 ))}
             </div>
           </div>
-          <button className="menu__details--btnForFilter">Tətbiq et</button>
+          <button className="menu__details--btnForFilter">
+            {t("tetbiqet")}
+          </button>
         </div>
       </div>
     </>

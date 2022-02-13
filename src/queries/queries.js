@@ -71,6 +71,16 @@ export const foreignBrands = async (key) => {
   return await res.data;
 };
 
+export const foreign = async (key) => {
+  const res = await axios.get(
+    baseUrl + `foreign-brand${key.queryKey[1]}?page=${key.queryKey[2]}`
+  );
+
+  return await res.data;
+};
+
+
+
 export const productDetail = async (key) => {
   const res = await axios.get(
     baseUrl + `product/${key.queryKey[1]}?page=${key.queryKey[2]}`

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Row, Col, Container } from "reactstrap";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Title from "../components/title/title";
 import ProductsMenu from "../components/menu/productsMenu";
 import CustomPagination from "../components/pagination/pagination";
@@ -57,15 +57,15 @@ const Products = () => {
                             <h2>{item.title}</h2>
                           </Link>
                           <p>
-                            <span>Çəki</span>
+                            <span>{t("ceki")} </span>
                             <span>{item.weight}</span>
                           </p>
                           <p>
-                            <span>Qablaşdırma</span>
+                            <span>{t("qablasdirma")} </span>
                             <span>{item.packaging}</span>
                           </p>
                           <p>
-                            <span>Kod</span>
+                            <span>{t("kod")} </span>
                             <span>{item.code}</span>
                           </p>
                         </div>

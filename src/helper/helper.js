@@ -18,6 +18,7 @@ export const animateBody = (element) => {
   };
 };
 
+
 export const resize = () => {
   let footer_height = document.getElementsByTagName("footer")[0].clientHeight,
     header_height = document.getElementsByTagName("header")[0].clientHeight,

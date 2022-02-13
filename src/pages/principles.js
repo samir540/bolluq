@@ -4,6 +4,7 @@ import Menu from "../components/menu/menu";
 import Title from "../components/title/title";
 import { useQuery } from "react-query";
 import { principles } from "../queries/queries";
+import { useTranslation } from "react-i18next";
 
 // css
 import "../assets/css/_values.scss";
@@ -12,10 +13,12 @@ const Principles = () => {
   const { data, isLoading } = useQuery(["principles"], principles, {
     refetchOnWindowFocus: false,
   });
+  
+  const {t}=useTranslation();
 
   return (
     <div className="values">
-      <Title title={"BİZ KİMİK"} />
+      <Title title={t("bizkimik")} />
       <Container>
         <div className="values__wrapper">
           <Menu />
