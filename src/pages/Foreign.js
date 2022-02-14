@@ -34,7 +34,6 @@ const Foreign = () => {
     }
   );
 
-  console.log(data);
 
   return (
     <div className="products">
