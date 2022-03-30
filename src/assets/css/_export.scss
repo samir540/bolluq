@@ -123,7 +123,7 @@ $white-color: #ffffff;
           margin-bottom: 52px;
           margin-left: 83px;
 
-          @media (max-width: 575px) {
+          @media (max-width: 1056px) {
             margin-left: 0;
           }
 
@@ -141,25 +141,26 @@ $white-color: #ffffff;
             font-weight: 500;
           }
         }
-        & .phone,
+        .phone,
         .email,
         .location {
-          & .icon {
+          .icon {
             margin-right: 23px;
-            width: 60px;
-            height: 60px;
-            background-color: $main-color;
-            border-radius: 50%;
+            width: 62px;
+            height: 62px;
+            // background-color: $main-color;
+            // border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            @media (max-width: 575px) {
-              display: none;
+            @media (max-width: 1056px) {
+              display: none !important;
+              margin-right: 0px;
             }
 
             img {
-              width: 26px;
+              width: 62px;
+              height: auto;
               color: $white-color;
             }
           }
@@ -304,8 +305,8 @@ $white-color: #ffffff;
 
   .fit {
     img {
-      height: auto !important;
-      width: 55px !important;
+      // height: auto !important;
+      // width: 55px !important;
     }
 
     @media (max-width: 575px) {

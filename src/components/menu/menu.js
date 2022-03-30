@@ -10,7 +10,7 @@ const Menu = () => {
 
   return (
     <div className="menu menuCommon">
-      <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>
+      <NavLink to={"/about"}>{t("haqqimizda")}</NavLink>  
       <NavLink to={"/history"}>{t("tariximiz")}</NavLink>
       <NavLink to={"/principles"}>{t("deyerlerimiz")}</NavLink>
       {/* <NavLink to={"/structure"}>{t("struktur")}</NavLink> */}

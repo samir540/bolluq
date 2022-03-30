@@ -258,8 +258,17 @@ const Footer = ({ dispatchSettings }) => {
           </div>
         </div>
         <div className="d-flex flexBoxFooter justify-content-between align-items-center footer__margin">
-          <div className="footer__end">
-            <p>{t("copyright")}</p>
+          <div className="footer__end-left">
+            <p>
+              @ Copyright
+              <a href="https://sociallab.az/" target="_blank">
+                Social Lab
+              </a>
+              &
+              <a href="https://webcoder.az/" target="_blank">
+                Web Coder Agency
+              </a>
+            </p>
           </div>
           <div className="footer__end hide">
             {/* <a href="#appstore">

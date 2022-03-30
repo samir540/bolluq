@@ -1,1 +1,1 @@
-export const baseUrl = "https://api.bolluq.gtservices.az/api/";
+export const baseUrl = "https://api.bolluq.az/api/";

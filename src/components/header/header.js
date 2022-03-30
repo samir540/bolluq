@@ -144,7 +144,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               >
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#BF0807" />
               </svg>
-              {t("esassehife")}
+              {t("ESAS SEHIFE")}
             </Link>
             <div className="mobParent">
               <p>
@@ -164,12 +164,12 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                 {t("BİZ KİMİK")}
               </p>
               <div className="menuMob">
-                <Link to="/about">Haqqımızda</Link>
-                <Link to="/history">Tariximiz</Link>
-                <Link to="/principles">Deyerlerimiz</Link>
-                <Link to="/structure">Struktur</Link>
-                <Link to="/productions">İstehsalat</Link>
-                <Link to="/news">Xeberler</Link>
+                <Link to="/about">{t("haqqimizda")}</Link>
+                <Link to="/history">{t("tariximiz")}</Link>
+                <Link to="/principles">{t("deyerlerimiz")}</Link>
+                {/* <Link to="/structure">Struktur</Link> */}
+                <Link to="/productions">{t("istehsalat")}</Link>
+                <Link to="/news">{t("xeberler")}</Link>
               </div>
             </div>
             {/* <Link to={"/branch"}>
@@ -199,7 +199,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                     fill="white"
                   />
                 </svg>
-                {t("mehsullar")}
+                {t("MEHSULLAR")}
               </p>
               <div className="menuMob">
                 <Link to="/our-products">{t("bizimmarkalar")}</Link>
@@ -221,7 +221,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                     fill="white"
                   />
                 </svg>
-                {t("insanresurslari")}
+                {t("İNSAN RESURSLARI")}
               </p>
               <div className="menuMob">
                 <Link to="/internship">{t("tecrubeproqramlari")}</Link>
@@ -239,7 +239,7 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
               >
                 <circle cx="7.5" cy="7.5" r="7.5" fill="#BF0807" />
               </svg>
-              {t("kataloq")}
+              {t("KATALOQ")}
             </Link>
             <Link to={"/export"}>
               <svg

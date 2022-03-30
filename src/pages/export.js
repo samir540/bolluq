@@ -11677,7 +11677,7 @@ const Export = () => {
                       <div className="icon d-flex fit">
                         <img
                           src={
-                            require("../assets/images/phoneIcon.png").default
+                            require("../assets/images/phoneR.png").default
                           }
                         />
                       </div>
@@ -11706,7 +11706,7 @@ const Export = () => {
                       <div className="icon">
                         <img
                           src={
-                            require("../assets/images/letterIcon.png").default
+                            require("../assets/images/letterR.png").default
                           }
                         />
                       </div>
@@ -11727,7 +11727,7 @@ const Export = () => {
                       <div className="icon">
                         <img
                           src={
-                            require("../assets/images/locationIcon.png").default
+                            require("../assets/images/locationR.png").default
                           }
                         />
                       </div>

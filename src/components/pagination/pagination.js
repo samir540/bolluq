@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Pagination } from "antd";
 
-const CustomPagination = ({ total, defaultCurrent, pageSize, setPage }) => {
+const CustomPagination = ({ total, defaultCurrent,current, pageSize, setPage }) => {
   return (
     <Pagination
       onChange={(e) => setPage(e)}
@@ -11,6 +11,7 @@ const CustomPagination = ({ total, defaultCurrent, pageSize, setPage }) => {
       pageSize={pageSize}
       defaultCurrent={defaultCurrent}
       total={total}
+      current={current}
     />
   );
 };

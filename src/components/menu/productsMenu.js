@@ -134,6 +134,7 @@ const ProductsMenu = ({ data, type }) => {
                         allSpan.current.forEach((element) => {
                           element.classList.remove("activeSpan");
                         });
+
                         e.target.classList.add("activeSpan");
                       }}
                     >
@@ -178,6 +179,7 @@ const ProductsMenu = ({ data, type }) => {
                       }
                       ref={(e) => (allSpan.current[item.id] = e)}
                       onClick={(e) => {
+                        
                         allSpan.current.forEach((element) => {
                           element.classList.remove("activeSpan");
                         });

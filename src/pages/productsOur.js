@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Row, Col, Container } from "reactstrap";
 import { useParams } from "react-router-dom";
 import Title from "../components/title/title";
@@ -16,10 +16,13 @@ import "../assets/css/_products.scss";
 import { Link } from "react-router-dom";
 
 const Products = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState();
   const totalRef = useRef(null);
   const { slug } = useParams();
   const { t } = useTranslation();
+  useEffect(() => {
+    setPage(1);
+  }, [slug]);
 
   const { data, isLoading } = useQuery(
     ["ourBrands", slug !== undefined ? "/" + slug : "", page],
@@ -78,6 +81,7 @@ const Products = () => {
                   totalRef.current.total > totalRef.current.per_page && (
                     <CustomPagination
                       defaultCurrent={1}
+                      current={page}
                       total={totalRef.current.total}
                       pageSize={totalRef.current.per_page}
                       setPage={setPage}

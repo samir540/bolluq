@@ -41,7 +41,7 @@ const ErrorPage = lazy(() => import("./pages/error"));
 function App({ lang, isHide }) {
   const { pathname } = useLocation();
 
-  console.log(pathname)
+  
 
   useQuery(["translations", localStorage.getItem("i18nextLng")], translations, {
     refetchOnWindowFocus: false,
