@@ -11676,9 +11676,7 @@ const Export = () => {
                     <div className="phone d-flex flex-row flexAlign">
                       <div className="icon d-flex fit">
                         <img
-                          src={
-                            require("../assets/images/phoneR.png").default
-                          }
+                          src={require("../assets/images/phoneR.png").default}
                         />
                       </div>
                       <div className="numbers flexAlign">
@@ -11705,9 +11703,7 @@ const Export = () => {
                     <div className="email flexAlign d-flex flex-row">
                       <div className="icon">
                         <img
-                          src={
-                            require("../assets/images/letterR.png").default
-                          }
+                          src={require("../assets/images/letterR.png").default}
                         />
                       </div>
                       <div>
@@ -11832,7 +11828,7 @@ const Export = () => {
                     {...register("message", { required: false })}
                   ></textarea>
                   <div className="contact__form--in__file">
-                    <label className="file-label" data-name={name}>
+                    <label className="file-label" data-name={t("fayli secin")}>
                       <input
                         type="file"
                         {...register("file")}

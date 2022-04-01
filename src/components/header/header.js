@@ -6,14 +6,15 @@ import "../../assets/css/_header.scss";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import i18n from "../../i18/i18n";
-import {headerFixedHandler} from "../../helper/helper";
-
+import { headerFixedHandler } from "../../helper/helper";
+import youtube from "../../assets/images/youtube.png";
+import { AiFillYoutube } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 
 const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
   const { t } = useTranslation();
   const searchRef = useRef();
- const { pathname } = useLocation();
+  const { pathname } = useLocation();
   const history = useHistory();
   const headerRef = useRef();
 
@@ -23,28 +24,23 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
 
   const isMobileScreen = useMediaQuery({ query: "(max-width: 1073px)" });
 
-    console.log(pathname);
-
   useEffect(() => {
+    window.addEventListener("scroll", function (event) {
+      if (window.scrollY > 120) {
+        headerRef.current.classList.add("fixedHeader");
+      } else {
+        headerRef.current.classList.remove("fixedHeader");
+      }
+    });
 
-    
-      window.addEventListener('scroll',function(event){
-        if(window.scrollY > 120){
-          headerRef.current.classList.add("fixedHeader");
-        }else{
-          headerRef.current.classList.remove("fixedHeader");
-        }
-      })
-  
     // window.onscroll = function () {
     //   if (this.scrollY > 120) {
     //     headerRef.current.classList.add("fixedHeader");
-    //   } 
+    //   }
     //   else {
     //     headerRef.current.classList.remove("fixedHeader");
     //   }
     // };
-    
   });
 
   const {
@@ -57,12 +53,10 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
     searchRef.current.style.display = "none";
     history.push({
       pathname: `search-result`,
-      search: `query=${data.search}`
+      search: `query=${data.search}`,
     });
     dispatchSearch(data.search);
   };
-
- 
 
   useEffect(() => {
     hide(false);
@@ -377,36 +371,11 @@ const Header = ({ headerId, lang, isHide, hide, dispatchSearch, settings }) => {
                     </defs>
                   </svg>
                 </a>
-                <a
-                  href={` https://wa.me/${settings.whatsapp}`}
-                  target={"_blank"}
-                >
-                  <svg
-                    width={17}
-                    height={16}
-                    viewBox="0 0 17 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_1146_1414)">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M13.4466 2.67206C12.0432 1.26709 10.1769 0.493011 8.18869 0.492188C4.0917 0.492188 0.757355 3.82645 0.755707 7.92453C0.755157 9.23456 1.09738 10.5134 1.74786 11.6406L0.693359 15.4922L4.6337 14.4586C5.71942 15.0508 6.94174 15.3629 8.18567 15.3633H8.18878C12.2853 15.3633 15.62 12.0287 15.6216 7.93048C15.6224 5.94434 14.85 4.07693 13.4466 2.67206ZM8.18869 14.108H8.18613C7.07761 14.1075 5.99042 13.8096 5.04175 13.2469L4.81625 13.1129L2.478 13.7263L3.10211 11.4466L2.95517 11.2128C2.33673 10.2292 2.01016 9.09228 2.01071 7.92499C2.01199 4.51877 4.78348 1.74756 8.19116 1.74756C9.84131 1.74811 11.3925 2.39154 12.5589 3.5593C13.7252 4.72705 14.3672 6.27923 14.3667 7.93002C14.3652 11.3365 11.5939 14.108 8.18869 14.108ZM11.5774 9.48102C11.3918 9.388 10.4786 8.93884 10.3083 8.87677C10.1382 8.81479 10.0142 8.78393 9.89056 8.96979C9.76669 9.15564 9.41083 9.57403 9.30243 9.6979C9.19403 9.82187 9.08581 9.83743 8.90005 9.74441C8.71429 9.65149 8.1159 9.45529 7.40646 8.82257C6.8544 8.33011 6.48169 7.72192 6.37329 7.53607C6.26507 7.35004 6.37237 7.25922 6.45477 7.15704C6.65582 6.90738 6.85715 6.64563 6.91904 6.52176C6.98102 6.3978 6.94998 6.28931 6.90347 6.19638C6.85715 6.10345 6.48572 5.1893 6.33099 4.81732C6.18011 4.45532 6.02713 4.50421 5.91305 4.49853C5.80484 4.49313 5.68097 4.49203 5.5571 4.49203C5.43332 4.49203 5.23209 4.53845 5.0618 4.72449C4.8916 4.91043 4.41186 5.35968 4.41186 6.27383C4.41186 7.18799 5.07736 8.0711 5.1702 8.19507C5.26303 8.31903 6.47986 10.1949 8.34286 10.9993C8.78598 11.1909 9.13187 11.305 9.40167 11.3906C9.84662 11.532 10.2514 11.512 10.5714 11.4642C10.9283 11.4109 11.6702 11.0149 11.8251 10.5811C11.9798 10.1472 11.9798 9.77545 11.9333 9.6979C11.887 9.62045 11.7631 9.57403 11.5774 9.48102Z"
-                        fill="#BF0807"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_1146_1414">
-                        <rect
-                          width="15.9448"
-                          height={16}
-                          fill="white"
-                          transform="translate(0.447754)"
-                        />
-                      </clipPath>
-                    </defs>
-                  </svg>
+                <a href={settings.whatsapp} target={"_blank"}>
+                 
+                  <AiFillYoutube className="youtube-icon" />
+                  
+              
                 </a>
                 <a href={settings.twitter} target={"_blank"}>
                   <svg

@@ -38,7 +38,7 @@ const MultiSlider = ({ items, title, id }) => {
             </div>
           </SplideSlide>
         ))}
-      </Splide>
+      </Splide>  
     </div>
   );
 };

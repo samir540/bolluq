@@ -29,7 +29,8 @@ const History = () => {
           <Menu />
           <div className="history__info">
             <h2 className="history__title">
-              Ugur hekayemiz <span>1993-cı </span> ilde başladı.
+              {t("Ugur hekayemiz")}
+              <span>{t("1993-cu")} </span> {t("ilde başladı")} 
             </h2>
             <div className="history__itemsBox">
               {isLoading === false &&

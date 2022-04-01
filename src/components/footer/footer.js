@@ -392,7 +392,7 @@ const Footer = ({ dispatchSettings }) => {
                     />
                   </svg>
                 </a>
-                <a
+                <a 
                   className="show"
                   href={`${data.data.whatsapp}`}
                   target={"_blank"}

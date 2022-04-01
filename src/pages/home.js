@@ -58,7 +58,7 @@ const HomePage = () => {
                 </p>
               </div>
             ))}
-        </div>
+        </div>  
         {isLoading === false && data !== undefined && data.products && (
           <ProductSlider items={data.products} />
         )}
